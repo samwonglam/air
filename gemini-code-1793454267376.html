@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>空氣的特性｜小學科學互動實驗室</title>
+  <style>
+    :root {
+      --bg-cream: #fff9fb;
+      --bg-dots: #fce7f3;
+      --paper: #ffffff;
+      --chii-pink: #f472b6;
+      --chii-pink-light: #fdf2f8;
+      --hachi-blue: #38bdf8;
+      --hachi-blue-light: #f0f9ff;
+      --usagi-yellow: #facc15;
+      --usagi-yellow-light: #fefce8;
+      --ink-brown: #4a3728;
+      --ink-muted: #7c6553;
+      --shadow-cute: 0 5px 0 #e5d0c5;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "PingFang HK", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+      background-color: var(--bg-cream);
+      background-image:
+        radial-gradient(var(--bg-dots) 2.2px, transparent 2.2px),
+        radial-gradient(#e0f2fe 2.2px, var(--bg-cream) 2.2px);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+      color: var(--ink-brown);
+      line-height: 1.5;
+      padding: 14px 12px 40px;
+    }
+
+    .notebook-shell {
+      max-width: 1140px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 3px solid var(--ink-brown);
+      border-radius: 26px;
+      box-shadow: 0 8px 0 #d9c3b6, 0 14px 32px rgba(74, 55, 40, 0.08);
+      overflow: hidden;
+    }
+
+    .top-deco-bar {
+      background: linear-gradient(90deg, #fce7f3 0%, #e0f2fe 50%, #fef9c3 100%);
+      border-bottom: 3px dashed var(--ink-brown);
+      padding: 12px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chii-avatars {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .avatar-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2.5px solid var(--ink-brown);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 0 rgba(74, 55, 40, 0.16);
+      flex-shrink: 0;
+    }
+
+    .title-text h1 {
+      font-size: 1.52rem;
+      font-weight: 900;
+      color: var(--ink-brown);
+    }
+
+    .title-text p {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      font-weight: 700;
+    }
+
+    .reward-counter {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: 999px;
+      padding: 6px 14px;
+      box-shadow: 0 3px 0 #e5d0c5;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .mission-bar {
+      margin: 14px 18px 0;
+      padding: 12px 16px;
+      background: var(--usagi-yellow-light);
+      border: 2.5px solid var(--ink-brown);
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 0 #e5d0c5;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mission-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .mission-row-divider {
+      border-top: 2px dashed #e5d0c5;
+      padding-top: 10px;
+    }
+
+    .mission-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .step-tag {
+      background: var(--chii-pink);
+      color: #fff;
+      border: 2px solid var(--ink-brown);
+      font-weight: 800;
+      font-size: 0.86rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+
+    .mission-label {
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .btn {
+      appearance: none;
+      border: 2.5px solid var(--ink-brown);
+      background: #fff;
+      color: var(--ink-brown);
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 800;
+      padding: 7px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 3px 0 var(--ink-brown);
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 var(--ink-brown);
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--ink-brown);
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-pink { background: #fbcfe8; }
+    .btn-blue { background: #bae6fd; }
+    .btn-yellow { background: #fef08a; }
+    .btn-green { background: #bbf7d0; color: #14532d; }
+
+    .preset-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .preset-chip {
+      border: 2px solid var(--ink-brown);
+      background: #fff;
+      color: var(--ink-brown);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .preset-chip.active {
+      background: var(--hachi-blue);
+      color: #fff;
+    }
+
+    .preset-chip.custom-chip.active {
+      background: var(--chii-pink);
+      color: #fff;
+    }
+
+    .control-pill-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 2px solid var(--ink-brown);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      flex-wrap: wrap;
+    }
+
+    .lens-toggle-btn {
+      border: 2px solid var(--ink-brown);
+      background: #f1f5f9;
+      color: var(--ink-brown);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.86rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .lens-toggle-btn.active {
+      background: #a855f7;
+      color: #fff;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 1.28fr 1fr;
+      gap: 18px;
+      padding: 16px 18px 22px;
+      align-items: start;
+    }
+
+    @media (max-width: 920px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .canvas-card {
+      background: #fff;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      box-shadow: var(--shadow-cute);
+    }
+
+    .canvas-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .step-progress {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--hachi-blue-light);
+      border: 2px solid var(--ink-brown);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .lens-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      background: #f3e8ff;
+      color: #6b21a8;
+      border: 2px solid var(--ink-brown);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      background: #fffdf9;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .canvas-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    /* 右欄：互動問答與因果排序區 */
+    .side-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .question-card {
+      background: linear-gradient(180deg, #fdf2f8 0%, #ffffff 100%);
+      border: 2.5px solid var(--ink-brown);
+      border-radius: var(--radius-lg);
+      padding: 15px;
+      box-shadow: var(--shadow-cute);
+    }
+
+    .q-box {
+      background: #fff;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 0 #f3e5dc;
+    }
+
+    .q-tag {
+      display: inline-block;
+      background: #fef08a;
+      border: 1.5px solid var(--ink-brown);
+      border-radius: 999px;
+      padding: 1px 10px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .q-title {
+      font-size: 1.08rem;
+      font-weight: 900;
+      color: var(--ink-brown);
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      background: #fff;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: var(--ink-brown);
+      cursor: pointer;
+      box-shadow: 0 3px 0 #e5d0c5;
+      transition: all 0.1s;
+    }
+
+    .option-btn:hover {
+      background: var(--usagi-yellow-light);
+    }
+
+    .option-btn.selected {
+      background: #bae6fd;
+      border-color: #0284c7;
+      color: #0c4a6e;
+    }
+
+    .option-btn.wrong-choice {
+      background: #ffe4e6;
+      border-color: #e11d48;
+      color: #be123c;
+    }
+
+    /* 因果流程圖排序槽（實驗 3 專用） */
+    .chain-slots {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--usagi-yellow-light);
+      border: 2px dashed var(--ink-brown);
+      border-radius: 14px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .chain-slot {
+      min-width: 96px;
+      padding: 6px 10px;
+      background: #fff;
+      border: 2px solid var(--ink-brown);
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 900;
+      text-align: center;
+      color: #be185d;
+    }
+
+    .ghost-draft-pill {
+      display: none;
+      margin-bottom: 10px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #475569;
+      background: #f1f5f9;
+      border: 1.5px dashed #94a3b8;
+      border-radius: 999px;
+      padding: 4px 12px;
+      text-align: center;
+    }
+
+    .ghost-draft-pill.show {
+      display: block;
+    }
+
+    /* 自訂日常現象面板 */
+    .custom-setup-box {
+      display: none;
+      background: #fdf2f8;
+      border: 2.5px solid #ec4899;
+      border-radius: 16px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .custom-setup-box.show {
+      display: block;
+    }
+
+    .character-stage {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .char-figure {
+      width: 64px;
+      height: 64px;
+      background: #fff;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 3px 0 #e5d0c5;
+    }
+
+    .speech-bubble {
+      background: #fff;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: 16px;
+      padding: 9px 12px;
+      flex: 1;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .speech-speaker {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 1px 8px;
+      border-radius: 999px;
+      margin-bottom: 3px;
+      border: 1.5px solid var(--ink-brown);
+    }
+
+    .speaker-chii { background: #fbcfe8; }
+    .speaker-hachi { background: #bae6fd; }
+    .speaker-usagi { background: #fef08a; }
+
+    .big-check-btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.08rem;
+      justify-content: center;
+      background: #f472b6;
+      color: #fff;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: 14px;
+    }
+
+    .big-check-btn:hover:not(:disabled) {
+      background: #ec4899;
+    }
+
+    .feedback-box {
+      background: #fff;
+      border: 2.5px solid var(--ink-brown);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      box-shadow: var(--shadow-cute);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--ink-brown);
+      margin-bottom: 8px;
+    }
+
+    .status-wait { background: #f3f4f6; }
+    .status-ok { background: #bbf7d0; color: #14532d; }
+    .status-retry { background: #fecdd3; color: #881337; }
+
+    .guide-step {
+      border: 2px solid var(--ink-brown);
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      background: var(--hachi-blue-light);
+    }
+
+    .guide-step.step-pink { background: var(--chii-pink-light); }
+    .guide-step.step-yellow { background: var(--usagi-yellow-light); }
+
+    .guide-step-title {
+      font-size: 0.92rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .guide-step p {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .stamp-victory {
+      border: 2.5px dashed #16a34a;
+      background: #f0fdf4;
+      border-radius: 14px;
+      padding: 12px;
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    /* ====== 答對彈出獎勵卡視窗 (Modal) ====== */
+    .reward-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(74, 55, 40, 0.65);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 16px;
+    }
+
+    .reward-modal-backdrop.show {
+      display: flex;
+      animation: popIn 0.25s ease-out;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .reward-modal-card {
+      background: #fffdf9;
+      border: 4px solid var(--ink-brown);
+      border-radius: 26px;
+      max-width: 480px;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 0 #d9c3b6, 0 20px 40px rgba(0,0,0,0.25);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .reward-modal-title {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #be185d;
+      margin-bottom: 6px;
+    }
+
+    .reward-modal-sub {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ink-brown);
+      background: #fef08a;
+      border: 2px solid var(--ink-brown);
+      border-radius: 12px;
+      padding: 6px 12px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .reward-img-box {
+      background: #fff;
+      border: 3px solid var(--ink-brown);
+      border-radius: 16px;
+      padding: 8px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 0 #e5d0c5;
+    }
+
+    .reward-img-box img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="notebook-shell">
+    <!-- 頂部標題 -->
+    <header class="top-deco-bar">
+      <div class="title-group">
+        <div class="chii-avatars" aria-hidden="true">
+          <div class="avatar-badge">
+            <svg width="38" height="38" viewBox="0 0 64 64">
+              <circle cx="16" cy="16" r="9" fill="#fff" stroke="#4a3728" stroke-width="3.5"/>
+              <circle cx="48" cy="16" r="9" fill="#fff" stroke="#4a3728" stroke-width="3.5"/>
+              <circle cx="32" cy="35" r="22" fill="#fff" stroke="#4a3728" stroke-width="3.5"/>
+              <ellipse cx="19" cy="39" rx="4.5" ry="2.6" fill="#f9a8d4"/>
+              <ellipse cx="45" cy="39" rx="4.5" ry="2.6" fill="#f9a8d4"/>
+              <circle cx="24" cy="33" r="3" fill="#4a3728"/>
+              <circle cx="40" cy="33" r="3" fill="#4a3728"/>
+              <path d="M29 38 Q32 41 35 38" fill="none" stroke="#4a3728" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="avatar-badge">
+            <svg width="38" height="38" viewBox="0 0 64 64">
+              <polygon points="12,24 16,8 27,18" fill="#7dd3fc" stroke="#4a3728" stroke-width="3.5" stroke-linejoin="round"/>
+              <polygon points="52,24 48,8 37,18" fill="#7dd3fc" stroke="#4a3728" stroke-width="3.5" stroke-linejoin="round"/>
+              <circle cx="32" cy="36" r="21" fill="#fff" stroke="#4a3728" stroke-width="3.5"/>
+              <path d="M13,27 Q24,25 32,16 Q40,25 51,27 A21,21 0 0,0 13,27 Z" fill="#7dd3fc"/>
+              <circle cx="24" cy="34" r="3" fill="#4a3728"/>
+              <circle cx="40" cy="34" r="3" fill="#4a3728"/>
+              <path d="M29 39 Q32 42 35 39" fill="none" stroke="#4a3728" stroke-width="2.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="title-text">
+          <h1>空氣的特性</h1>
+          <p>1. 動手做模擬實驗 ➔ 2. 開啟「微觀透視鏡」睇空氣粒子 ➔ 3. 答問題換獎勵卡！</p>
+        </div>
+      </div>
+
+      <div class="reward-counter">
+        <span>🏆 答對次數：<strong id="stampCount">0</strong> 次</span>
+        <button type="button" class="btn btn-yellow" id="viewRewardCardBtn" style="display:none; padding:4px 10px; font-size:0.82rem;">
+          🎁 查看獎勵卡
+        </button>
+      </div>
+    </header>
+
+    <!-- 第 1 步：選擇實驗單元與「微觀粒子透視鏡」 -->
+    <section class="mission-bar">
+      <div class="mission-row">
+        <div class="mission-left">
+          <span class="step-tag">第 1 步</span>
+          <span class="mission-label">選擇空氣實驗室：</span>
+        </div>
+
+        <div class="preset-group" id="labButtons">
+          <button type="button" class="preset-chip active" data-lab="space">🎈 1. 佔空間與有重量</button>
+          <button type="button" class="preset-chip" data-lab="pressure">🧃 2. 大氣壓強（飲品盒）</button>
+          <button type="button" class="preset-chip" data-lab="wind">🌊 3. 熱空氣上升與海風</button>
+          <button type="button" class="preset-chip custom-chip" data-lab="daily">🏠 4. 日常現象與自訂題</button>
+        </div>
+      </div>
+
+      <div class="mission-row mission-row-divider">
+        <div class="control-pill-group">
+          <span>🔬 把無形空氣變可見：</span>
+          <button type="button" class="lens-toggle-btn active" id="toggleMicroLensBtn">
+            ✨ 微觀空氣粒子透視鏡：開
+          </button>
+        </div>
+
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button type="button" class="btn btn-pink" id="actionExpBtn">
+            ▶️ 按此進行實驗動作
+          </button>
+          <button type="button" class="btn btn-blue" id="switchSubTopicBtn">
+            🔄 切換實驗情境
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 主工作區 -->
+    <main class="workspace">
+      <!-- 左欄：互動科學實驗畫布 -->
+      <section class="canvas-card">
+        <div class="canvas-header">
+          <div class="step-progress" id="expTitleBadge">
+            🧪 實驗 A：倒轉杯子壓入水中（杯底有紙巾）
+          </div>
+          <div class="lens-badge" id="lensStatusBadge">
+            🟣 透視鏡開啟中（圓點 = 空氣粒子）
+          </div>
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="scienceCanvas" width="600" height="420"></canvas>
+        </div>
+
+        <div class="canvas-toolbar">
+          <span style="font-size:0.88rem; font-weight:800; color:var(--ink-muted);" id="canvasBottomTip">
+            💡 觀察：紫色小圓點代表看不見的<strong>空氣粒子</strong>！
+          </span>
+          <button type="button" class="btn" id="resetExpBtn">
+            ↩ 重設實驗狀態
+          </button>
+        </div>
+      </section>
+
+      <!-- 右欄：蘇格拉底漸進式問題與概念流程 -->
+      <aside class="side-panel">
+        <div class="question-card">
+          <!-- 自訂日常現象設定框（在單元 4 可展開） -->
+          <div class="custom-setup-box" id="customSetupBox">
+            <div style="font-weight:900; font-size:0.9rem; color:#831843; margin-bottom:6px;">
+              ✏️ 自訂日常現象題目（老師或同學出題）：
+            </div>
+            <input type="text" id="customQText" placeholder="例如：為甚麼用力吸氣時，膠樽會扁掉？" style="width:100%; padding:6px 10px; border:2px solid var(--ink-brown); border-radius:10px; font-weight:800; margin-bottom:6px;" />
+            <div style="display:flex; gap:6px; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+              <select id="customCorrectPrinciple" style="padding:5px 8px; border:2px solid var(--ink-brown); border-radius:8px; font-weight:800; flex:1;">
+                <option value="0">正解：大氣壓強（外大內小）</option>
+                <option value="1">正解：空氣佔有空間及有重量</option>
+                <option value="2">正解：空氣受熱膨脹上升</option>
+              </select>
+              <button type="button" class="btn btn-green" id="applyCustomBtn">✅ 出題</button>
+            </div>
+          </div>
+
+          <!-- 題目區 -->
+          <div class="q-box">
+            <span class="q-tag" id="qStepTag">思考問題</span>
+            <div class="q-title" id="qTitleText">
+              把杯子垂直壓入水中，杯底的紙巾為甚麼不會濕？
+            </div>
+          </div>
+
+          <!-- 因果流程排序槽（僅在實驗 3 排序題顯示） -->
+          <div class="chain-slots" id="chainSlotsBox" style="display:none;">
+            <div class="chain-slot" id="slot0">1. ?</div>
+            <span>➔</span>
+            <div class="chain-slot" id="slot1">2. ?</div>
+            <span>➔</span>
+            <div class="chain-slot" id="slot2">3. ?</div>
+            <button type="button" class="btn" id="clearSlotsBtn" style="padding:3px 8px; font-size:0.78rem;">重排</button>
+          </div>
+
+          <!-- 選項按鈕列表 -->
+          <div class="options-list" id="optionsList"></div>
+
+          <!-- 上次草稿殘影提示條 -->
+          <div class="ghost-draft-pill" id="ghostDraftPill">
+            👻 上次草稿：--
+          </div>
+
+          <div class="character-stage">
+            <div class="char-figure" id="activeCharBox"></div>
+            <div class="speech-bubble">
+              <span class="speech-speaker speaker-chii" id="speakerTag">小八貓</span>
+              <div id="charSpeechText">
+                先按「<strong>▶️ 按此進行實驗動作</strong>」，再開啟透視鏡觀察空氣粒子吧！
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn big-check-btn" id="checkAnswerBtn">
+            ✅ 第 3 步：檢查答案
+          </button>
+        </div>
+
+        <!-- 檢查結果與蘇格拉底式引導提示 -->
+        <div class="feedback-box">
+          <div class="status-pill status-wait" id="statusPill">
+            ⏳ 等待檢查答案
+          </div>
+          <div id="feedbackBody">
+            <p style="font-size:0.9rem; color:var(--ink-muted); font-weight:700;">
+              💡 <strong>科學小錦囊：</strong><br/>
+              空氣雖然看不見，但開啟「<strong>✨ 微觀透視鏡</strong>」就能看到空氣粒子點樣佔據空間同產生壓力！
+            </p>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- 答對彈出獎勵卡視窗 (1.png) -->
+  <div class="reward-modal-backdrop" id="rewardModal">
+    <div class="reward-modal-card">
+      <div class="reward-modal-title">🎉 太棒了！科學原理解釋完全正確！</div>
+      <div class="reward-modal-sub">👏 表現好出色！可以向老師換取一張獎勵卡！</div>
+      <div class="reward-img-box">
+        <img src="1.png" alt="品德好學生表揚卡 (1.png)" onerror="this.style.display='none'; document.getElementById('imgFallbackNote').style.display='block';" />
+        <div id="imgFallbackNote" style="display:none; padding:24px 12px; color:#be185d; font-weight:800;">
+          🏅 品德好學生表揚卡 (1.png)<br/>
+          <span style="font-size:0.82rem; color:#7c6553;">（請確保 1.png 與此網頁放在同一個資料夾內）</span>
+        </div>
+      </div>
+      <button type="button" class="btn btn-pink" id="closeRewardModalBtn" style="width:100%; justify-content:center; font-size:1.05rem; padding:10px;">
+        ✨ 太好了！繼續挑戰下一個實驗
+      </button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("scienceCanvas");
+      const ctx = canvas.getContext("2d");
+
+      // ====== 4 大實驗單元與蘇格拉底題庫 ======
+      const LAB_DATA = {
+        space: [
+          {
+            id: "cup_water",
+            expTitle: "🧪 實驗 1A：倒轉杯子垂直壓入水中",
+            actionBtnLabel: "▶️ 把杯子壓入水中",
+            question: "把杯子垂直壓入水中，杯底的紙巾為甚麼不會濕？",
+            type: "choice",
+            options: [
+              "A. 因為杯內的空氣佔有空間，擋住了水進入杯底",
+              "B. 因為杯子裏面是真空的，水進不去",
+              "C. 因為紙巾表面有防水魔法"
+            ],
+            correctIdx: 0,
+            hint1: "開啟「✨ 微觀透視鏡」睇下杯子裏面：滿滿的紫色圓點是什麼？",
+            hint2: "杯內的空氣粒子已經霸佔了空間，水無法擠進去碰到紙巾！",
+            summary: "空氣雖然看不見，但『空氣佔有空間』，擋住了水！"
+          },
+          {
+            id: "balloon_balance",
+            expTitle: "⚖️ 實驗 1B：天平上的兩個充氣氣球",
+            actionBtnLabel: "▶️ 刺穿右邊的氣球",
+            question: "刺穿右邊氣球讓空氣跑掉後，天平左邊（有氣）往下沉，這證明了甚麼？",
+            type: "choice",
+            options: [
+              "A. 空氣具有重量（質量）",
+              "B. 空氣沒有重量，只是氣球皮變重了",
+              "C. 空氣會自己產生引力"
+            ],
+            correctIdx: 0,
+            hint1: "觀察天平兩邊：左邊氣球還有滿滿的空氣粒子，右邊的空氣粒子跑光了。",
+            hint2: "有空氣粒子的一邊比較重，證明『空氣具有重量』！",
+            summary: "充氣的氣球比洩氣的氣球重，證明『空氣具有重量』！"
+          }
+        ],
+        pressure: [
+          {
+            id: "juice_box",
+            expTitle: "🧃 實驗 2：用力吸走紙包飲品盒內的空氣",
+            actionBtnLabel: "▶️ 用力吸走盒內空氣",
+            question: "吸走飲品盒內的空氣後，為甚麼飲品盒會向內凹陷變扁？",
+            type: "choice",
+            options: [
+              "A. 盒內空氣變少（氣壓變小），盒外較大的大氣壓力把盒壓扁",
+              "B. 嘴巴的吸力像磁鐵一樣把紙盒吸扁",
+              "C. 盒外面的大氣壓力消失了"
+            ],
+            correctIdx: 0,
+            hint1: "比較吸氣前與吸氣後：盒內的空氣粒子數量變多還是變少了？",
+            hint2: "盒內空氣粒子減少 ➔ 盒內氣壓小於盒外大氣壓力 ➔ 紅色箭頭（大氣壓力）把盒壓扁！",
+            summary: "十歲也能懂的比喻：就像盒內頂住牆壁的小幫手變少了，外面的大氣壓力大軍就把盒子推扁了！"
+          }
+        ],
+        wind: [
+          {
+            id: "sea_breeze",
+            expTitle: "🌊 實驗 3：太陽照射陸地與「海風形成」流程",
+            actionBtnLabel: "▶️ 開啟太陽加熱陸地",
+            question: "請按正確的先後次序，點擊下方 3 個步驟排出「海風形成」的因果鏈：",
+            type: "chain",
+            options: [
+              "冷空氣從海面流向陸地補充",
+              "陸地空氣受熱膨脹",
+              "熱空氣變輕上升"
+            ],
+            // 正確順序為 index: 1 -> 2 -> 0
+            correctChain: [1, 2, 0],
+            hint1: "先想第 1 步：太陽出來照射陸地，陸地上的空氣會先發生甚麼變化？",
+            hint2: "因果順序：1. 空氣受熱膨脹 ➔ 2. 熱空氣變輕上升 ➔ 3. 海面冷空氣流過來補充！",
+            summary: "因果鏈：陸地空氣受熱膨脹 ➔ 熱空氣上升 ➔ 海面冷空氣流向陸地補充（形成海風）！"
+          }
+        ],
+        daily: [
+          {
+            id: "suction_cup",
+            expTitle: "🏠 日常現象 A：壓緊在牆上的「吸盤掛鈎」",
+            actionBtnLabel: "▶️ 用力壓出吸盤內的空氣",
+            question: "把吸盤掛鈎壓在平滑牆上，擠出裏面的空氣後，為甚麼吸盤不會掉下來？",
+            type: "choice",
+            options: [
+              "A. 外面的大氣壓強比吸盤內大，把吸盤緊緊壓在牆上",
+              "B. 塑膠吸盤自己分泌了膠水",
+              "C. 空氣受熱膨脹把吸盤頂住"
+            ],
+            correctIdx: 0,
+            hint1: "擠出吸盤內的空氣後，吸盤內幾乎沒有空氣粒子，外面的紅色氣壓箭頭在做甚麼？",
+            hint2: "這跟紙包飲品盒原理一樣！外面的大氣壓強把吸盤死死壓在牆壁上！",
+            summary: "知識遷移成功！吸盤掛鈎、通渠揼和吸塵機，都是利用『大氣壓強』幫我們做事！"
+          },
+          {
+            id: "hot_air_balloon",
+            expTitle: "🎈 日常現象 B：點火加熱的「熱氣球」",
+            actionBtnLabel: "▶️ 點火加熱氣球內的空氣",
+            question: "熱氣球點火加熱球內的空氣後，為甚麼能緩緩升上天空？",
+            type: "choice",
+            options: [
+              "A. 空氣受熱膨脹變輕，熱空氣上升帶動氣球升空",
+              "B. 火焰把空氣粒子全部燒光變成真空",
+              "C. 大氣壓力消失了"
+            ],
+            correctIdx: 0,
+            hint1: "回想海風實驗：當空氣受熱時，空氣粒子會怎樣運動？",
+            hint2: "空氣受熱膨脹後密度變小（變輕），熱空氣上升就能帶動熱氣球升空！",
+            summary: "知識遷移成功！熱氣球升空與孔明燈、海風形成一樣，都是因為『熱空氣上升』！"
+          }
+        ]
+      };
+
+      // ====== 狀態管理 ======
+      let currentLabKey = "space";
+      let subIdx = 0;
+      let showMicroLens = true; // 微觀空氣粒子透視鏡
+      let expActed = false; // 是否已執行實驗動作
+
+      let selectedChoice = null;
+      let userChain = []; // 實驗 3 排序答案
+      let lastDraftStr = "";
+      let animTick = 0;
+      let stampCount = 0;
+
+      // 隨機微觀空氣粒子座標
+      const particles = Array.from({ length: 42 }, (_, i) => ({
+        x: Math.random(),
+        y: Math.random(),
+        vx: (Math.random() - 0.5) * 0.008,
+        vy: (Math.random() - 0.5) * 0.008
+      }));
+
+      // ====== DOM 元素 ======
+      const labChips = document.querySelectorAll(".preset-chip[data-lab]");
+      const toggleMicroLensBtn = document.getElementById("toggleMicroLensBtn");
+      const actionExpBtn = document.getElementById("actionExpBtn");
+      const switchSubTopicBtn = document.getElementById("switchSubTopicBtn");
+      const resetExpBtn = document.getElementById("resetExpBtn");
+      const expTitleBadge = document.getElementById("expTitleBadge");
+      const lensStatusBadge = document.getElementById("lensStatusBadge");
+
+      const customSetupBox = document.getElementById("customSetupBox");
+      const customQText = document.getElementById("customQText");
+      const customCorrectPrinciple = document.getElementById("customCorrectPrinciple");
+      const applyCustomBtn = document.getElementById("applyCustomBtn");
+
+      const qStepTag = document.getElementById("qStepTag");
+      const qTitleText = document.getElementById("qTitleText");
+      const chainSlotsBox = document.getElementById("chainSlotsBox");
+      const slotEls = [
+        document.getElementById("slot0"),
+        document.getElementById("slot1"),
+        document.getElementById("slot2")
+      ];
+      const clearSlotsBtn = document.getElementById("clearSlotsBtn");
+      const optionsList = document.getElementById("optionsList");
+      const ghostDraftPill = document.getElementById("ghostDraftPill");
+
+      const activeCharBox = document.getElementById("activeCharBox");
+      const speakerTag = document.getElementById("speakerTag");
+      const charSpeechText = document.getElementById("charSpeechText");
+      const checkAnswerBtn = document.getElementById("checkAnswerBtn");
+      const statusPill = document.getElementById("statusPill");
+      const feedbackBody = document.getElementById("feedbackBody");
+      const stampCountEl = document.getElementById("stampCount");
+
+      const rewardModal = document.getElementById("rewardModal");
+      const closeRewardModalBtn = document.getElementById("closeRewardModalBtn");
+      const viewRewardCardBtn = document.getElementById("viewRewardCardBtn");
+
+      closeRewardModalBtn.addEventListener("click", () => rewardModal.classList.remove("show"));
+      viewRewardCardBtn.addEventListener("click", () => rewardModal.classList.add("show"));
+
+      function getCurrentItem() {
+        return LAB_DATA[currentLabKey][subIdx];
+      }
+
+      function getCharacterSVG(mood) {
+        if (mood === "happy_usagi") {
+          return `
+            <svg width="54" height="54" viewBox="0 0 64 64">
+              <rect x="17" y="3" width="9" height="22" rx="4.5" fill="#fef08a" stroke="#4a3728" stroke-width="3.2"/>
+              <rect x="38" y="3" width="9" height="22" rx="4.5" fill="#fef08a" stroke="#4a3728" stroke-width="3.2"/>
+              <circle cx="32" cy="38" r="20" fill="#fef08a" stroke="#4a3728" stroke-width="3.2"/>
+              <ellipse cx="19" cy="41" rx="4.2" ry="2.5" fill="#fca5a5"/>
+              <ellipse cx="45" cy="41" rx="4.2" ry="2.5" fill="#fca5a5"/>
+              <path d="M21 34 Q24 30 27 34" fill="none" stroke="#4a3728" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M37 34 Q40 30 43 34" fill="none" stroke="#4a3728" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M27 40 Q32 46 37 40 Z" fill="#f43f5e" stroke="#4a3728" stroke-width="2.2"/>
+            </svg>`;
+        }
+        if (mood === "thinking_hachi") {
+          return `
+            <svg width="54" height="54" viewBox="0 0 64 64">
+              <polygon points="12,24 16,8 27,18" fill="#7dd3fc" stroke="#4a3728" stroke-width="3.2" stroke-linejoin="round"/>
+              <polygon points="52,24 48,8 37,18" fill="#7dd3fc" stroke="#4a3728" stroke-width="3.2" stroke-linejoin="round"/>
+              <circle cx="32" cy="36" r="21" fill="#fff" stroke="#4a3728" stroke-width="3.2"/>
+              <path d="M13,27 Q24,25 32,16 Q40,25 51,27 A21,21 0 0,0 13,27 Z" fill="#7dd3fc"/>
+              <circle cx="24" cy="34" r="3" fill="#4a3728"/>
+              <circle cx="40" cy="34" r="3" fill="#4a3728"/>
+              <path d="M28 40 Q32 43 36 40" fill="none" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>`;
+        }
+        return `
+          <svg width="54" height="54" viewBox="0 0 64 64">
+            <circle cx="16" cy="16" r="9" fill="#fff" stroke="#4a3728" stroke-width="3.2"/>
+            <circle cx="48" cy="16" r="9" fill="#fff" stroke="#4a3728" stroke-width="3.2"/>
+            <circle cx="32" cy="35" r="22" fill="#fff" stroke="#4a3728" stroke-width="3.2"/>
+            <ellipse cx="19" cy="39" rx="4.5" ry="2.6" fill="#f9a8d4"/>
+            <ellipse cx="45" cy="39" rx="4.5" ry="2.6" fill="#f9a8d4"/>
+            <circle cx="24" cy="33" r="3" fill="#4a3728"/>
+            <circle cx="40" cy="33" r="3" fill="#4a3728"/>
+            <path d="M29 38 Q32 41 35 38" fill="none" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>`;
+      }
+
+      function setCharacterDialogue(mood, speakerName, speakerClass, htmlText) {
+        activeCharBox.innerHTML = getCharacterSVG(mood);
+        speakerTag.className = "speech-speaker " + speakerClass;
+        speakerTag.textContent = speakerName;
+        charSpeechText.innerHTML = htmlText;
+      }
+
+      // ====== 畫布輔助繪圖函式 ======
+      function drawParticlesInBox(x, y, w, h, count, color = "#9333ea") {
+        if (!showMicroLens) return;
+        ctx.save();
+        ctx.fillStyle = color;
+        for (let i = 0; i < count; i++) {
+          const p = particles[i % particles.length];
+          const px = x + 12 + ((p.x + animTick * p.vx * 18) % 1 + 1) % 1 * (w - 24);
+          const py = y + 12 + ((p.y + animTick * p.vy * 18) % 1 + 1) % 1 * (h - 24);
+          ctx.beginPath();
+          ctx.arc(px, py, 5.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      function drawArrow(x1, y1, x2, y2, color, lineWidth = 3.5) {
+        const headlen = 10;
+        const angle = Math.atan2(y2 - y1, x2 - x1);
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
+        ctx.lineWidth = lineWidth;
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(x2, y2);
+        ctx.lineTo(x2 - headlen * Math.cos(angle - Math.PI / 6), y2 - headlen * Math.sin(angle - Math.PI / 6));
+        ctx.lineTo(x2 - headlen * Math.cos(angle + Math.PI / 6), y2 - headlen * Math.sin(angle + Math.PI / 6));
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // ====== 渲染四大科學實驗動畫 ======
+      function renderScienceCanvas() {
+        animTick++;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const item = getCurrentItem();
+
+        if (item.id === "cup_water") {
+          drawCupWaterScene();
+        } else if (item.id === "balloon_balance") {
+          drawBalloonBalanceScene();
+        } else if (item.id === "juice_box") {
+          drawJuiceBoxScene();
+        } else if (item.id === "sea_breeze") {
+          drawSeaBreezeScene();
+        } else if (item.id === "suction_cup") {
+          drawSuctionCupScene();
+        } else {
+          drawHotAirBalloonScene();
+        }
+
+        requestAnimationFrame(renderScienceCanvas);
+      }
+
+      // 場景 1A：倒轉杯子壓入水中
+      function drawCupWaterScene() {
+        // 水槽
+        ctx.fillStyle = "#e0f2fe";
+        ctx.fillRect(90, 190, 420, 190);
+        ctx.strokeStyle = "#0284c7";
+        ctx.lineWidth = 4;
+        ctx.strokeRect(90, 150, 420, 230);
+
+        const cupY = expActed ? 200 : 50;
+        const cupX = 235;
+        const cupW = 130;
+        const cupH = 145;
+
+        // 杯內空氣空間背景
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(cupX, cupY, cupW, cupH - 12);
+
+        // 杯底乾紙巾
+        ctx.fillStyle = "#fef08a";
+        ctx.strokeStyle = "#ca8a04";
+        ctx.lineWidth = 2;
+        ctx.fillRect(cupX + 20, cupY + 6, cupW - 40, 22);
+        ctx.strokeRect(cupX + 20, cupY + 6, cupW - 40, 22);
+        ctx.fillStyle = "#854d0e";
+        ctx.font = "bold 12px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("乾紙巾（不濕）", cupX + cupW / 2, cupY + 21);
+
+        // 倒轉玻璃杯框
+        ctx.strokeStyle = "#4a3728";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(cupX, cupY + cupH);
+        ctx.lineTo(cupX, cupY);
+        ctx.lineTo(cupX + cupW, cupY);
+        ctx.lineTo(cupX + cupW, cupY + cupH);
+        ctx.stroke();
+
+        // 微觀空氣粒子（佔滿杯子空間）
+        drawParticlesInBox(cupX + 6, cupY + 32, cupW - 12, cupH - 42, 26, "#9333ea");
+
+        if (showMicroLens) {
+          ctx.fillStyle = "#6b21a8";
+          ctx.font = "900 14px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText("🟣 空氣粒子佔滿杯內空間，水進不去！", 300, 398);
+        }
+      }
+
+      // 場景 1B：天平氣球（空氣有重量）
+      function drawBalloonBalanceScene() {
+        const cx = 300;
+        const baseY = 350;
+
+        // 天平底座
+        ctx.fillStyle = "#d97706";
+        ctx.strokeStyle = "#4a3728";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(cx - 45, baseY);
+        ctx.lineTo(cx + 45, baseY);
+        ctx.lineTo(cx, 200);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // 橫桿傾斜角度（刺穿右氣球後，左邊有空氣較重下沉）
+        const tilt = expActed ? -0.18 : 0;
+        ctx.save();
+        ctx.translate(cx, 200);
+        ctx.rotate(tilt);
+
+        ctx.strokeStyle = "#4a3728";
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.moveTo(-160, 0);
+        ctx.lineTo(160, 0);
+        ctx.stroke();
+
+        // 左邊充氣氣球
+        ctx.fillStyle = "rgba(244, 114, 182, 0.35)";
+        ctx.strokeStyle = "#db2777";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(-150, -65, 52, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        if (showMicroLens) {
+          ctx.fillStyle = "#9333ea";
+          for (let i = 0; i < 16; i++) {
+            const ang = (i / 16) * Math.PI * 2 + animTick * 0.03;
+            const r = (i % 3) * 14 + 8;
+            ctx.beginPath();
+            ctx.arc(-150 + Math.cos(ang) * r, -65 + Math.sin(ang) * r, 4.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        // 右邊氣球（未刺穿 vs 已刺穿洩氣）
+        if (!expActed) {
+          ctx.fillStyle = "rgba(56, 189, 248, 0.35)";
+          ctx.strokeStyle = "#0284c7";
+          ctx.beginPath();
+          ctx.arc(150, -65, 52, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          if (showMicroLens) {
+            ctx.fillStyle = "#9333ea";
+            for (let i = 0; i < 16; i++) {
+              const ang = (i / 16) * Math.PI * 2 - animTick * 0.03;
+              const r = (i % 3) * 14 + 8;
+              ctx.beginPath();
+              ctx.arc(150 + Math.cos(ang) * r, -65 + Math.sin(ang) * r, 4.5, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        } else {
+          // 扁掉的氣球皮
+          ctx.fillStyle = "#bae6fd";
+          ctx.strokeStyle = "#0284c7";
+          ctx.fillRect(130, -28, 40, 14);
+          ctx.strokeRect(130, -28, 40, 14);
+          ctx.fillStyle = "#be123c";
+          ctx.font = "900 13px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText("💥 空氣跑掉了（變輕）", 150, -45);
+        }
+
+        ctx.restore();
+
+        if (expActed) {
+          ctx.fillStyle = "#15803d";
+          ctx.font = "900 15px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText("⬇️ 左邊有空氣粒子所以較重下沉，證明「空氣有重量」！", cx, 392);
+        }
+      }
+
+      // 場景 2：大氣壓強與紙包飲品盒
+      function drawJuiceBoxScene() {
+        const cx = 300;
+        const topY = 130;
+        const botY = 330;
+        const halfW = 75;
+        const squeeze = expActed ? 34 : 0; // 吸氣後向內凹陷
+
+        // 飲管
+        ctx.strokeStyle = "#f43f5e";
+        ctx.lineWidth = 8;
+        ctx.beginPath();
+        ctx.moveTo(cx, topY);
+        ctx.lineTo(cx, 70);
+        ctx.lineTo(cx + 45, 50);
+        ctx.stroke();
+
+        if (expActed) {
+          drawArrow(cx, 115, cx, 65, "#be123c", 3);
+          ctx.fillStyle = "#be123c";
+          ctx.font = "900 14px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText("💨 吸走盒內空氣！", cx - 80, 75);
+        }
+
+        // 紙包飲品盒身（吸氣後左右兩側向內凹陷）
+        ctx.fillStyle = "#fef08a";
+        ctx.strokeStyle = "#4a3728";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(cx - halfW, topY);
+        ctx.lineTo(cx + halfW, topY);
+        ctx.quadraticCurveTo(cx + halfW - squeeze, (topY + botY) / 2, cx + halfW, botY);
+        ctx.lineTo(cx - halfW, botY);
+        ctx.quadraticCurveTo(cx - halfW + squeeze, (topY + botY) / 2, cx - halfW, topY);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // 盒內空氣粒子（吸氣前 24 粒，吸氣後只剩 5 粒）
+        const insideCount = expActed ? 5 : 24;
+        drawParticlesInBox(cx - halfW + squeeze + 8, topY + 15, (halfW - squeeze) * 2 - 16, botY - topY - 30, insideCount, "#9333ea");
+
+        // 盒外空氣粒子與大氣壓強紅色箭頭
+        if (showMicroLens) {
+          drawParticlesInBox(40, 110, 140, 230, 14, "#64748b");
+          drawParticlesInBox(420, 110, 140, 230, 14, "#64748b");
+
+          // 盒外大氣壓力大箭頭
+          drawArrow(140, 180, cx - halfW + squeeze - 6, 180, "#e11d48", 5);
+          drawArrow(140, 270, cx - halfW + squeeze - 6, 270, "#e11d48", 5);
+          drawArrow(460, 180, cx + halfW - squeeze + 6, 180, "#e11d48", 5);
+          drawArrow(460, 270, cx + halfW - squeeze + 6, 270, "#e11d48", 5);
+
+          ctx.fillStyle = "#be123c";
+          ctx.font = "900 13px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText("盒外大氣壓力大", 110, 155);
+          ctx.fillText("盒外大氣壓力大", 490, 155);
+
+          if (!expActed) {
+            // 吸氣前盒內向外頂住的箭頭與外面平衡
+            drawArrow(cx - 20, 225, cx - halfW + 8, 225, "#0284c7", 4);
+            drawArrow(cx + 20, 225, cx + halfW - 8, 225, "#0284c7", 4);
+          }
+
+          ctx.fillStyle = "#4a3728";
+          ctx.font = "900 14px sans-serif";
+          ctx.fillText(
+            expActed
+              ? "🔍 吸氣後：盒內空氣粒子減少（氣壓變小），盒外大氣壓力把盒壓扁！"
+              : "🔍 吸氣前：盒內與盒外的空氣壓力互相平衡，紙盒不會扁。",
+            cx,
+            395
+          );
+        }
+      }
+
+      // 場景 3：溫度與空氣流動（海風形成）
+      function drawSeaBreezeScene() {
+        // 天空
+        ctx.fillStyle = "#f0f9ff";
+        ctx.fillRect(0, 0, canvas.width, 290);
+
+        // 左側：海洋
+        ctx.fillStyle = "#38bdf8";
+        ctx.fillRect(0, 290, 300, 130);
+        ctx.fillStyle = "#fff";
+        ctx.font = "900 16px sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText("🌊 海洋（較涼）", 150, 345);
+
+        // 右側：陸地沙灘
+        ctx.fillStyle = "#fde047";
+        ctx.fillRect(300, 290, 300, 130);
+        ctx.fillStyle = "#854d0e";
+        ctx.fillText("🏖️ 陸地（受熱快）", 450, 345);
+
+        // 太陽
+        ctx.fillStyle = expActed ? "#f97316" : "#fde047";
+        ctx.beginPath();
+        ctx.arc(480, 68, expActed ? 36 : 26, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#fff";
+        ctx.font = "bold 12px sans-serif";
+        ctx.fillText(expActed ? "☀️ 猛烈陽光" : "☀️ 太陽", 480, 72);
+
+        if (expActed) {
+          // 1. 陸地熱空氣膨脹上升（紅色箭頭）
+          drawArrow(450, 270, 450, 125, "#e11d48", 5);
+          ctx.fillStyle = "#be123c";
+          ctx.font = "900 14px sans-serif";
+          ctx.fillText("① 空氣受熱膨脹 ➔ ② 熱空氣上升", 450, 105);
+
+          // 2. 海面冷空氣流向陸地補充（藍色海風箭頭）
+          drawArrow(160, 250, 380, 250, "#0284c7", 6);
+          ctx.fillStyle = "#0369a1";
+          ctx.fillText("③ 海面冷空氣流向陸地補充（形成海風）", 270, 228);
+
+          // 高空循環虛線箭頭
+          drawArrow(410, 120, 190, 120, "#94a3b8", 3);
+          drawArrow(150, 135, 150, 235, "#0284c7", 3);
+        }
+
+        if (showMicroLens) {
+          // 海面較密集的冷空氣粒子（藍色）
+          drawParticlesInBox(60, 180, 160, 100, 16, "#0284c7");
+          // 陸地受熱上升較稀疏的熱空氣粒子（紅色）
+          drawParticlesInBox(380, expActed ? 110 : 180, 150, 120, 9, "#e11d48");
+        }
+      }
+
+      // 場景 4A：吸盤掛鈎
+      function drawSuctionCupScene() {
+        // 牆壁
+        ctx.fillStyle = "#cbd5e1";
+        ctx.fillRect(140, 50, 40, 320);
+        ctx.strokeStyle = "#475569";
+        ctx.lineWidth = 3;
+        ctx.strokeRect(140, 50, 40, 320);
+
+        // 吸盤
+        const cupDepth = expActed ? 18 : 55;
+        ctx.fillStyle = "#f472b6";
+        ctx.strokeStyle = "#4a3728";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(180, 130);
+        ctx.quadraticCurveTo(180 + cupDepth, 210, 180, 290);
+        ctx.stroke();
+
+        if (!expActed) {
+          drawParticlesInBox(182, 160, 40, 100, 10, "#9333ea");
+        }
+
+        if (showMicroLens) {
+          drawParticlesInBox(260, 100, 220, 220, 22, "#64748b");
+          drawArrow(330, 175, 195 + cupDepth / 2, 175, "#e11d48", 5);
+          drawArrow(330, 245, 195 + cupDepth / 2, 245, "#e11d48", 5);
+          ctx.fillStyle = "#be123c";
+          ctx.font = "900 14px sans-serif";
+          ctx.textAlign = "left";
+          ctx.fillText("外面的大氣壓強把吸盤壓緊在牆上！", 260, 360);
+        }
+      }
+
+      // 場景 4B：熱氣球升空
+      function drawHotAirBalloonScene() {
+        const cx = 300;
+        const by = expActed ? 125 : 225;
+
+        // 氣球籃子
+        ctx.fillStyle = "#b45309";
+        ctx.fillRect(cx - 22, by + 95, 44, 30);
+
+        // 火焰
+        if (expActed) {
+          ctx.fillStyle = "#f97316";
+          ctx.beginPath();
+          ctx.arc(cx, by + 72, 14, 0, Math.PI * 2);
+          ctx.fill();
+          drawArrow(cx, by + 40, cx, by - 45, "#e11d48", 5);
+        }
+
+        // 熱氣球球體
+        ctx.fillStyle = "rgba(250, 204, 21, 0.35)";
+        ctx.strokeStyle = "#4a3728";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(cx, by, 68, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        if (showMicroLens) {
+          drawParticlesInBox(cx - 45, by - 45, 90, 90, expActed ? 8 : 18, expActed ? "#e11d48" : "#9333ea");
+        }
+      }
+
+      // ====== 載入當前實驗與題目介面 ======
+      function loadExperimentUI() {
+        const item = getCurrentItem();
+        expActed = false;
+        selectedChoice = null;
+        userChain = [];
+
+        expTitleBadge.textContent = item.expTitle;
+        actionExpBtn.textContent = item.actionBtnLabel;
+        qTitleText.textContent = item.question;
+        ghostDraftPill.classList.remove("show");
+
+        // 單元 4 顯示自訂題目輸入框
+        customSetupBox.classList.toggle("show", currentLabKey === "daily");
+
+        // 切換實驗情境按鈕（若該單元有多個子實驗）
+        switchSubTopicBtn.style.display = LAB_DATA[currentLabKey].length > 1 ? "inline-flex" : "none";
+
+        renderOptionsUI(item);
+
+        statusPill.className = "status-pill status-wait";
+        statusPill.textContent = "⏳ 等待完成實驗並檢查答案";
+        feedbackBody.innerHTML = `
+          <p style="font-size:0.9rem; color:var(--ink-muted); font-weight:700;">
+            1. 先按上方粉紅色「<strong>${item.actionBtnLabel}</strong>」。<br/>
+            2. 觀察畫布中的<strong>空氣粒子與箭頭</strong>，再揀答案！
+          </p>
+        `;
+
+        setCharacterDialogue(
+          "default_chii",
+          "小八貓",
+          "speaker-chii",
+          `先按「<strong>${item.actionBtnLabel}</strong>」做實驗，再答問題換獎勵卡吧！`
+        );
+      }
+
+      function renderOptionsUI(item) {
+        optionsList.innerHTML = "";
+
+        if (item.type === "chain") {
+          qStepTag.textContent = "因果流程排序（依序點擊 3 個步驟）";
+          chainSlotsBox.style.display = "flex";
+          updateChainSlotsUI(item);
+
+          item.options.forEach((optText, idx) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "option-btn";
+            btn.textContent = `🔹 ${optText}`;
+            btn.addEventListener("click", () => {
+              if (!userChain.includes(idx) && userChain.length < 3) {
+                userChain.push(idx);
+                btn.classList.add("selected");
+                updateChainSlotsUI(item);
+              }
+            });
+            optionsList.appendChild(btn);
+          });
+        } else {
+          qStepTag.textContent = "選擇正確的科學解釋";
+          chainSlotsBox.style.display = "none";
+
+          item.options.forEach((optText, idx) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "option-btn";
+            btn.textContent = optText;
+            btn.addEventListener("click", () => {
+              selectedChoice = idx;
+              document.querySelectorAll("#optionsList .option-btn").forEach((b, bIdx) => {
+                b.classList.remove("wrong-choice");
+                b.classList.toggle("selected", bIdx === idx);
+              });
+            });
+            optionsList.appendChild(btn);
+          });
+        }
+      }
+
+      function updateChainSlotsUI(item) {
+        for (let i = 0; i < 3; i++) {
+          if (userChain[i] !== undefined) {
+            slotEls[i].textContent = `${i + 1}. ${item.options[userChain[i]]}`;
+          } else {
+            slotEls[i].textContent = `${i + 1}. (請點擊步驟)`;
+          }
+        }
+      }
+
+      clearSlotsBtn.addEventListener("click", () => {
+        userChain = [];
+        const item = getCurrentItem();
+        updateChainSlotsUI(item);
+        document.querySelectorAll("#optionsList .option-btn").forEach((b) => b.classList.remove("selected"));
+      });
+
+      // ====== 檢查答案與蘇格拉底漸進引導 ======
+      checkAnswerBtn.addEventListener("click", () => {
+        const item = getCurrentItem();
+        expActed = true; // 自動觸發實驗狀態方便學生對照
+
+        if (item.type === "chain") {
+          if (userChain.length < 3) {
+            alert("請先點擊選齊 3 個步驟排出因果次序！");
+            return;
+          }
+          lastDraftStr = userChain.map((i) => item.options[i]).join(" ➔ ");
+          ghostDraftPill.textContent = `👻 上次草稿：${lastDraftStr}`;
+          ghostDraftPill.classList.add("show");
+
+          const isChainCorrect =
+            userChain[0] === item.correctChain[0] &&
+            userChain[1] === item.correctChain[1] &&
+            userChain[2] === item.correctChain[2];
+
+          if (isChainCorrect) {
+            handleCorrectVictory(item.summary);
+          } else {
+            showSocraticGuidance(item.hint1, item.hint2);
+          }
+          return;
+        }
+
+        // 單選題檢查
+        if (selectedChoice === null) {
+          alert("請先點選一個答案！");
+          return;
+        }
+
+        lastDraftStr = item.options[selectedChoice];
+        ghostDraftPill.textContent = `👻 上次草稿：${lastDraftStr}`;
+        ghostDraftPill.classList.add("show");
+
+        if (selectedChoice === item.correctIdx) {
+          handleCorrectVictory(item.summary);
+        } else {
+          const allBtns = document.querySelectorAll("#optionsList .option-btn");
+          if (allBtns[selectedChoice]) {
+            allBtns[selectedChoice].classList.add("wrong-choice");
+          }
+          showSocraticGuidance(item.hint1, item.hint2);
+        }
+      });
+
+      function handleCorrectVictory(summaryText) {
+        stampCount++;
+        stampCountEl.textContent = stampCount;
+        viewRewardCardBtn.style.display = "inline-flex";
+
+        statusPill.className = "status-pill status-ok";
+        statusPill.textContent = "🎉 科學推理完全正確！";
+
+        setCharacterDialogue(
+          "happy_usagi",
+          "吉伊卡哇 & 兔兔",
+          "speaker-usagi",
+          `太棒了！${summaryText} 快向老師換取獎勵卡！`
+        );
+
+        feedbackBody.innerHTML = `
+          <div class="stamp-victory">
+            <p style="font-weight:900; color:#15803d; font-size:0.95rem; margin-bottom:8px;">
+              ✨ ${summaryText}
+            </p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
+              <button type="button" class="btn btn-pink" id="openCardAgainBtn">
+                🎁 顯示獎勵卡
+              </button>
+              <button type="button" class="btn btn-yellow" id="nextExpVictoryBtn">
+                🚀 挑戰下一個實驗
+              </button>
+            </div>
+          </div>
+        `;
+
+        document.getElementById("openCardAgainBtn").addEventListener("click", () => {
+          rewardModal.classList.add("show");
+        });
+
+        document.getElementById("nextExpVictoryBtn").addEventListener("click", () => {
+          goNextExperiment();
+        });
+
+        rewardModal.classList.add("show");
+      }
+
+      function showSocraticGuidance(hint1, hint2) {
+        showMicroLens = true;
+        updateLensUI();
+
+        statusPill.className = "status-pill status-retry";
+        statusPill.textContent = "🔍 再想一想！睇下小八貓的漸進提示";
+
+        setCharacterDialogue(
+          "thinking_hachi",
+          "小八貓",
+          "speaker-hachi",
+          `已幫你開啟「<strong>✨ 微觀透視鏡</strong>」並保留上次草稿，跟住下面兩步提示觀察一下吧！`
+        );
+
+        feedbackBody.innerHTML = `
+          <div class="guide-step step-pink">
+            <div class="guide-step-title">🐾 蘇格拉底提問 1：觀察微觀粒子</div>
+            <p>${hint1}</p>
+          </div>
+
+          <div class="guide-step step-yellow">
+            <div class="guide-step-title">💡 蘇格拉底提問 2：推論科學原理</div>
+            <p>${hint2}</p>
+          </div>
+        `;
+      }
+
+      // ====== 按鈕事件綁定 ======
+      function updateLensUI() {
+        toggleMicroLensBtn.classList.toggle("active", showMicroLens);
+        toggleMicroLensBtn.textContent = `✨ 微觀空氣粒子透視鏡：${showMicroLens ? "開" : "關"}`;
+        lensStatusBadge.textContent = showMicroLens
+          ? "🟣 透視鏡開啟中（圓點 = 空氣粒子）"
+          : "👁️ 一般肉眼模式（看不見空氣）";
+      }
+
+      toggleMicroLensBtn.addEventListener("click", () => {
+        showMicroLens = !showMicroLens;
+        updateLensUI();
+      });
+
+      actionExpBtn.addEventListener("click", () => {
+        expActed = true;
+        setCharacterDialogue(
+          "thinking_hachi",
+          "小八貓",
+          "speaker-hachi",
+          "實驗動作完成！快觀察畫布裏的<strong>空氣粒子與箭頭變化</strong>，然後揀出正確答案！"
+        );
+      });
+
+      resetExpBtn.addEventListener("click", () => {
+        expActed = false;
+      });
+
+      switchSubTopicBtn.addEventListener("click", () => {
+        const list = LAB_DATA[currentLabKey];
+        subIdx = (subIdx + 1) % list.length;
+        loadExperimentUI();
+      });
+
+      function goNextExperiment() {
+        const keys = ["space", "pressure", "wind", "daily"];
+        const list = LAB_DATA[currentLabKey];
+        if (subIdx + 1 < list.length) {
+          subIdx++;
+        } else {
+          const nextKeyIdx = (keys.indexOf(currentLabKey) + 1) % keys.length;
+          currentLabKey = keys[nextKeyIdx];
+          subIdx = 0;
+          labChips.forEach((c) => c.classList.toggle("active", c.dataset.lab === currentLabKey));
+        }
+        loadExperimentUI();
+      }
+
+      labChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          currentLabKey = chip.dataset.lab;
+          subIdx = 0;
+          labChips.forEach((c) => c.classList.toggle("active", c === chip));
+          loadExperimentUI();
+        });
+      });
+
+      // 自訂日常現象出題
+      applyCustomBtn.addEventListener("click", () => {
+        const qStr = customQText.value.trim() || "為甚麼用力吸走膠樽內的空氣後，膠樽會向內凹陷？";
+        const correctIdx = parseInt(customCorrectPrinciple.value, 10);
+
+        const customItem = {
+          id: correctIdx === 2 ? "hot_air_balloon" : "suction_cup",
+          expTitle: "✏️ 自訂日常科學現象挑戰",
+          actionBtnLabel: "▶️ 觀察微觀粒子模擬",
+          question: qStr,
+          type: "choice",
+          options: [
+            "A. 因為裏面空氣減少（氣壓變小），外面的大氣壓強較大把它壓住或壓扁",
+            "B. 因為空氣佔有空間及具有重量",
+            "C. 因為空氣受熱膨脹，熱空氣變輕上升"
+          ],
+          correctIdx,
+          hint1: "開啟「✨ 微觀透視鏡」，想想這個現象與氣壓差、佔有空間、還是受熱上升有關？",
+          hint2: "比較物體內外的空氣粒子數量或溫度變化，就能找出原因！",
+          summary: "你成功運用空氣的科學原理解釋日常生活現象！"
+        };
+
+        LAB_DATA.daily.unshift(customItem);
+        subIdx = 0;
+        loadExperimentUI();
+      });
+
+      // 啟動實驗室
+      loadExperimentUI();
+      requestAnimationFrame(renderScienceCanvas);
+    })();
+  </script>
+</body>
+</html>
