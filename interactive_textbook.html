@@ -1,0 +1,4919 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>單元二 物質與變化｜3 空氣的特性</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-bg: #eef2f5;
+      --paper-bg: #ffffff;
+      --book-blue: #1f78b4;
+      --book-blue-light: #edf6fc;
+      --book-border: #9ecae1;
+      --discovery-border: #2b8cbe;
+      --discovery-bg: #f5fbff;
+      --text-main: #222222;
+      --text-sub: #555555;
+      --btn-submit: #d9386a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', "Microsoft JhengHei", sans-serif;
+      background-color: var(--page-bg);
+      color: var(--text-main);
+      line-height: 1.5;
+      user-select: none;
+      padding-bottom: 32px;
+    }
+
+    .book-header {
+      background: #ffffff;
+      border-bottom: 3px solid var(--book-blue);
+      padding: 10px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .unit-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .unit-num-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--book-blue);
+      color: #fff;
+      font-size: 1.35rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .unit-badge {
+      display: inline-block;
+      background: #e06377;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 2px;
+    }
+
+    .book-h1 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #164e70;
+    }
+
+    .progress-bar-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--book-blue-light);
+      border: 1.5px solid var(--book-border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tick-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tick-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #6baed6;
+      background: #fff;
+      color: #164e70;
+      font-size: 0.75rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tick-dot.done {
+      background: #2b9348;
+      border-color: #1b6ca8;
+      color: #fff;
+    }
+
+    .nav-tabs-bar {
+      max-width: 1120px;
+      margin: 12px auto 0;
+      padding: 0 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .tabs-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tab-btn {
+      background: #ffffff;
+      border: 1.5px solid #b6d8e8;
+      color: #2b5d77;
+      padding: 6px 11px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .tab-btn:hover {
+      background: #ebf6fb;
+    }
+
+    .tab-btn.active {
+      background: var(--book-blue);
+      border-color: #165b88;
+      color: #ffffff;
+    }
+
+    .tab-btn.done-tab {
+      border-color: #2b9348;
+      background: #f1faee;
+      color: #1b4332;
+    }
+
+    .tab-btn.done-tab.active {
+      background: #2b9348;
+      color: #ffffff;
+    }
+
+    .air-view-btn {
+      background: #fff;
+      border: 1.5px solid #5c8599;
+      color: #2b5d77;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .air-view-btn.active {
+      background: #3b7a99;
+      color: #fff;
+    }
+
+    .book-page {
+      max-width: 1120px;
+      margin: 12px auto 0;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    @media (max-width: 920px) {
+      .book-page {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .page-card {
+      background: var(--paper-bg);
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.18rem;
+      font-weight: 900;
+      color: #15658a;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .section-num {
+      background: #1f78b4;
+      color: #fff;
+      width: 26px;
+      height: 26px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.96rem;
+    }
+
+    .canvas-wrap {
+      position: relative;
+      width: 100%;
+      background: #f9fcff;
+      border: 2px solid #b8d8e8;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      touch-action: none;
+    }
+
+    .predict-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .predict-overlay-box {
+      background: #ffffff;
+      border: 2.5px solid var(--book-blue);
+      border-radius: 10px;
+      padding: 16px 18px;
+      max-width: 320px;
+    }
+
+    .exp-controls {
+      margin-top: 10px;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    input[type="range"].book-slider {
+      flex: 1;
+      height: 10px;
+      accent-color: #1f78b4;
+      cursor: pointer;
+    }
+
+    .step-box {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .step-label {
+      display: inline-block;
+      background: #1f78b4;
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    .predict-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .choice-btn {
+      background: #f8fafc;
+      border: 2px solid #b6d0e2;
+      color: var(--text-main);
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+    }
+
+    .choice-btn:hover {
+      background: #edf6fc;
+    }
+
+    .choice-btn.selected {
+      background: #d8effa;
+      border-color: #15658a;
+      color: #0d4663;
+    }
+
+    .discovery-box {
+      position: relative;
+      background: var(--discovery-bg);
+      border: 2px solid var(--discovery-border);
+      border-radius: 12px;
+      padding: 16px 14px 12px;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    .discovery-badge {
+      position: absolute;
+      top: -12px;
+      left: 14px;
+      background: #1f78b4;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 900;
+      padding: 2px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .circle-pair {
+      display: inline-flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1.5px solid #94c6de;
+      border-radius: 6px;
+      padding: 1px 4px;
+      margin: 2px 3px;
+      vertical-align: middle;
+    }
+
+    .circle-opt {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      font-weight: 900;
+      color: #165b7d;
+      cursor: pointer;
+      font-size: 0.94rem;
+      background: transparent;
+    }
+
+    .circle-opt:hover {
+      background: #e6f4fa;
+    }
+
+    .circle-opt.circled {
+      border-color: #d9386a;
+      background: #fff0f5;
+      color: #b81d53;
+    }
+
+    .book-action-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn-book-submit {
+      flex: 1;
+      background: var(--btn-submit);
+      color: #fff;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.98rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .btn-book-submit:hover {
+      background: #bf2857;
+    }
+
+    .btn-book-reset {
+      background: #7f8c8d;
+      color: #fff;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .teacher-note {
+      background: #fffdf5;
+      border: 2px solid #e2d194;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .teacher-note.ok {
+      background: #f1faee;
+      border-color: #74c69d;
+      color: #1b4332;
+    }
+
+    .teacher-note.hint {
+      background: #fff5f7;
+      border-color: #f2a6bc;
+      color: #8f1d3f;
+    }
+
+    .modal-mask {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.58);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 60;
+      padding: 14px;
+      overflow-y: auto;
+    }
+
+    .modal-mask.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      border: 2.5px solid var(--book-blue);
+      border-radius: 12px;
+      max-width: 580px;
+      width: 100%;
+      padding: 18px 20px;
+      text-align: center;
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin: 8px 0 14px;
+    }
+
+    .class-btn {
+      padding: 10px 6px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      border: 2px solid #94c6de;
+      background: #f8fbff;
+      color: #165b7d;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .class-btn:hover {
+      background: #e1f3fc;
+    }
+
+    .class-btn.selected {
+      background: var(--book-blue);
+      color: #ffffff;
+      border-color: #124d6b;
+    }
+
+    .num-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin: 8px 0 14px;
+    }
+
+    .num-btn {
+      padding: 7px 2px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .num-btn:hover {
+      background: #f1f5f9;
+    }
+
+    .num-btn.selected {
+      background: #d9386a;
+      color: #ffffff;
+      border-color: #a31d47;
+    }
+
+    .challenge-container {
+      max-width: 960px;
+      margin: 14px auto 0;
+      padding: 0 16px;
+      display: none;
+    }
+
+    .challenge-card {
+      background: #ffffff;
+      border: 2px solid #94b8d0;
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .diff-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      margin-right: 6px;
+    }
+
+    .diff-easy { background: #d8f3dc; color: #1b4332; }
+    .diff-mid { background: #ffedd5; color: #9a3412; }
+    .diff-hard { background: #ffe4e6; color: #9f1239; }
+
+    /* 挑戰題移除圖片，單欄清晰顯示 */
+    .challenge-q-item {
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .teacher-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 8px;
+    }
+
+    .teacher-table th,
+    .teacher-table td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 8px;
+      text-align: center;
+    }
+
+    .teacher-table th {
+      background: #e6f4fa;
+      color: #165b7d;
+      font-weight: 900;
+    }
+
+    .student-badge {
+      background: #fef9c3;
+      border: 1.5px solid #eab308;
+      color: #713f12;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tts-btn {
+      background: #eff6ff;
+      border: 1.5px solid #60a5fa;
+      color: #1d4ed8;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      vertical-align: middle;
+    }
+
+    .tts-btn:hover {
+      background: #dbeafe;
+    }
+
+    .challenge-q-item.unanswered-highlight {
+      border: 2.5px solid #e11d48;
+      background: #fff1f2;
+    }
+
+    .step-mode-bar {
+      display: none;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #cbd5e1;
+    }
+
+    .step-mode-btn {
+      padding: 5px 10px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      border-radius: 6px;
+      border: 1.5px solid #1f78b4;
+      background: #fff;
+      color: #15658a;
+      cursor: pointer;
+    }
+
+    .step-mode-btn.active {
+      background: #1f78b4;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 學生登入視窗（含老師直接觀看結果按鈕） -->
+  <div class="modal-mask show" id="loginModal" style="z-index: 90;">
+    <div class="modal-box" style="max-width: 520px;">
+      <div style="display:inline-block; background:#1f78b4; color:#fff; font-size:0.8rem; font-weight:800; padding:2px 10px; border-radius:4px; margin-bottom:4px;">
+        五年級科學科課堂練習
+      </div>
+      <h2 style="font-size:1.35rem; font-weight:900; color:#15658a; margin-bottom:4px;">
+        單元二：3 空氣的特性
+      </h2>
+      <p style="font-size:0.9rem; font-weight:700; color:#555; margin-bottom:12px;">
+        請先點選你的<strong>班別</strong>和<strong>學號</strong>：
+      </p>
+
+      <div style="text-align:left; font-weight:900; color:#165b7d; font-size:0.94rem;">
+        1. 選擇班別：
+      </div>
+      <div class="class-grid" id="loginClassGrid">
+        <button type="button" class="class-btn" data-cls="5A">5A</button>
+        <button type="button" class="class-btn" data-cls="5B">5B</button>
+        <button type="button" class="class-btn" data-cls="5C">5C</button>
+        <button type="button" class="class-btn" data-cls="5D">5D</button>
+        <button type="button" class="class-btn" data-cls="5E">5E</button>
+      </div>
+
+      <div id="seatNumberSection" style="display:none;">
+        <div style="text-align:left; font-weight:900; color:#165b7d; font-size:0.94rem;">
+          2. 選擇學號（1 – 34 號）：
+        </div>
+        <div class="num-grid" id="loginNumGrid"></div>
+      </div>
+
+      <div id="loginErrorMsg" style="display:none; color:#d9386a; font-weight:800; font-size:0.9rem; margin-bottom:8px;">
+        請先點選班別和學號！
+      </div>
+
+      <button id="startLearningBtn" type="button" class="btn-book-submit" style="width:100%; font-size:1.02rem; opacity:0.5;" disabled>
+        進入課本活動
+      </button>
+
+      <div style="margin-top:14px; padding-top:12px; border-top:1.5px dashed #cbd5e1;">
+        <button id="loginTeacherBtn" type="button" style="width:100%; padding:9px 12px; border-radius:8px; border:2px solid #165b7d; background:#f0f9ff; color:#165b7d; font-size:0.92rem; font-weight:900; cursor:pointer;">
+          🔒 老師觀看結果（雲端成績後台）
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 老師密碼驗證視窗（密碼：wisdom2668） -->
+  <div class="modal-mask" id="teacherAuthModal" style="z-index: 95;">
+    <div class="modal-box" style="max-width: 400px;">
+      <h3 style="font-size:1.2rem; font-weight:900; color:#15658a; margin-bottom:6px;">
+        🔒 老師雲端成績庫驗證
+      </h3>
+      <p style="font-size:0.86rem; font-weight:700; color:#555; margin-bottom:10px;">
+        請輸入老師專用密碼以開啟《雲端中央紀錄庫_科學空氣》：
+      </p>
+      <input type="password" id="teacherPwdInput" placeholder="請輸入老師密碼" style="width:100%; padding:9px 12px; border:2px solid #94c6de; border-radius:8px; font-size:1rem; font-weight:800; margin-bottom:8px; text-align:center;" />
+      <div id="teacherPwdError" style="display:none; color:#d9386a; font-weight:900; font-size:0.85rem; margin-bottom:8px;">
+        密碼不正確，請再試一次！
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button id="confirmTeacherPwdBtn" type="button" class="btn-book-submit" style="flex:1;">確認開啟</button>
+        <button id="cancelTeacherPwdBtn" type="button" class="btn-book-reset" style="flex:1;">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="book-header">
+    <div class="header-inner">
+      <div class="unit-title-group">
+        <div class="unit-num-circle">3</div>
+        <div>
+          <span class="unit-badge">單元二 物質與變化</span>
+          <h1 class="book-h1">空氣的特性</h1>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px;">
+        <div class="student-badge">
+          <span>學生：<strong id="currentStudentLabel">未選擇</strong></span>
+          <button id="switchStudentBtn" type="button" style="background:#fff; border:1px solid #ca8a04; color:#713f12; border-radius:4px; padding:1px 6px; font-size:0.76rem; font-weight:800; cursor:pointer;">
+            更改
+          </button>
+        </div>
+
+        <div class="progress-bar-box">
+          <span style="font-size:0.84rem; font-weight:800; color:#165b7d;">課堂活動：</span>
+          <div class="tick-dots" id="tickDotsRow"></div>
+          <span id="doneCountText" style="font-size:0.86rem; font-weight:900; color:#165b7d;">0 / 7</span>
+          <button id="openChallengeBtn" type="button" style="padding:5px 10px; border-radius:6px; border:1.5px solid #d9386a; background:#fff0f5; color:#b81d53; font-size:0.84rem; font-weight:900; cursor:pointer;">
+            小挑戰 (10題)
+          </button>
+          <button id="openTeacherBtn" type="button" style="padding:5px 10px; border-radius:6px; border:1.5px solid #165b7d; background:#fff; color:#165b7d; font-size:0.82rem; font-weight:800; cursor:pointer;">
+            🔒 老師雲端 Excel
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-tabs-bar" id="expNavTabsBar">
+    <div class="tabs-list" id="tabsList"></div>
+    <button id="toggleAirDotsBtn" type="button" class="air-view-btn active">
+      顯示空氣微粒：開
+    </button>
+  </nav>
+
+  <div id="topAlertBox" style="display:none; max-width:1120px; margin:10px auto 0; padding:0 16px;">
+    <div style="background:#fff3cd; border:2px solid #ffecb5; color:#664d03; padding:8px 14px; border-radius:8px; font-size:0.9rem; font-weight:700; display:flex; justify-content:space-between; align-items:center;">
+      <span id="topAlertText"></span>
+      <button id="closeAlertBtn" type="button" style="background:#fff; border:1px solid #cca846; padding:2px 8px; border-radius:6px; cursor:pointer; font-weight:700;">關閉</button>
+    </div>
+  </div>
+
+  <main class="book-page" id="mainBookPage">
+    <section class="page-card">
+      <div class="section-heading">
+        <span class="section-num" id="secNumEl">1</span>
+        <span id="secTitleEl">空氣佔有空間嗎？</span>
+      </div>
+
+      <p id="secDescEl" style="font-size:0.94rem; font-weight:700; color:var(--text-sub); margin-bottom:10px;">
+        打開密實袋充入空氣後封好，再用手按壓；或者把倒轉的杯子垂直壓入水中。
+      </p>
+
+      <div class="canvas-wrap">
+        <canvas id="bookCanvas" width="660" height="410"></canvas>
+
+        <div class="predict-overlay" id="predictOverlay">
+          <div class="predict-overlay-box">
+            <div style="font-size:1.05rem; font-weight:900; color:#15658a; margin-bottom:6px;">
+              請先完成右邊「1. 先估一估」
+            </div>
+            <p style="font-size:0.9rem; font-weight:700; color:#555;">
+              點選你的猜測之後，就可以開始做實驗或拉動氣壓箭頭！
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-controls">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <span style="font-size:0.92rem; font-weight:900; color:#15658a;" id="controlPromptText">
+            2. 動手做實驗（拉動滑桿或直接拉畫布上的箭頭）：
+          </span>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button id="subSceneSwitchBtn" type="button" style="display:none; padding:4px 10px; border-radius:6px; border:1.5px solid #1f78b4; background:#fff; color:#15658a; font-weight:800; font-size:0.84rem; cursor:pointer;">
+              切換實驗：壓杯入水
+            </button>
+            <button id="glassBottleSwitchBtn" type="button" style="display:none; padding:4px 10px; border-radius:6px; border:1.5px solid #9333ea; background:#faf5ff; color:#6b21a8; font-weight:900; font-size:0.84rem; cursor:pointer;">
+              🔄 換成硬玻璃樽試試（反例測試）
+            </button>
+            <button id="windExpSwitchBtn" type="button" style="display:none; padding:4px 10px; border-radius:6px; border:1.5px solid #0d9488; background:#f0fdfa; color:#0f766e; font-weight:900; font-size:0.84rem; cursor:pointer;">
+              🌊 切換：大自然海風形成
+            </button>
+            <button id="doExpActionBtn" type="button" style="padding:4px 12px; border-radius:6px; border:none; background:#1f78b4; color:#fff; font-weight:800; font-size:0.84rem; cursor:pointer;" disabled>
+              示範實驗效果
+            </button>
+          </div>
+        </div>
+
+        <div class="slider-row">
+          <span id="sliderMinText" style="font-size:0.84rem; font-weight:800; color:#555;">未按壓</span>
+          <input id="mainSlider" type="range" min="0" max="100" value="0" class="book-slider" disabled />
+          <span id="sliderMaxText" style="font-size:0.84rem; font-weight:800; color:#15658a;">用力按壓</span>
+        </div>
+
+        <!-- 活動 5 專用：冰水 / 室溫水 / 熱水 快速切換 -->
+        <div class="step-mode-bar" id="thermalQuickBar">
+          <span style="font-size:0.82rem; font-weight:900; color:#15658a; align-self:center;">快速切換水溫：</span>
+          <button type="button" class="step-mode-btn" data-temp="0">❄️ 放入冰水 (4°C)</button>
+          <button type="button" class="step-mode-btn" data-temp="40">💧 室溫水 (25°C)</button>
+          <button type="button" class="step-mode-btn" data-temp="100">🔥 放入熱水 (80°C)</button>
+        </div>
+
+        <!-- 活動 6（新：空氣受熱上升 p.54-55）專用：切換 天燈 / 火警逃生 / 空調機高度 -->
+        <div class="step-mode-bar" id="hotRiseSceneBar">
+          <span style="font-size:0.82rem; font-weight:900; color:#15658a; align-self:center;">課本 p.54–55 情境：</span>
+          <button type="button" class="step-mode-btn active" data-hotscene="lantern">🏮 1. 風筒吹天燈 (p.54)</button>
+          <button type="button" class="step-mode-btn" data-hotscene="fire">🚒 2. 火警蹲下爬行 (p.55)</button>
+          <button type="button" class="step-mode-btn" data-hotscene="ac">❄️ 3. 安裝空調機高度 (p.55)</button>
+        </div>
+
+        <!-- 活動 7 風的形成專用：分步拆解按鈕 -->
+        <div class="step-mode-bar" id="windStepBar">
+          <span style="font-size:0.82rem; font-weight:900; color:#15658a; align-self:center;">分步拆解：</span>
+          <button type="button" class="step-mode-btn" data-wstep="1">① 第一步：陸地受熱</button>
+          <button type="button" class="step-mode-btn" data-wstep="2">② 第二步：熱空氣上升</button>
+          <button type="button" class="step-mode-btn" data-wstep="3">③ 第三步：冷空氣補充成風</button>
+          <button type="button" class="step-mode-btn active" data-wstep="0">🔄 完整循環動畫</button>
+        </div>
+      </div>
+    </section>
+
+    <aside>
+      <div class="step-box">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span class="step-label" style="margin-bottom:0;">1. 先估一估</span>
+            <button id="ttsPredictBtn" type="button" class="tts-btn" title="粵語朗讀題目">🔊 讀題</button>
+          </div>
+          <span id="predictDoneTag" style="font-size:0.82rem; font-weight:700; color:#666;">未選擇</span>
+        </div>
+        <div id="predictQText" style="font-size:0.98rem; font-weight:900; margin-top:6px; margin-bottom:4px;">
+          把裝滿空氣的密實袋封好，你能夠把密實袋完全壓平嗎？
+        </div>
+        <div class="predict-grid" id="predictBtnsBox"></div>
+      </div>
+
+      <div class="step-box" id="explainBox" style="opacity:0.45; pointer-events:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <span class="step-label" style="margin-bottom:0;">2. 觀察與記錄</span>
+          <button id="ttsQuizBtn" type="button" class="tts-btn" title="粵語朗讀問題與選項">🔊 讀題</button>
+        </div>
+
+        <div class="discovery-box">
+          <div class="discovery-badge">小結 / 我發現</div>
+          <div id="discoverySentenceArea" style="font-size:0.98rem; font-weight:800; line-height:1.85; color:#222;"></div>
+        </div>
+
+        <div style="margin-top:10px;">
+          <div id="quizQuestionText" style="font-size:0.96rem; font-weight:900; margin-bottom:8px;"></div>
+
+          <div id="windOrderBox" style="display:none; background:#f5fbff; border:1.5px dashed #2b8cbe; border-radius:8px; padding:10px; margin-bottom:8px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.82rem; font-weight:800; color:#15658a; margin-bottom:6px;">
+              <span>依序點擊下方句子排列 1 ➔ 2 ➔ 3：</span>
+              <button id="resetOrderBtn" type="button" style="background:none; border:none; color:#d9386a; font-weight:800; cursor:pointer; text-decoration:underline;">重排</button>
+            </div>
+            <div id="orderSlot0" style="font-size:0.86rem; font-weight:800; padding:4px 8px; background:#fff; border:1px solid #b8d8e8; border-radius:6px; margin-bottom:4px;">1. (請點選)</div>
+            <div id="orderSlot1" style="font-size:0.86rem; font-weight:800; padding:4px 8px; background:#fff; border:1px solid #b8d8e8; border-radius:6px; margin-bottom:4px;">2. (請點選)</div>
+            <div id="orderSlot2" style="font-size:0.86rem; font-weight:800; padding:4px 8px; background:#fff; border:1px solid #b8d8e8; border-radius:6px;">3. (請點選)</div>
+          </div>
+
+          <div id="quizOptionsBox" style="display:flex; flex-direction:column; gap:8px;"></div>
+        </div>
+
+        <div class="book-action-row">
+          <button id="submitBtn" type="button" class="btn-book-submit">提交</button>
+          <button id="resetQuizBtn" type="button" class="btn-book-reset">重設</button>
+        </div>
+      </div>
+
+      <div class="teacher-note" id="teacherFeedbackBox">
+        請先在上方點選「<strong>1. 先估一估</strong>」，開始進行課本實驗。
+      </div>
+    </aside>
+  </main>
+
+  <section class="challenge-container" id="challengeSection">
+    <div class="challenge-card">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; border-bottom:2px solid #e2e8f0; padding-bottom:10px; margin-bottom:12px;">
+        <div>
+          <span class="unit-badge" style="background:#1f78b4;">課後小挑戰（共 10 題，由淺入深）</span>
+          <h2 style="font-size:1.22rem; font-weight:900; color:#15658a;">
+            「3 空氣的特性」小評估（滿分 100 分，70 分或以上獲發獎勵卡）
+          </h2>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span id="challengeProgressBadge" style="background:#edf6fc; border:1.5px solid #9ecae1; color:#15658a; padding:4px 10px; border-radius:6px; font-size:0.86rem; font-weight:900;">
+            已答：0 / 10 題
+          </span>
+          <button id="backToExpBtn" type="button" style="padding:6px 12px; border-radius:6px; border:1.5px solid #1f78b4; background:#fff; color:#15658a; font-weight:800; cursor:pointer;">
+            返回課本實驗
+          </button>
+        </div>
+      </div>
+
+      <div id="challengeQuestionsList"></div>
+
+      <div style="display:flex; gap:12px; margin-top:14px;">
+        <button id="submitChallengeBtn" type="button" class="btn-book-submit" style="font-size:1.02rem; padding:12px;">
+          提交答案並計算分數
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 成績單結算視窗（含可點擊切換狀態的圖片模擬實驗器，文字極簡） -->
+  <div class="modal-mask" id="resultModal">
+    <div class="modal-box" id="resultModalContent"></div>
+  </div>
+
+  <!-- 老師專屬後台（支援同步《雲端中央紀錄庫_科學空氣》Google 試算表） -->
+  <div class="modal-mask" id="teacherModal">
+    <div class="modal-box" style="max-width: 860px; text-align: left;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; border-bottom:2px solid #cbd5e1; padding-bottom:10px; margin-bottom:12px;">
+        <div>
+          <h3 style="font-size:1.18rem; font-weight:900; color:#15658a;">
+            📊 雲端中央紀錄庫_科學空氣（Google 試算表 & 雲端同步）
+          </h3>
+          <p style="font-size:0.82rem; font-weight:700; color:#555;">
+            自動連接您的 Google 試算表與跨電腦雲端資料庫，永久保留全班成績。
+          </p>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <a href="https://docs.google.com/spreadsheets/d/1Jw1N4qfchZ-6wHQpiqWcx9_A9w6d11BmnMvWVynJbGc/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="background:#0f9d58; color:#fff; text-decoration:none; padding:7px 11px; border-radius:6px; font-weight:900; font-size:0.84rem; display:inline-flex; align-items:center; gap:4px;">
+            📗 打開 Google 試算表
+          </a>
+          <button id="toggleSheetSetupBtn" type="button" style="background:#1f78b4; color:#fff; border:none; padding:7px 11px; border-radius:6px; font-weight:900; font-size:0.84rem; cursor:pointer;">
+            ⚙️ 永久寫入設定
+          </button>
+          <button id="exportExcelBtn" type="button" style="background:#2b9348; color:#fff; border:none; padding:7px 11px; border-radius:6px; font-weight:900; font-size:0.84rem; cursor:pointer;">
+            📥 匯出 Excel (.csv)
+          </button>
+          <button id="closeTeacherModalBtn" type="button" style="background:#7f8c8d; color:#fff; border:none; padding:7px 11px; border-radius:6px; font-weight:800; font-size:0.84rem; cursor:pointer;">
+            關閉
+          </button>
+        </div>
+      </div>
+
+      <!-- Google Sheet 自動寫入設定面板 -->
+      <div id="sheetSetupPanel" style="display:none; background:#f0f9ff; border:2px solid #38bdf8; border-radius:8px; padding:12px; margin-bottom:12px; font-size:0.84rem;">
+        <div style="font-weight:900; color:#0369a1; font-size:0.94rem; margin-bottom:6px;">
+          📌 Google 試算表《雲端中央紀錄庫_科學空氣》已永久連接！
+        </div>
+        <div style="display:flex; gap:6px; margin-bottom:8px;">
+          <input type="text" id="gasWebhookInput" value="https://script.google.com/macros/s/AKfycbyQPMHjyUjGQ1wif7OgDcPqf0Fm7H48ti6epBcBFpROSotPD6PO1M_pelpQXTwVEKiePw/exec" style="flex:1; padding:6px 10px; border:1.5px solid #94c6de; border-radius:6px; font-weight:700;" />
+          <button id="saveGasUrlBtn" type="button" style="background:#0284c7; color:#fff; border:none; padding:6px 12px; border-radius:6px; font-weight:900; cursor:pointer;">儲存並同步</button>
+        </div>
+      </div>
+
+      <div id="teacherWeaknessSummary" style="background:#fffdf5; border:1.5px solid #e2d194; border-radius:6px; padding:8px 12px; margin-bottom:10px; font-size:0.85rem; font-weight:800; color:#664d03;">
+        課堂難點統計：雲端讀取中...
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <label for="filterClassSelect" style="font-size:0.88rem; font-weight:900; color:#165b7d;">篩選班別：</label>
+          <select id="filterClassSelect" style="padding:4px 10px; border:1.5px solid #94c6de; border-radius:6px; font-weight:800;">
+            <option value="ALL">全部班別 (5A - 5E)</option>
+            <option value="5A">5A 班</option>
+            <option value="5B">5B 班</option>
+            <option value="5C">5C 班</option>
+            <option value="5D">5D 班</option>
+            <option value="5E">5E 班</option>
+          </select>
+        </div>
+        <div id="teacherStatsSummary" style="font-size:0.86rem; font-weight:800; color:#0d4663;">
+          共 0 筆記錄
+        </div>
+      </div>
+
+      <div style="max-height: 340px; overflow-y: auto; border:1px solid #cbd5e1; border-radius:6px;">
+        <table class="teacher-table">
+          <thead>
+            <tr>
+              <th>提交時間</th>
+              <th>班別</th>
+              <th>學號</th>
+              <th>實驗完成</th>
+              <th>挑戰分數</th>
+              <th>達標 (≥70)</th>
+              <th>需加強課題</th>
+            </tr>
+          </thead>
+          <tbody id="teacherTableBody">
+            <tr>
+              <td colspan="7" style="color:#777; font-weight:700; padding:18px;">正在從雲端同步成績記錄...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase + Google 試算表雙核心永久儲存模組 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    const GOOGLE_SHEET_ID = "1Jw1N4qfchZ-6wHQpiqWcx9_A9w6d11BmnMvWVynJbGc";
+    const DEFAULT_GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyQPMHjyUjGQ1wif7OgDcPqf0Fm7H48ti6epBcBFpROSotPD6PO1M_pelpQXTwVEKiePw/exec";
+
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'p5-science-air-default';
+    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+    
+    let db = null;
+    let auth = null;
+    let firestoreRecords = [];
+    let sheetRecords = [];
+
+    function getGasUrl() {
+      return localStorage.getItem("hk_p5_science_gas_url") || DEFAULT_GAS_WEBAPP_URL;
+    }
+
+    function getCombinedRecords() {
+      const map = new Map();
+      let localList = [];
+      try {
+        const s = localStorage.getItem("local_fallback_scores");
+        if (s) localList = JSON.parse(s);
+      } catch (e) {}
+
+      [...sheetRecords, ...firestoreRecords, ...localList].forEach((r) => {
+        if (!r) return;
+        const key = `${r.timeStr || ""}_${r.className || ""}_${r.seatNum || ""}_${r.score}`;
+        if (!map.has(key)) map.set(key, r);
+      });
+
+      return Array.from(map.values()).sort((a, b) => (b.timestampMs || 0) - (a.timestampMs || 0));
+    }
+
+    async function fetchFromGoogleSheet() {
+      const gasUrl = getGasUrl();
+      if (gasUrl && gasUrl.startsWith("https://script.google.com/")) {
+        try {
+          const res = await fetch(gasUrl);
+          const rows = await res.json();
+          if (Array.isArray(rows) && rows.length > 1) {
+            const parsed = [];
+            for (let i = 1; i < rows.length; i++) {
+              const r = rows[i];
+              if (!r || (!r[1] && !r[2])) continue;
+              const scoreNum = Number(String(r[4] || "0").replace(/[^0-9.]/g, "")) || 0;
+              parsed.push({
+                timeStr: String(r[0] || ""),
+                className: String(r[1] || ""),
+                seatNum: String(r[2] || "").replace(/[^0-9]/g, ""),
+                expDone: String(r[3] || "7/7"),
+                score: scoreNum,
+                passed: scoreNum >= 70,
+                weakPoints: String(r[6] || "全對"),
+                timestampMs: Number(r[7]) || Date.parse(String(r[0] || "")) || i
+              });
+            }
+            sheetRecords = parsed;
+            if (typeof window.renderTeacherTable === 'function') window.renderTeacherTable();
+            return;
+          }
+        } catch (err) {}
+      }
+
+      try {
+        const url = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=out:json`;
+        const res = await fetch(url);
+        const txt = await res.text();
+        const match = txt.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);/);
+        if (!match) return;
+        const data = JSON.parse(match[1]);
+        if (!data.table || !data.table.rows) return;
+
+        const parsed = [];
+        data.table.rows.forEach((row, idx) => {
+          const c = row.c;
+          if (!c) return;
+          const timeStr = c[0]?.f || c[0]?.v || "";
+          const className = c[1]?.v || "";
+          const seatNum = c[2]?.v || "";
+          if (timeStr === "提交時間" || className === "班別" || (!className && !seatNum)) return;
+          const expDone = c[3]?.v || "7/7";
+          const score = Number(c[4]?.v ?? 0);
+          const weakPoints = c[6]?.v || "全對";
+          const ts = Number(c[7]?.v) || Date.parse(timeStr) || (1700000000000 + idx * 1000);
+
+          parsed.push({
+            timeStr: String(timeStr),
+            className: String(className),
+            seatNum: String(seatNum).replace("號", "").trim(),
+            expDone: String(expDone),
+            score,
+            passed: score >= 70,
+            weakPoints: String(weakPoints),
+            timestampMs: ts
+          });
+        });
+
+        sheetRecords = parsed;
+        if (typeof window.renderTeacherTable === 'function') window.renderTeacherTable();
+      } catch (e) {}
+    }
+
+    async function initFirebase() {
+      fetchFromGoogleSheet();
+      try {
+        if (!firebaseConfig || Object.keys(firebaseConfig).length === 0) return;
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        auth = getAuth(app);
+
+        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+          await signInWithCustomToken(auth, __initial_auth_token);
+        } else {
+          await signInAnonymously(auth);
+        }
+
+        const scoresColRef = collection(db, 'artifacts', appId, 'public', 'data', 'student_scores');
+        onSnapshot(scoresColRef, (snapshot) => {
+          firestoreRecords = [];
+          snapshot.forEach((docSnap) => {
+            firestoreRecords.push({ id: docSnap.id, ...docSnap.data() });
+          });
+          if (typeof window.renderTeacherTable === 'function') window.renderTeacherTable();
+        });
+      } catch (e) {}
+    }
+
+    async function saveRecordCloud(recordObj) {
+      fallbackLocalStorage(recordObj);
+
+      const gasUrl = getGasUrl();
+      if (gasUrl && gasUrl.startsWith("https://script.google.com/")) {
+        try {
+          await fetch(gasUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(recordObj)
+          });
+          setTimeout(fetchFromGoogleSheet, 1500);
+        } catch (e) {}
+      }
+
+      if (db) {
+        try {
+          const scoresColRef = collection(db, 'artifacts', appId, 'public', 'data', 'student_scores');
+          await addDoc(scoresColRef, recordObj);
+        } catch (err) {}
+      }
+    }
+
+    function fallbackLocalStorage(recordObj) {
+      try {
+        const saved = localStorage.getItem("local_fallback_scores");
+        const list = saved ? JSON.parse(saved) : [];
+        list.unshift(recordObj);
+        localStorage.setItem("local_fallback_scores", JSON.stringify(list));
+        if (typeof window.renderTeacherTable === 'function') window.renderTeacherTable();
+      } catch(e) {}
+    }
+
+    initFirebase();
+
+    window.cloudRecords = getCombinedRecords;
+    window.saveRecordCloud = saveRecordCloud;
+    window.refreshGoogleSheet = fetchFromGoogleSheet;
+  </script>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("bookCanvas");
+      const ctx = canvas.getContext("2d");
+
+      let studentInfo = {
+        className: "5A",
+        seatNum: 1
+      };
+
+      // ====== 成績表專用：圖片式互動模擬實驗器（可點擊切換狀態，極少字） ======
+      function getInteractiveSimSVG(type, stateToggle = 0) {
+        const isAfter = stateToggle === 1;
+        const diagrams = {
+          bag_space: isAfter
+            ? `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="16" y="34" width="118" height="44" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5"/>
+                <circle cx="42" cy="55" r="4.5" fill="#0284c7"/><circle cx="75" cy="52" r="4.5" fill="#0284c7"/><circle cx="108" cy="56" r="4.5" fill="#0284c7"/>
+                <path d="M52 8 L52 30 M98 8 L98 30" stroke="#e11d48" stroke-width="4"/>
+                <path d="M75 68 L75 40" stroke="#1d70b8" stroke-width="4"/>
+                <text x="75" y="22" font-size="11" font-weight="900" fill="#be123c" text-anchor="middle">手按壓：壓不平</text>
+              </svg>`
+            : `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="26" y="20" width="98" height="58" rx="20" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.5"/>
+                <circle cx="52" cy="48" r="4.5" fill="#0284c7"/><circle cx="75" cy="42" r="4.5" fill="#0284c7"/><circle cx="98" cy="50" r="4.5" fill="#0284c7"/>
+                <text x="75" y="15" font-size="11" font-weight="900" fill="#0369a1" text-anchor="middle">未按壓（充滿空氣）</text>
+              </svg>`,
+          cup_water: isAfter
+            ? `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="15" y="32" width="120" height="54" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+                <rect x="48" y="24" width="54" height="54" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+                <rect x="54" y="27" width="42" height="10" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+                <circle cx="63" cy="52" r="4" fill="#0284c7"/><circle cx="85" cy="54" r="4" fill="#0284c7"/>
+                <text x="75" y="16" font-size="11" font-weight="900" fill="#0369a1" text-anchor="middle">壓入水中：空氣擋水</text>
+              </svg>`
+            : `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="15" y="48" width="120" height="38" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+                <rect x="48" y="6" width="54" height="40" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+                <rect x="54" y="9" width="42" height="10" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+                <text x="75" y="68" font-size="11" font-weight="900" fill="#0369a1" text-anchor="middle">壓入水前</text>
+              </svg>`,
+          ball_weight: isAfter
+            ? `<svg width="150" height="92" viewBox="0 0 150 92">
+                <circle cx="75" cy="34" r="22" fill="#facc15" stroke="#1e293b" stroke-width="2.5"/>
+                <circle cx="68" cy="32" r="3.5" fill="#0284c7"/><circle cx="82" cy="36" r="3.5" fill="#0284c7"/>
+                <rect x="42" y="58" width="66" height="22" rx="4" fill="#0f172a"/>
+                <text x="75" y="73" font-size="12" font-weight="900" fill="#38bdf8" text-anchor="middle">充滿氣：265 g</text>
+              </svg>`
+            : `<svg width="150" height="92" viewBox="0 0 150 92">
+                <ellipse cx="75" cy="42" rx="22" ry="12" fill="#fde047" stroke="#1e293b" stroke-width="2.5"/>
+                <rect x="42" y="58" width="66" height="22" rx="4" fill="#0f172a"/>
+                <text x="75" y="73" font-size="12" font-weight="900" fill="#94a3b8" text-anchor="middle">洩了氣：260 g</text>
+              </svg>`,
+          hot_cold: isAfter
+            ? `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="35" y="54" width="80" height="30" rx="4" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+                <circle cx="75" cy="24" r="18" fill="#ef4444"/>
+                <circle cx="70" cy="22" r="3.5" fill="#fde047"/><circle cx="81" cy="25" r="3.5" fill="#fde047"/>
+                <text x="75" y="74" font-size="11" font-weight="900" fill="#9a3412" text-anchor="middle">熱水：受熱膨脹</text>
+              </svg>`
+            : `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="35" y="54" width="80" height="30" rx="4" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+                <ellipse cx="64" cy="40" rx="12" ry="6" fill="#e11d48"/>
+                <text x="75" y="74" font-size="11" font-weight="900" fill="#075985" text-anchor="middle">冰水：遇冷收縮</text>
+              </svg>`,
+          juice_pressure: isAfter
+            ? `<svg width="150" height="92" viewBox="0 0 150 92">
+                <path d="M52 16 L98 16 Q82 48 98 80 L52 80 Q68 48 52 16 Z" fill="#fef08a" stroke="#854d0e" stroke-width="2.5"/>
+                <path d="M12 48 L42 48" stroke="#1d70b8" stroke-width="7"/>
+                <polygon points="42,38 54,48 42,58" fill="#1d70b8"/>
+                <path d="M138 48 L108 48" stroke="#1d70b8" stroke-width="7"/>
+                <polygon points="108,38 96,48 108,58" fill="#1d70b8"/>
+                <text x="75" y="12" font-size="10" font-weight="900" fill="#1d70b8" text-anchor="middle">外氣壓大 ＞ 內氣壓小</text>
+              </svg>`
+            : `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="52" y="18" width="46" height="62" fill="#fef08a" stroke="#854d0e" stroke-width="2.5"/>
+                <path d="M18 48 L44 48" stroke="#1d70b8" stroke-width="5"/>
+                <polygon points="44,41 52,48 44,55" fill="#1d70b8"/>
+                <path d="M72 48 L56 48" stroke="#e63976" stroke-width="5"/>
+                <text x="75" y="12" font-size="10" font-weight="900" fill="#475569" text-anchor="middle">吸氣前：內外氣壓相同</text>
+              </svg>`,
+          suction_cup: isAfter
+            ? `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="24" y="10" width="16" height="72" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+                <path d="M40 20 Q50 46 40 72 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="2.5"/>
+                <path d="M115 46 L58 46" stroke="#1d70b8" stroke-width="7"/>
+                <polygon points="58,36 45,46 58,56" fill="#1d70b8"/>
+                <text x="95" y="26" font-size="10" font-weight="900" fill="#1d70b8" text-anchor="middle">外氣壓大壓緊</text>
+              </svg>`
+            : `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="24" y="10" width="16" height="72" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+                <path d="M40 18 Q74 46 40 74 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="2.5"/>
+                <circle cx="48" cy="46" r="4" fill="#0284c7"/>
+                <text x="95" y="48" font-size="10" font-weight="900" fill="#475569" text-anchor="middle">未擠出空氣</text>
+              </svg>`,
+          hot_rise: isAfter
+            ? `<svg width="150" height="92" viewBox="0 0 150 92">
+                <rect x="18" y="12" width="114" height="70" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+                <rect x="24" y="18" width="28" height="12" rx="2" fill="#22c55e"/>
+                <text x="38" y="27" font-size="8" font-weight="900" fill="#fff" text-anchor="middle">高度A</text>
+                <path d="M58 24 L95 58" stroke="#0284c7" stroke-width="3.5"/>
+                <path d="M105 65 L105 25" stroke="#ea580c" stroke-width="3.5"/>
+                <text x="86" y="76" font-size="10" font-weight="900" fill="#0f4c75" text-anchor="middle">熱升冷降・全屋涼快</text>
+              </svg>`
+            : `<svg width="150" height="92" viewBox="0 0 150 92">
+                <path d="M52 14 L98 14 L90 58 L60 58 Z" fill="#ffffff" stroke="#0284c7" stroke-width="2.5"/>
+                <circle cx="68" cy="32" r="4" fill="#ef4444"/><circle cx="82" cy="28" r="4" fill="#ef4444"/>
+                <path d="M75 76 L75 38" stroke="#ea580c" stroke-width="4"/>
+                <polygon points="68,40 75,28 82,40" fill="#ea580c"/>
+                <text x="75" y="88" font-size="10" font-weight="900" fill="#c2410c" text-anchor="middle">熱空氣上升（天燈升空）</text>
+              </svg>`,
+          sea_wind: isAfter
+            ? `<svg width="150" height="92" viewBox="0 0 150 92">
+                <circle cx="26" cy="18" r="10" fill="#facc15" stroke="#ea580c" stroke-width="2"/>
+                <path d="M0 68 Q38 60 70 72 L70 90 L0 90 Z" fill="#4ade80"/>
+                <rect x="70" y="70" width="80" height="20" fill="#0284c7"/>
+                <path d="M42 62 L42 24" stroke="#ea580c" stroke-width="4.5"/>
+                <polygon points="35,26 42,14 49,26" fill="#ea580c"/>
+                <path d="M126 56 L62 56" stroke="#1d70b8" stroke-width="4.5"/>
+                <polygon points="64,49 52,56 64,63" fill="#1d70b8"/>
+                <text x="95" y="44" font-size="10" font-weight="900" fill="#1d70b8" text-anchor="middle">1.熱升 ➔ 2.冷補充</text>
+              </svg>`
+            : `<svg width="150" height="92" viewBox="0 0 150 92">
+                <path d="M0 68 Q38 60 70 72 L70 90 L0 90 Z" fill="#4ade80"/>
+                <rect x="70" y="70" width="80" height="20" fill="#0284c7"/>
+                <circle cx="42" cy="52" r="4" fill="#ef4444"/><circle cx="105" cy="56" r="4" fill="#0284c7"/>
+                <text x="75" y="30" font-size="10" font-weight="900" fill="#475569" text-anchor="middle">點擊模擬空氣流動</text>
+              </svg>`
+        };
+        return diagrams[type] || diagrams.bag_space;
+      }
+
+      // ====== 10 題由淺入深小挑戰（新增課本 p.54–55 天燈、火警爬行及空調機高度題目） ======
+      const CHALLENGE_QUESTIONS = [
+        {
+          qNum: 1,
+          diffLabel: "第 1 題（易）",
+          diffClass: "diff-easy",
+          diagramKey: "bag_space",
+          topicName: "密實袋與空氣佔空間",
+          question: "把裝滿空氣的密實袋封好，用手往下按卻壓不平。為甚麼？",
+          options: [
+            { id: "q1_a", text: "空氣佔有空間", correct: true },
+            { id: "q1_b", text: "袋內甚麼都沒有", correct: false },
+            { id: "q1_c", text: "膠袋自己變硬了", correct: false }
+          ],
+          shortExplain: "空氣佔有空間，撐住密實袋。"
+        },
+        {
+          qNum: 2,
+          diffLabel: "第 2 題（易）",
+          diffClass: "diff-easy",
+          diagramKey: "cup_water",
+          topicName: "壓杯入水紙巾不濕",
+          question: "把杯底貼有乾紙巾的杯子垂直倒轉壓入水中，為甚麼紙巾不會濕？",
+          options: [
+            { id: "q2_a", text: "杯內的空氣佔有空間，擋住了水", correct: true },
+            { id: "q2_b", text: "紙巾有防水膠水", correct: false },
+            { id: "q2_c", text: "水不會進入任何杯子", correct: false }
+          ],
+          shortExplain: "杯內空氣佔有空間，水進不去。"
+        },
+        {
+          qNum: 3,
+          diffLabel: "第 3 題（易）",
+          diffClass: "diff-easy",
+          diagramKey: "ball_weight",
+          topicName: "空氣具有重量",
+          question: "電子磅上，「充滿氣的排球」比「洩了氣的排球」重，證明了甚麼？",
+          options: [
+            { id: "q3_a", text: "空氣是有重量的", correct: true },
+            { id: "q3_b", text: "空氣沒有重量", correct: false },
+            { id: "q3_c", text: "排球皮變重了", correct: false }
+          ],
+          shortExplain: "充滿氣較重 ＝ 空氣有重量。"
+        },
+        {
+          qNum: 4,
+          diffLabel: "第 4 題（中）",
+          diffClass: "diff-mid",
+          diagramKey: "hot_cold",
+          topicName: "空氣受熱膨脹",
+          question: "把套有氣球的空膠樽放入「熱水」中，氣球會膨脹。為甚麼？",
+          options: [
+            { id: "q4_a", text: "樽內的空氣受熱膨脹", correct: true },
+            { id: "q4_b", text: "熱水流進了氣球裏", correct: false },
+            { id: "q4_c", text: "樽內的空氣受熱收縮", correct: false }
+          ],
+          shortExplain: "熱水 ➔ 樽內空氣受熱膨脹。"
+        },
+        {
+          qNum: 5,
+          diffLabel: "第 5 題（中）",
+          diffClass: "diff-mid",
+          diagramKey: "hot_cold",
+          topicName: "空氣遇冷收縮",
+          question: "把套有氣球的空膠樽放入「冰水」中，樽口的氣球會怎樣？",
+          options: [
+            { id: "q5_a", text: "空氣遇冷收縮，氣球縮小垂下", correct: true },
+            { id: "q5_b", text: "空氣遇冷膨脹，氣球變大", correct: false },
+            { id: "q5_c", text: "氣球大小不變", correct: false }
+          ],
+          shortExplain: "冰水 ➔ 樽內空氣遇冷收縮。"
+        },
+        {
+          qNum: 6,
+          diffLabel: "第 6 題（中）",
+          diffClass: "diff-mid",
+          diagramKey: "hot_rise",
+          topicName: "天燈與火警逃生（熱空氣上升）",
+          question: "用風筒把熱空氣吹進天燈會升空；火警時我們要蹲下爬行逃生。這是因為：",
+          options: [
+            { id: "q6_a", text: "空氣受熱會上升（濃煙升上高處，近地面空氣較清新）", correct: true },
+            { id: "q6_b", text: "空氣受熱會下降到地面", correct: false },
+            { id: "q6_c", text: "熱空氣比冷空氣重", correct: false }
+          ],
+          shortExplain: "空氣受熱會上升 ➔ 天燈升空、濃煙升向高處。"
+        },
+        {
+          qNum: 7,
+          diffLabel: "第 7 題（深）",
+          diffClass: "diff-hard",
+          diagramKey: "hot_rise",
+          topicName: "安裝空調機的高度",
+          question: "根據空氣的特性，把空調機（冷氣機）安裝在房間的「高度 A（較高位置）」最合適。為甚麼？",
+          options: [
+            { id: "q7_a", text: "冷空氣會下降，熱空氣會上升，令全屋空氣循環變涼", correct: true },
+            { id: "q7_b", text: "因為冷空氣只會向上升", correct: false },
+            { id: "q7_c", text: "高度 A 只是為了好看，與空氣流動無關", correct: false }
+          ],
+          shortExplain: "高處吹出冷空氣下沉 ➔ 下方熱空氣上升 ➔ 全屋涼快。"
+        },
+        {
+          qNum: 8,
+          diffLabel: "第 8 題（深）",
+          diffClass: "diff-hard",
+          diagramKey: "juice_pressure",
+          topicName: "飲品盒與氣壓箭頭",
+          question: "吸走飲品盒內的空氣後，盒內外氣壓怎樣令飲品盒凹陷？",
+          options: [
+            { id: "q8_a", text: "盒內氣壓減少（細箭頭），盒外較大氣壓（大箭頭）把盒壓扁", correct: true },
+            { id: "q8_b", text: "盒內氣壓變大（大箭頭），把紙盒推扁", correct: false },
+            { id: "q8_c", text: "盒內外氣壓一樣大", correct: false }
+          ],
+          shortExplain: "盒外氣壓大（粗箭頭）＞ 盒內氣壓小（細箭頭）。"
+        },
+        {
+          qNum: 9,
+          diffLabel: "第 9 題（深）",
+          diffClass: "diff-hard",
+          diagramKey: "suction_cup",
+          topicName: "吸盤掛鈎與氣壓",
+          question: "擠出吸盤內的空氣後，為甚麼吸盤能緊貼牆壁掛起毛巾？",
+          options: [
+            { id: "q9_a", text: "吸盤內氣壓小（細箭頭），外面較大氣壓（大箭頭）把吸盤壓緊在牆上", correct: true },
+            { id: "q9_b", text: "吸盤內的氣壓比外面大", correct: false },
+            { id: "q9_c", text: "吸盤自己會產生膠水", correct: false }
+          ],
+          shortExplain: "外氣壓大（粗箭頭）把吸盤壓緊在牆上。"
+        },
+        {
+          qNum: 10,
+          diffLabel: "第 10 題（最深）",
+          diffClass: "diff-hard",
+          diagramKey: "sea_wind",
+          topicName: "風的形成與空氣流動",
+          question: "扇子撥動空氣或太陽照射海岸都會形成風。大自然的海風是怎樣形成的？",
+          options: [
+            { id: "q10_a", text: "1.陸地空氣受熱膨脹上升 ➔ 2.海洋冷空氣流向陸地補充（空氣流動形成風）", correct: true },
+            { id: "q10_b", text: "1.陸地空氣受熱下沉 ➔ 2.吹向海洋", correct: false },
+            { id: "q10_c", text: "1.海洋冷空氣上升 ➔ 2.熱空氣下沉", correct: false }
+          ],
+          shortExplain: "1.陸地熱空氣升 ➔ 2.海洋冷空氣流過去補充。"
+        }
+      ];
+
+      // ====== 課本 7 個核心活動（新增第 6 節：課本 p.54–55 空氣受熱後會有甚麼變化？） ======
+      const ACTIVITIES = [
+        {
+          id: "space",
+          tabTitle: "1 佔有空間",
+          heading: "空氣佔有空間嗎？",
+          desc: "用手按壓充了空氣的密實袋；或把杯子垂直壓入水中。",
+          sliderMin: "未按壓",
+          sliderMax: "用力按壓",
+          diagramKey: "bag_space",
+          predictQ: "把裝滿空氣的密實袋封好，用手往下按，能夠完全壓平嗎？",
+          predictOpts: ["不能完全壓平", "能夠完全壓平"],
+          discoveryParts: [
+            { type: "text", val: "• 空氣 " },
+            { type: "pair", opts: ["佔有", "不佔有"], ans: 0 },
+            { type: "text", val: " 空間。" }
+          ],
+          quizType: "choice",
+          quizQ: "為甚麼密實袋壓不平？",
+          choices: [
+            { id: "c1", text: "袋內的空氣佔有空間，撐住袋子", correct: true },
+            { id: "w1", text: "袋子裏面甚麼都沒有", correct: false, hint: "袋內空氣佔空間，頂住雙手。" },
+            { id: "w2", text: "膠袋自己變硬了", correct: false, hint: "袋內空氣佔空間，頂住雙手。" }
+          ]
+        },
+        {
+          id: "weight",
+          tabTitle: "2 有重量",
+          heading: "空氣有重量嗎？",
+          desc: "用電子磅量度「洩了氣的排球」和「充滿氣的排球」。",
+          sliderMin: "洩了氣的排球",
+          sliderMax: "充滿氣的排球",
+          diagramKey: "ball_weight",
+          predictQ: "「充滿氣的排球」和「洩了氣的排球」，哪一個比較重？",
+          predictOpts: ["充滿氣的排球較重", "兩個一樣重"],
+          discoveryParts: [
+            { type: "text", val: "• 空氣 " },
+            { type: "pair", opts: ["有", "沒有"], ans: 0 },
+            { type: "text", val: " 重量。" }
+          ],
+          quizType: "choice",
+          quizQ: "充滿氣的排球較重（265g > 260g），證明了甚麼？",
+          choices: [
+            { id: "c1", text: "空氣是有重量的", correct: true },
+            { id: "w1", text: "空氣沒有重量", correct: false, hint: "充滿氣重了 5g ＝ 空氣有重量。" },
+            { id: "w2", text: "電子磅壞了", correct: false, hint: "充滿氣重了 5g ＝ 空氣有重量。" }
+          ]
+        },
+        {
+          id: "juice",
+          tabTitle: "3 飲品盒氣壓",
+          heading: "飲品盒與氣壓（可切換硬玻璃樽反例測試）",
+          desc: "直接在下圖【左右拉動紅、藍氣壓箭頭】，或按「🔄 換成硬玻璃樽試試」！",
+          sliderMin: "內外氣壓相同",
+          sliderMax: "吸出空氣",
+          diagramKey: "juice_pressure",
+          predictQ: "用飲管吸出飲品盒內的空氣時，飲品盒會怎樣？",
+          predictOpts: ["向內凹陷變扁", "向外膨脹變大"],
+          discoveryParts: [
+            { type: "text", val: "• 吸出空氣後，盒內空氣 " },
+            { type: "pair", opts: ["增加", "減少"], ans: 1 },
+            { type: "text", val: " ，令盒內氣壓 " },
+            { type: "pair", opts: ["增加", "減少"], ans: 1 },
+            { type: "text", val: " ，盒外氣壓 " },
+            { type: "pair", opts: ["大於", "小於"], ans: 0 },
+            { type: "text", val: " 盒內氣壓。" }
+          ],
+          quizType: "choice",
+          quizQ: "看圖中的箭頭大小，為甚麼飲品盒會凹陷？",
+          choices: [
+            { id: "c1", text: "盒外氣壓（藍色大箭頭）大於盒內氣壓（紅色細箭頭）", correct: true },
+            { id: "w1", text: "盒內和盒外箭頭一樣大", correct: false, hint: "外氣壓大（藍粗箭頭）＞ 內氣壓小（紅細箭頭）。" },
+            { id: "w2", text: "因為飲管有磁力把紙盒吸扁", correct: false, hint: "換成硬玻璃樽就吸唔扁！係外面大氣壓強推扁軟紙盒。" }
+          ]
+        },
+        {
+          id: "suction",
+          tabTitle: "4 吸盤掛鈎",
+          heading: "吸盤掛鈎怎樣應用氣壓？",
+          desc: "直接在下圖【拉動氣壓箭頭】或按壓吸盤，觀察箭頭粗幼變化。",
+          sliderMin: "未擠出空氣",
+          sliderMax: "擠出吸盤內空氣",
+          diagramKey: "suction_cup",
+          predictQ: "把吸盤與牆壁之間的空氣擠壓出來後，吸盤能緊貼牆壁掛起毛巾嗎？",
+          predictOpts: ["能緊貼牆壁", "會掉下來"],
+          discoveryParts: [
+            { type: "text", val: "• 擠出空氣後，吸盤內氣壓 " },
+            { type: "pair", opts: ["大於", "小於"], ans: 1 },
+            { type: "text", val: " 外面氣壓，外面氣壓把吸盤 " },
+            { type: "pair", opts: ["壓緊在牆上", "推離牆壁"], ans: 0 },
+            { type: "text", val: " 。" }
+          ],
+          quizType: "choice",
+          quizQ: "為甚麼擠出空氣後，吸盤掛鈎不會掉下來？",
+          choices: [
+            { id: "c1", text: "吸盤內氣壓小（細箭頭），外面較大氣壓（大箭頭）把吸盤壓緊在牆上", correct: true },
+            { id: "w1", text: "因為吸盤內的氣壓比外面大", correct: false, hint: "外氣壓大（藍粗箭頭）＞ 內氣壓小（紅細箭頭）。" },
+            { id: "w2", text: "因為吸盤上有塗膠水", correct: false, hint: "外氣壓大（藍粗箭頭）壓緊吸盤。" }
+          ]
+        },
+        {
+          id: "thermal",
+          tabTitle: "5 受熱和遇冷",
+          heading: "空氣受熱和遇冷時的變化（微粒間距放大鏡）",
+          desc: "拉動滑桿或點擊下方按鈕切換「❄️ 冰水 (4°C)」與「🔥 熱水 (80°C)」，觀察微粒距離與氣球變化。",
+          sliderMin: "❄️ 冰水 (4°C)",
+          sliderMax: "🔥 熱水 (80°C)",
+          defaultVal: 40,
+          diagramKey: "hot_cold",
+          predictQ: "把套有氣球的空膠樽放入「熱水」中，氣球會怎樣？",
+          predictOpts: ["氣球會膨脹", "氣球會收縮"],
+          discoveryParts: [
+            { type: "text", val: "• 空氣受熱會 " },
+            { type: "pair", opts: ["膨脹", "收縮"], ans: 0 },
+            { type: "text", val: " ，遇冷會 " },
+            { type: "pair", opts: ["膨脹", "收縮"], ans: 1 },
+            { type: "text", val: " 。" }
+          ],
+          quizType: "choice",
+          quizQ: "為甚麼空膠樽放進熱水時，氣球會脹起？",
+          choices: [
+            { id: "c1", text: "樽內的空氣受熱，微粒距離拉大而膨脹", correct: true },
+            { id: "w1", text: "熱水流進了氣球裏", correct: false, hint: "熱水 ➔ 樽內空氣受熱膨脹。" },
+            { id: "w2", text: "空氣受熱會收縮", correct: false, hint: "熱水 ➔ 氣球變大（受熱膨脹）。" }
+          ]
+        },
+        {
+          id: "hot_rise",
+          tabTitle: "6 空氣受熱上升",
+          heading: "4 空氣受熱後會有甚麼變化？（天燈、火警與空調機）",
+          desc: "課本 p.54–55：用風筒把熱空氣吹進天燈內；並觀察火警蹲下逃生與房間安裝空調機的高度（A / B / C）。",
+          sliderMin: "未加熱 / 初始狀態",
+          sliderMax: "開啟風筒吹熱空氣 / 啟動對流",
+          diagramKey: "hot_rise",
+          predictQ: "用風筒把熱空氣吹進白色膠袋天燈內，放手後天燈會怎樣？",
+          predictOpts: ["向上升起", "向下掉落"],
+          discoveryParts: [
+            { type: "text", val: "• 課本小結：空氣受熱會（ " },
+            { type: "pair", opts: ["上升", "下降"], ans: 0 },
+            { type: "text", val: " ）。火警時濃煙會飄浮在（ " },
+            { type: "pair", opts: ["較高", "較低"], ans: 0 },
+            { type: "text", val: " ）位置，所以要蹲下爬行逃生。" }
+          ],
+          quizType: "choice",
+          quizQ: "樂學活用（課本 p.55）：我們應該把空調機（冷氣機）安裝在房間的哪個高度最合適？",
+          choices: [
+            { id: "c1", text: "高度 A（最高處）：因為冷空氣會下降、熱空氣會上升，令全屋空氣循環變涼", correct: true },
+            { id: "w1", text: "高度 C（最低處）：因為冷空氣只會向上升", correct: false, hint: "冷空氣較重會下降，如果裝喺高度 C（地面），冷氣只會留喺地面，上面仲係好熱！" },
+            { id: "w2", text: "高度 B（中間）：因為冷熱空氣不會流動", correct: false, hint: "試下喺左圖點選「高度 A」：冷空氣由高處吹出向下沉，熱空氣上升，全屋先會涼快！" }
+          ]
+        },
+        {
+          id: "wind",
+          tabTitle: "7 風的形成",
+          heading: "3 風的形成跟空氣有甚麼關係？",
+          desc: "課本實驗：將扇子對着自己輕輕搧幾下，觀察頭髮變化；或切換觀察大自然海風形成。",
+          sliderMin: "停止搧扇子",
+          sliderMax: "撥動扇子（空氣流動）",
+          diagramKey: "sea_wind",
+          predictQ: "將扇子對着自己輕輕搧幾下，你的頭髮會有甚麼變化？",
+          predictOpts: ["頭髮被風吹動飄起", "頭髮完全不會動"],
+          discoveryParts: [
+            { type: "text", val: "• 課本小結：" },
+            { type: "pair", opts: ["風", "雲"], ans: 0 },
+            { type: "text", val: " 的形成是源於空氣的 " },
+            { type: "pair", opts: ["流動", "靜止"], ans: 0 },
+            { type: "text", val: " 。日間陸地空氣受熱 " },
+            { type: "pair", opts: ["上升", "下沉"], ans: 0 },
+            { type: "text", val: " ，海洋冷空氣流向陸地補充便形成海風。" }
+          ],
+          quizType: "order",
+          quizQ: "點擊排出「風的形成」 1 ➔ 2 ➔ 3：",
+          orderItems: [
+            "海洋冷空氣流向陸地補充（空氣流動形成風）",
+            "太陽曬熱陸地，空氣受熱膨脹",
+            "熱空氣向上升起"
+          ],
+          correctOrder: [1, 2, 0],
+          orderHint: "1.陸地空氣受熱膨脹 ➔ 2.熱空氣上升 ➔ 3.冷空氣補充成風。"
+        }
+      ];
+
+      let curIdx = 0;
+      let showAirDots = true;
+      let spaceSubMode = "bag";
+      let juiceSubMode = "box"; // "box" (軟紙盒) 或 "glass" (硬玻璃樽反例)
+      let hotRiseSubMode = "lantern"; // "lantern" (p.54 天燈) | "fire" (p.55 火警逃生) | "ac" (p.55 空調機高度)
+      let acSelectedHeight = "A"; // "A" (高) | "B" (中) | "C" (低)
+      let windSubMode = "fan";  // "fan" (扇子撥動空氣吹頭髮) 或 "sea" (大自然海風)
+      let windStepMode = 0;     // 0:完整循環, 1:陸地受熱, 2:熱空氣上升, 3:冷空氣補充成風
+      let sliderVal = 0;
+      let tick = 0;
+
+      let pressureDrag = {
+        outP: 85,
+        inP: 85,
+        draggingTarget: null
+      };
+
+      function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      const states = ACTIVITIES.map((act) => ({
+        predictedIdx: null,
+        passed: false,
+        circledMap: {},
+        shuffledChoices: act.quizType === "choice" ? shuffle(act.choices) : [],
+        pickedChoiceId: null,
+        userOrder: []
+      }));
+
+      let challengeAnswers = {};
+      let shuffledChallengeList = CHALLENGE_QUESTIONS.map((q) => ({
+        ...q,
+        shuffledOpts: shuffle(q.options)
+      }));
+
+      const airDots = Array.from({ length: 48 }, () => ({
+        x: Math.random(),
+        y: Math.random(),
+        vx: (Math.random() - 0.5) * 0.01,
+        vy: (Math.random() - 0.5) * 0.01
+      }));
+
+      const convectionLoopDots = Array.from({ length: 32 }, (_, i) => ({
+        t: i / 32,
+        lane: (i % 3 - 1) * 9
+      }));
+
+      const fanWindDots = Array.from({ length: 34 }, (_, i) => ({
+        prog: (i / 34),
+        lane: ((i % 7) - 3) * 16,
+        size: 3.6 + (i % 3) * 0.9,
+        phase: i * 0.7
+      }));
+
+      // 活動 6（天燈 / 火警 / 空調）專用高擬真粒子系統
+      const lanternAirDots = Array.from({ length: 38 }, (_, i) => ({
+        prog: (i / 38),
+        lane: ((i % 7) - 3) * 0.14,
+        wobble: i * 0.9,
+        speed: 0.85 + (i % 4) * 0.12
+      }));
+
+      const fireSmokePlumes = Array.from({ length: 28 }, (_, i) => ({
+        prog: (i / 28),
+        xOffset: (i % 5 - 2) * 18,
+        drift: 0.6 + (i % 4) * 0.25,
+        size: 14 + (i % 4) * 6
+      }));
+
+      const roomConvectionDots = Array.from({ length: 36 }, (_, i) => ({
+        t: i / 36,
+        lane: ((i % 5) - 2) * 8,
+        type: i % 2 === 0 ? "cold" : "hot"
+      }));
+
+      // ====== DOM 元素綁定 ======
+      const loginModal = document.getElementById("loginModal");
+      const loginClassBtns = document.querySelectorAll("#loginClassGrid .class-btn");
+      const seatNumberSection = document.getElementById("seatNumberSection");
+      const loginNumGrid = document.getElementById("loginNumGrid");
+      const loginErrorMsg = document.getElementById("loginErrorMsg");
+      const startLearningBtn = document.getElementById("startLearningBtn");
+      const loginTeacherBtn = document.getElementById("loginTeacherBtn");
+      const currentStudentLabel = document.getElementById("currentStudentLabel");
+      const switchStudentBtn = document.getElementById("switchStudentBtn");
+
+      const teacherAuthModal = document.getElementById("teacherAuthModal");
+      const teacherPwdInput = document.getElementById("teacherPwdInput");
+      const teacherPwdError = document.getElementById("teacherPwdError");
+      const confirmTeacherPwdBtn = document.getElementById("confirmTeacherPwdBtn");
+      const cancelTeacherPwdBtn = document.getElementById("cancelTeacherPwdBtn");
+
+      const tickDotsRow = document.getElementById("tickDotsRow");
+      const doneCountText = document.getElementById("doneCountText");
+      const openChallengeBtn = document.getElementById("openChallengeBtn");
+      const openTeacherBtn = document.getElementById("openTeacherBtn");
+      const expNavTabsBar = document.getElementById("expNavTabsBar");
+      const tabsList = document.getElementById("tabsList");
+      const toggleAirDotsBtn = document.getElementById("toggleAirDotsBtn");
+
+      const topAlertBox = document.getElementById("topAlertBox");
+      const topAlertText = document.getElementById("topAlertText");
+      const closeAlertBtn = document.getElementById("closeAlertBtn");
+
+      const mainBookPage = document.getElementById("mainBookPage");
+      const challengeSection = document.getElementById("challengeSection");
+      const challengeQuestionsList = document.getElementById("challengeQuestionsList");
+      const challengeProgressBadge = document.getElementById("challengeProgressBadge");
+      const backToExpBtn = document.getElementById("backToExpBtn");
+      const submitChallengeBtn = document.getElementById("submitChallengeBtn");
+
+      const ttsPredictBtn = document.getElementById("ttsPredictBtn");
+      const ttsQuizBtn = document.getElementById("ttsQuizBtn");
+      const teacherWeaknessSummary = document.getElementById("teacherWeaknessSummary");
+
+      const secNumEl = document.getElementById("secNumEl");
+      const secTitleEl = document.getElementById("secTitleEl");
+      const secDescEl = document.getElementById("secDescEl");
+      const predictOverlay = document.getElementById("predictOverlay");
+
+      const subSceneSwitchBtn = document.getElementById("subSceneSwitchBtn");
+      const glassBottleSwitchBtn = document.getElementById("glassBottleSwitchBtn");
+      const windExpSwitchBtn = document.getElementById("windExpSwitchBtn");
+      const doExpActionBtn = document.getElementById("doExpActionBtn");
+      const sliderMinText = document.getElementById("sliderMinText");
+      const sliderMaxText = document.getElementById("sliderMaxText");
+      const mainSlider = document.getElementById("mainSlider");
+      const thermalQuickBar = document.getElementById("thermalQuickBar");
+      const hotRiseSceneBar = document.getElementById("hotRiseSceneBar");
+      const windStepBar = document.getElementById("windStepBar");
+
+      const predictDoneTag = document.getElementById("predictDoneTag");
+      const predictQText = document.getElementById("predictQText");
+      const predictBtnsBox = document.getElementById("predictBtnsBox");
+
+      const explainBox = document.getElementById("explainBox");
+      const discoverySentenceArea = document.getElementById("discoverySentenceArea");
+      const quizQuestionText = document.getElementById("quizQuestionText");
+      const windOrderBox = document.getElementById("windOrderBox");
+      const resetOrderBtn = document.getElementById("resetOrderBtn");
+      const quizOptionsBox = document.getElementById("quizOptionsBox");
+
+      const submitBtn = document.getElementById("submitBtn");
+      const resetQuizBtn = document.getElementById("resetQuizBtn");
+      const teacherFeedbackBox = document.getElementById("teacherFeedbackBox");
+
+      const resultModal = document.getElementById("resultModal");
+      const resultModalContent = document.getElementById("resultModalContent");
+
+      const teacherModal = document.getElementById("teacherModal");
+      const closeTeacherModalBtn = document.getElementById("closeTeacherModalBtn");
+      const exportExcelBtn = document.getElementById("exportExcelBtn");
+      const filterClassSelect = document.getElementById("filterClassSelect");
+      const teacherStatsSummary = document.getElementById("teacherStatsSummary");
+      const teacherTableBody = document.getElementById("teacherTableBody");
+
+      const toggleSheetSetupBtn = document.getElementById("toggleSheetSetupBtn");
+      const sheetSetupPanel = document.getElementById("sheetSetupPanel");
+      const gasWebhookInput = document.getElementById("gasWebhookInput");
+      const saveGasUrlBtn = document.getElementById("saveGasUrlBtn");
+
+      const savedGas = localStorage.getItem("hk_p5_science_gas_url");
+      if (savedGas && gasWebhookInput) gasWebhookInput.value = savedGas;
+
+      toggleSheetSetupBtn?.addEventListener("click", () => {
+        sheetSetupPanel.style.display = sheetSetupPanel.style.display === "none" ? "block" : "none";
+      });
+
+      saveGasUrlBtn?.addEventListener("click", () => {
+        const val = gasWebhookInput.value.trim();
+        localStorage.setItem("hk_p5_science_gas_url", val);
+        if (typeof window.refreshGoogleSheet === "function") window.refreshGoogleSheet();
+        topAlertText.textContent = "已儲存 Google 試算表永久寫入網址！";
+        topAlertBox.style.display = "block";
+      });
+
+      for (let n = 1; n <= 34; n++) {
+        const nb = document.createElement("button");
+        nb.type = "button";
+        nb.className = "num-btn";
+        nb.textContent = `${n}`;
+        nb.dataset.num = n;
+        nb.addEventListener("click", () => {
+          studentInfo.seatNum = n;
+          document.querySelectorAll("#loginNumGrid .num-btn").forEach((b) => {
+            b.classList.toggle("selected", parseInt(b.dataset.num, 10) === n);
+          });
+          checkLoginReady();
+        });
+        loginNumGrid.appendChild(nb);
+      }
+
+      loginClassBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          studentInfo.className = btn.dataset.cls;
+          loginClassBtns.forEach((b) => b.classList.toggle("selected", b === btn));
+          seatNumberSection.style.display = "block";
+          checkLoginReady();
+        });
+      });
+
+      function checkLoginReady() {
+        if (studentInfo.className && studentInfo.seatNum) {
+          startLearningBtn.disabled = false;
+          startLearningBtn.style.opacity = "1";
+          loginErrorMsg.style.display = "none";
+          startLearningBtn.textContent = `進入課本（${studentInfo.className} 班 ${studentInfo.seatNum} 號）`;
+        }
+      }
+
+      startLearningBtn.addEventListener("click", () => {
+        if (!studentInfo.className || !studentInfo.seatNum) {
+          loginErrorMsg.style.display = "block";
+          return;
+        }
+        currentStudentLabel.textContent = `${studentInfo.className} (${studentInfo.seatNum}號)`;
+        loginModal.classList.remove("show");
+      });
+
+      switchStudentBtn.addEventListener("click", () => {
+        loginModal.classList.add("show");
+      });
+
+      closeAlertBtn.addEventListener("click", () => (topAlertBox.style.display = "none"));
+
+      function speakCantonese(text) {
+        if (!("speechSynthesis" in window)) return;
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = "zh-HK";
+        utter.rate = 0.95;
+        window.speechSynthesis.speak(utter);
+      }
+
+      ttsPredictBtn.addEventListener("click", () => {
+        const act = ACTIVITIES[curIdx];
+        speakCantonese(`先估一估：${act.predictQ}。選項有：${act.predictOpts.join("，或者，")}`);
+      });
+
+      ttsQuizBtn.addEventListener("click", () => {
+        const act = ACTIVITIES[curIdx];
+        const st = states[curIdx];
+        if (act.quizType === "order") {
+          speakCantonese(`${act.quizQ}。請依序排列：${act.orderItems.join("，")}`);
+        } else {
+          const optsText = st.shuffledChoices.map((c, i) => `${["A", "B", "C"][i]}，${c.text}`).join("。");
+          speakCantonese(`${act.quizQ}。${optsText}`);
+        }
+      });
+
+      function syncPressureFromSlider(val) {
+        const ratio = val / 100;
+        pressureDrag.outP = 85;
+        pressureDrag.inP = Math.round(85 - ratio * 67);
+      }
+
+      function syncSliderFromPressure() {
+        const diff = Math.max(0, pressureDrag.outP - pressureDrag.inP);
+        sliderVal = Math.min(100, Math.round((diff / 67) * 100));
+        mainSlider.value = sliderVal;
+      }
+
+      function showExperimentView() {
+        mainBookPage.style.display = "grid";
+        expNavTabsBar.style.display = "flex";
+        challengeSection.style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function openChallengeView() {
+        mainBookPage.style.display = "none";
+        expNavTabsBar.style.display = "none";
+        challengeSection.style.display = "block";
+        renderChallengeQuestions();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function renderHeaderAndTabs() {
+        tickDotsRow.innerHTML = "";
+        let doneCount = 0;
+        states.forEach((st, i) => {
+          if (st.passed) doneCount++;
+          const d = document.createElement("div");
+          d.className = "tick-dot" + (st.passed ? " done" : "");
+          d.textContent = st.passed ? "✓" : i + 1;
+          tickDotsRow.appendChild(d);
+        });
+        doneCountText.textContent = `${doneCount} / ${ACTIVITIES.length}`;
+
+        if (doneCount === ACTIVITIES.length) {
+          openChallengeBtn.style.background = "#d9386a";
+          openChallengeBtn.style.color = "#fff";
+          openChallengeBtn.textContent = `開始小挑戰 (${CHALLENGE_QUESTIONS.length}題)`;
+        }
+
+        tabsList.innerHTML = "";
+        ACTIVITIES.forEach((act, idx) => {
+          const st = states[idx];
+          const b = document.createElement("button");
+          b.type = "button";
+          b.className =
+            "tab-btn" +
+            (idx === curIdx ? " active" : "") +
+            (st.passed ? " done-tab" : "");
+          b.textContent = (st.passed ? "✓ " : "") + act.tabTitle;
+          b.addEventListener("click", () => {
+            showExperimentView();
+            curIdx = idx;
+            loadActivity();
+          });
+          tabsList.appendChild(b);
+        });
+      }
+
+      function renderChallengeQuestions(highlightMissing = false) {
+        challengeQuestionsList.innerHTML = "";
+        const letters = ["A", "B", "C"];
+        const answeredCount = Object.keys(challengeAnswers).length;
+        if (challengeProgressBadge) {
+          challengeProgressBadge.textContent = `已答：${answeredCount} / ${CHALLENGE_QUESTIONS.length} 題`;
+        }
+
+        shuffledChallengeList.forEach((q) => {
+          const isAnswered = challengeAnswers[q.qNum] !== undefined;
+          const card = document.createElement("div");
+          card.id = `challenge_card_${q.qNum}`;
+          card.className = "challenge-q-item" + (highlightMissing && !isAnswered ? " unanswered-highlight" : "");
+
+          const header = document.createElement("div");
+          header.style.marginBottom = "6px";
+          header.style.display = "flex";
+          header.style.justifyContent = "space-between";
+          header.style.alignItems = "center";
+          header.innerHTML = `<div><span class="diff-badge ${q.diffClass}">${q.diffLabel}</span><strong style="color:#15658a; font-size:0.88rem;">${q.topicName}</strong></div>`;
+
+          const readBtn = document.createElement("button");
+          readBtn.type = "button";
+          readBtn.className = "tts-btn";
+          readBtn.textContent = "🔊 讀題";
+          readBtn.addEventListener("click", () => {
+            const optsRead = q.shuffledOpts.map((o, idx) => `${letters[idx]}，${o.text}`).join("。");
+            speakCantonese(`第 ${q.qNum} 題：${q.question}。${optsRead}`);
+          });
+          header.appendChild(readBtn);
+          card.appendChild(header);
+
+          const qText = document.createElement("div");
+          qText.style.fontSize = "1rem";
+          qText.style.fontWeight = "900";
+          qText.style.marginBottom = "8px";
+          qText.textContent = `${q.qNum}. ${q.question}`;
+          card.appendChild(qText);
+
+          const optWrap = document.createElement("div");
+          optWrap.style.display = "flex";
+          optWrap.style.flexDirection = "column";
+          optWrap.style.gap = "6px";
+
+          q.shuffledOpts.forEach((opt, oIdx) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            const isSelected = challengeAnswers[q.qNum] === opt.id;
+            btn.className = "choice-btn" + (isSelected ? " selected" : "");
+            btn.style.padding = "8px 12px";
+            btn.style.fontSize = "0.94rem";
+            btn.textContent = `${letters[oIdx]}. ${opt.text}`;
+            btn.addEventListener("click", () => {
+              challengeAnswers[q.qNum] = opt.id;
+              renderChallengeQuestions();
+            });
+            optWrap.appendChild(btn);
+          });
+
+          card.appendChild(optWrap);
+          challengeQuestionsList.appendChild(card);
+        });
+      }
+
+      openChallengeBtn.addEventListener("click", () => {
+        openChallengeView();
+      });
+
+      backToExpBtn.addEventListener("click", () => {
+        showExperimentView();
+      });
+
+      submitChallengeBtn.addEventListener("click", () => {
+        if (Object.keys(challengeAnswers).length < CHALLENGE_QUESTIONS.length) {
+          renderChallengeQuestions(true);
+          const firstMissing = CHALLENGE_QUESTIONS.find((q) => challengeAnswers[q.qNum] === undefined);
+          topAlertText.textContent = `尚有未答題目（紅框第 ${firstMissing ? firstMissing.qNum : ""} 題），請答齊 ${CHALLENGE_QUESTIONS.length} 題！`;
+          topAlertBox.style.display = "block";
+          if (firstMissing) {
+            const missingEl = document.getElementById(`challenge_card_${firstMissing.qNum}`);
+            if (missingEl) missingEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+          return;
+        }
+
+        let correctCount = 0;
+        const missedItems = [];
+
+        CHALLENGE_QUESTIONS.forEach((q) => {
+          const pickedId = challengeAnswers[q.qNum];
+          const chosenOpt = q.options.find((o) => o.id === pickedId);
+          if (chosenOpt && chosenOpt.correct) {
+            correctCount++;
+          } else {
+            const rightOpt = q.options.find((o) => o.correct);
+            missedItems.push({
+              qNum: q.qNum,
+              topicName: q.topicName,
+              diagramKey: q.diagramKey,
+              rightAnswer: rightOpt ? rightOpt.text : "",
+              shortExplain: q.shortExplain
+            });
+          }
+        });
+
+        const score = Math.round((correctCount / CHALLENGE_QUESTIONS.length) * 100);
+        const expDoneCount = states.filter((s) => s.passed).length;
+        const now = new Date();
+        const timeStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")} ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+
+        const recordObj = {
+          timestampMs: Date.now(),
+          timeStr,
+          className: studentInfo.className || "未填",
+          seatNum: studentInfo.seatNum || 0,
+          expDone: `${expDoneCount}/${ACTIVITIES.length}`,
+          score,
+          passed: score >= 70,
+          weakPoints: missedItems.length === 0 ? "全對" : missedItems.map((m) => m.topicName).join("、")
+        };
+
+        if (typeof window.saveRecordCloud === 'function') {
+          window.saveRecordCloud(recordObj);
+        }
+
+        showResultModal(score, correctCount, missedItems);
+      });
+
+      function showResultModal(score, correctCount, missedItems) {
+        const clsText = `${studentInfo.className || "未選"} 班（${studentInfo.seatNum || "-"} 號）`;
+
+        const missedDiagramHtml =
+          missedItems.length > 0
+            ? `
+            <div style="text-align:left; background:#f8fafc; border:1.5px solid #cbd5e1; border-radius:8px; padding:10px; margin-bottom:12px;">
+              <div style="font-weight:900; color:#15658a; font-size:0.9rem; margin-bottom:6px;">
+                👇 點擊圖片切換實驗狀態（重溫錯題）：
+              </div>
+              ${missedItems
+                .map(
+                  (m, idx) => `
+                  <div style="display:grid; grid-template-columns:155px 1fr; gap:10px; align-items:center; background:#fff; border:1.5px solid #cbd5e1; border-radius:8px; padding:8px; margin-bottom:8px;">
+                    <div style="text-align:center;">
+                      <div id="simBox_${idx}" data-key="${m.diagramKey}" data-state="1" style="background:#f0f9ff; border:1.5px solid #93c5fd; border-radius:6px; cursor:pointer; display:flex; justify-content:center;">
+                        ${getInteractiveSimSVG(m.diagramKey, 1)}
+                      </div>
+                      <button type="button" class="sim-toggle-btn" data-target="simBox_${idx}" style="margin-top:4px; width:100%; background:#1f78b4; color:#fff; border:none; border-radius:4px; padding:3px 6px; font-size:0.75rem; font-weight:900; cursor:pointer;">
+                        🔄 點擊切換實驗前後
+                      </button>
+                    </div>
+                    <div>
+                      <div style="font-weight:900; color:#b81d53; font-size:0.88rem;">第 ${m.qNum} 題：${m.topicName}</div>
+                      <div style="font-weight:900; color:#1b4332; font-size:0.9rem; margin:4px 0;">✓ ${m.rightAnswer}</div>
+                      <div style="font-weight:800; color:#15658a; font-size:0.82rem; background:#edf6fc; padding:3px 6px; border-radius:4px; display:inline-block;">💡 ${m.shortExplain}</div>
+                    </div>
+                  </div>
+                `
+                )
+                .join("")}
+            </div>
+          `
+            : "";
+
+        if (score >= 70) {
+          resultModalContent.innerHTML = `
+            <div style="display:inline-block; background:#d8f3dc; color:#1b4332; font-weight:900; padding:3px 12px; border-radius:4px; font-size:0.88rem; margin-bottom:6px;">
+              達標（70 分或以上）
+            </div>
+            <h3 style="font-size:1.28rem; font-weight:900; color:#15658a; margin-bottom:6px;">
+              🎉 恭喜獲得獎勵卡！（已記錄至雲端 Excel）
+            </h3>
+            <div style="background:#edf6fc; border:2px solid #2b8cbe; border-radius:8px; padding:10px; margin-bottom:10px;">
+              <div style="font-size:1rem; font-weight:900; color:#0d4663;">${clsText}</div>
+              <div style="font-size:1.45rem; font-weight:900; color:#d9386a; margin-top:2px;">${score} 分（對 ${correctCount}/${CHALLENGE_QUESTIONS.length} 題）</div>
+            </div>
+            ${missedDiagramHtml}
+            <div style="border:2px solid #cbd5e1; border-radius:8px; padding:8px; margin-bottom:12px; background:#fff;">
+              <img src="1.png" alt="獎勵卡" style="width:100%; max-height:220px; object-fit:contain; display:block; margin:0 auto;" onerror="this.style.display='none'; document.getElementById('rewardCardFallback').style.display='block';" />
+              <div id="rewardCardFallback" style="display:none; padding:14px 10px; background:#f5fbff; border:2px dashed #1f78b4; border-radius:6px; color:#15658a;">
+                <div style="font-size:1.15rem; font-weight:900;">🏅 科學科獎勵卡</div>
+                <div style="font-size:0.92rem; font-weight:800; color:#0d4663;">${clsText} ｜ ${score} 分</div>
+              </div>
+            </div>
+            <button type="button" id="closeResultBtn" class="btn-book-submit" style="width:100%;">完成並關閉</button>
+          `;
+        } else {
+          resultModalContent.innerHTML = `
+            <div style="display:inline-block; background:#ffe4e6; color:#9f1239; font-weight:900; padding:3px 12px; border-radius:4px; font-size:0.88rem; margin-bottom:6px;">
+              未達 70 分（已記錄至雲端 Excel）
+            </div>
+            <h3 style="font-size:1.22rem; font-weight:900; color:#8f1d3f; margin-bottom:6px;">
+              再試一次！點擊下方圖片模擬實驗：
+            </h3>
+            <div style="background:#fff5f7; border:2px solid #f2a6bc; border-radius:8px; padding:10px; margin-bottom:10px;">
+              <div style="font-size:1rem; font-weight:900; color:#222;">${clsText}</div>
+              <div style="font-size:1.4rem; font-weight:900; color:#b81d53; margin-top:2px;">${score} 分（對 ${correctCount}/${CHALLENGE_QUESTIONS.length} 題）</div>
+            </div>
+            ${missedDiagramHtml}
+            <div style="display:flex; gap:8px;">
+              <button type="button" id="retryChallengeBtn" class="btn-book-submit" style="flex:1;">再做一次</button>
+              <button type="button" id="reviewLabBtn" class="btn-book-reset" style="flex:1; background:#1f78b4;">返回實驗</button>
+            </div>
+          `;
+        }
+
+        resultModal.classList.add("show");
+
+        resultModalContent.querySelectorAll(".sim-toggle-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const box = document.getElementById(btn.dataset.target);
+            if (!box) return;
+            const nextState = box.dataset.state === "1" ? 0 : 1;
+            box.dataset.state = String(nextState);
+            box.innerHTML = getInteractiveSimSVG(box.dataset.key, nextState);
+          });
+        });
+
+        resultModalContent.querySelectorAll("[id^='simBox_']").forEach((box) => {
+          box.addEventListener("click", () => {
+            const nextState = box.dataset.state === "1" ? 0 : 1;
+            box.dataset.state = String(nextState);
+            box.innerHTML = getInteractiveSimSVG(box.dataset.key, nextState);
+          });
+        });
+
+        document.getElementById("closeResultBtn")?.addEventListener("click", () => resultModal.classList.remove("show"));
+        document.getElementById("retryChallengeBtn")?.addEventListener("click", () => {
+          resultModal.classList.remove("show");
+          challengeAnswers = {};
+          shuffledChallengeList = CHALLENGE_QUESTIONS.map((q) => ({
+            ...q,
+            shuffledOpts: shuffle(q.options)
+          }));
+          renderChallengeQuestions();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        document.getElementById("reviewLabBtn")?.addEventListener("click", () => {
+          resultModal.classList.remove("show");
+          showExperimentView();
+        });
+      }
+
+      function renderTeacherTable() {
+        const records = typeof window.cloudRecords === 'function' ? window.cloudRecords() : [];
+        const clsFilter = filterClassSelect.value;
+        const filtered = records.filter(
+          (r) => clsFilter === "ALL" || r.className === clsFilter
+        );
+
+        const passCount = filtered.filter((r) => r.score >= 70).length;
+        const avgScore =
+          filtered.length > 0
+            ? Math.round(filtered.reduce((acc, r) => acc + (Number(r.score) || 0), 0) / filtered.length)
+            : 0;
+
+        teacherStatsSummary.textContent = `雲端共 ${filtered.length} 筆記錄 ｜ 達標人數：${passCount} 人 ｜ 平均分：${avgScore} 分`;
+
+        const weakFreq = {};
+        filtered.forEach((r) => {
+          if (r.weakPoints && r.weakPoints !== "全對") {
+            r.weakPoints.split("、").forEach((w) => {
+              weakFreq[w] = (weakFreq[w] || 0) + 1;
+            });
+          }
+        });
+        const sortedWeak = Object.entries(weakFreq).sort((a, b) => b[1] - a[1]);
+        if (sortedWeak.length === 0) {
+          teacherWeaknessSummary.textContent = "課堂難點統計：目前雲端無答錯課題記錄";
+        } else {
+          const topStr = sortedWeak.slice(0, 3).map(([k, v]) => `${k} (${v}人次)`).join("、");
+          teacherWeaknessSummary.textContent = `最多學生需加強課題（實時雲端統計）：${topStr}`;
+        }
+
+        if (filtered.length === 0) {
+          teacherTableBody.innerHTML = `<tr><td colspan="7" style="color:#777; font-weight:700; padding:18px;">此班別暫時未有雲端成績記錄</td></tr>`;
+          return;
+        }
+
+        teacherTableBody.innerHTML = filtered
+          .map(
+            (r) => `
+            <tr>
+              <td>${r.timeStr || "-"}</td>
+              <td><strong>${r.className}</strong></td>
+              <td><strong>${r.seatNum} 號</strong></td>
+              <td>${r.expDone || "-"}</td>
+              <td style="font-weight:900; color:${r.score >= 70 ? "#1b4332" : "#b81d53"};">${r.score} 分</td>
+              <td>${r.score >= 70 ? "達標" : "未達標"}</td>
+              <td style="text-align:left; font-size:0.82rem;">${r.weakPoints || "-"}</td>
+            </tr>
+          `
+          )
+          .join("");
+      }
+
+      window.renderTeacherTable = renderTeacherTable;
+
+      function promptTeacherPassword() {
+        teacherPwdInput.value = "";
+        teacherPwdError.style.display = "none";
+        teacherAuthModal.classList.add("show");
+        setTimeout(() => teacherPwdInput.focus(), 80);
+      }
+
+      openTeacherBtn.addEventListener("click", promptTeacherPassword);
+
+      if (loginTeacherBtn) {
+        loginTeacherBtn.addEventListener("click", promptTeacherPassword);
+      }
+
+      function verifyTeacherPassword() {
+        if (teacherPwdInput.value.trim() === "wisdom2668") {
+          teacherAuthModal.classList.remove("show");
+          loginModal.classList.remove("show");
+          if (typeof window.refreshGoogleSheet === "function") window.refreshGoogleSheet();
+          renderTeacherTable();
+          teacherModal.classList.add("show");
+        } else {
+          teacherPwdError.style.display = "block";
+        }
+      }
+
+      confirmTeacherPwdBtn.addEventListener("click", verifyTeacherPassword);
+      teacherPwdInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") verifyTeacherPassword();
+      });
+      cancelTeacherPwdBtn.addEventListener("click", () => {
+        teacherAuthModal.classList.remove("show");
+      });
+
+      closeTeacherModalBtn.addEventListener("click", () => {
+        teacherModal.classList.remove("show");
+      });
+
+      filterClassSelect.addEventListener("change", renderTeacherTable);
+
+      exportExcelBtn.addEventListener("click", () => {
+        const records = typeof window.cloudRecords === 'function' ? window.cloudRecords() : [];
+        if (records.length === 0) {
+          topAlertText.textContent = "目前雲端還沒有學生提交成績，暫無資料可匯出。";
+          topAlertBox.style.display = "block";
+          return;
+        }
+        const headers = ["提交時間", "班別", "學號", "實驗完成度", "小挑戰分數", "是否達標(>=70分)", "需加強課題"];
+        const rows = records.map((r) => [
+          `"${r.timeStr || ""}"`,
+          `"${r.className || ""}"`,
+          `"${r.seatNum || ""}"`,
+          `"${r.expDone || ""}"`,
+          `"${r.score}"`,
+          `"${r.score >= 70 ? "達標(獲獎勵卡)" : "未達標(需重做)"}"`,
+          `"${(r.weakPoints || "").replace(/"/g, '""')}"`
+        ]);
+
+        const csvContent = "\uFEFF" + [headers.join(","), ...rows.map((e) => e.join(","))].join("\r\n");
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `五年級科學科_空氣的特性_雲端成績表.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+
+      toggleAirDotsBtn.addEventListener("click", () => {
+        showAirDots = !showAirDots;
+        toggleAirDotsBtn.classList.toggle("active", showAirDots);
+        toggleAirDotsBtn.textContent = `顯示空氣微粒：${showAirDots ? "開" : "關"}`;
+      });
+
+      subSceneSwitchBtn.addEventListener("click", () => {
+        spaceSubMode = spaceSubMode === "bag" ? "cup" : "bag";
+        subSceneSwitchBtn.textContent =
+          spaceSubMode === "bag" ? "切換實驗：壓杯入水" : "切換實驗：按壓密實袋";
+      });
+
+      glassBottleSwitchBtn.addEventListener("click", () => {
+        juiceSubMode = juiceSubMode === "box" ? "glass" : "box";
+        glassBottleSwitchBtn.textContent =
+          juiceSubMode === "box" ? "🔄 換成硬玻璃樽試試（反例測試）" : "🔄 換回紙包檸檬茶";
+      });
+
+      windExpSwitchBtn.addEventListener("click", () => {
+        windSubMode = windSubMode === "fan" ? "sea" : "fan";
+        windExpSwitchBtn.textContent =
+          windSubMode === "fan" ? "🌊 切換：大自然海風形成" : "🪭 切換：扇子撥動空氣（吹動頭髮）";
+        windStepBar.style.display = (ACTIVITIES[curIdx].id === "wind" && windSubMode === "sea") ? "flex" : "none";
+        if (windSubMode === "fan") {
+          sliderMinText.textContent = "停止搧扇子";
+          sliderMaxText.textContent = "撥動扇子（空氣流動）";
+        } else {
+          sliderMinText.textContent = "未受日照";
+          sliderMaxText.textContent = "太陽照射陸地";
+        }
+      });
+
+      document.querySelectorAll("#thermalQuickBar .step-mode-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (states[curIdx].predictedIdx === null) return;
+          const targetTemp = parseInt(btn.dataset.temp, 10);
+          sliderVal = targetTemp;
+          mainSlider.value = targetTemp;
+          document.querySelectorAll("#thermalQuickBar .step-mode-btn").forEach((b) =>
+            b.classList.toggle("active", b === btn)
+          );
+        });
+      });
+
+      // 活動 6（天燈 / 火警 / 空調）三個課本情境切換
+      document.querySelectorAll("#hotRiseSceneBar .step-mode-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          hotRiseSubMode = btn.dataset.hotscene;
+          document.querySelectorAll("#hotRiseSceneBar .step-mode-btn").forEach((b) =>
+            b.classList.toggle("active", b === btn)
+          );
+          if (hotRiseSubMode === "lantern") {
+            sliderMinText.textContent = "風筒關閉";
+            sliderMaxText.textContent = "風筒吹入熱空氣（天燈升起）";
+          } else if (hotRiseSubMode === "fire") {
+            sliderMinText.textContent = "火警初期";
+            sliderMaxText.textContent = "熱空氣與濃煙上升（蹲下爬行）";
+          } else {
+            sliderMinText.textContent = "關閉空調";
+            sliderMaxText.textContent = "開啟空調（點擊高度 A / B / C 比較）";
+          }
+        });
+      });
+
+      document.querySelectorAll("#windStepBar .step-mode-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (states[curIdx].predictedIdx === null) return;
+          windStepMode = parseInt(btn.dataset.wstep, 10);
+          sliderVal = 100;
+          mainSlider.value = 100;
+          document.querySelectorAll("#windStepBar .step-mode-btn").forEach((b) =>
+            b.classList.toggle("active", b === btn)
+          );
+        });
+      });
+
+      function loadActivity() {
+        const act = ACTIVITIES[curIdx];
+        const st = states[curIdx];
+
+        renderHeaderAndTabs();
+
+        secNumEl.textContent = curIdx + 1;
+        secTitleEl.textContent = act.heading;
+        secDescEl.textContent = act.desc;
+        sliderMinText.textContent = act.sliderMin;
+        sliderMaxText.textContent = act.sliderMax;
+
+        subSceneSwitchBtn.style.display = act.id === "space" ? "inline-block" : "none";
+        glassBottleSwitchBtn.style.display = act.id === "juice" ? "inline-block" : "none";
+        windExpSwitchBtn.style.display = act.id === "wind" ? "inline-block" : "none";
+        thermalQuickBar.style.display = act.id === "thermal" ? "flex" : "none";
+        hotRiseSceneBar.style.display = act.id === "hot_rise" ? "flex" : "none";
+        windStepBar.style.display = (act.id === "wind" && windSubMode === "sea") ? "flex" : "none";
+
+        const defVal = act.defaultVal !== undefined ? act.defaultVal : 0;
+        sliderVal = st.predictedIdx !== null ? (st.passed ? 100 : defVal) : defVal;
+        mainSlider.value = sliderVal;
+        syncPressureFromSlider(sliderVal);
+
+        predictQText.textContent = act.predictQ;
+        predictBtnsBox.innerHTML = "";
+        act.predictOpts.forEach((optText, idx) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "choice-btn" + (st.predictedIdx === idx ? " selected" : "");
+          btn.textContent = optText;
+          btn.addEventListener("click", () => {
+            st.predictedIdx = idx;
+            teacherFeedbackBox.className = "teacher-note";
+            teacherFeedbackBox.innerHTML =
+              act.id === "juice" || act.id === "suction"
+                ? "已解鎖！拉動左圖氣壓箭頭或滑桿觀察。"
+                : "已解鎖！拉動滑桿或按下方場景按鈕觀察。";
+            loadActivity();
+          });
+          predictBtnsBox.appendChild(btn);
+        });
+
+        if (st.predictedIdx === null) {
+          predictOverlay.style.display = "flex";
+          mainSlider.disabled = true;
+          doExpActionBtn.disabled = true;
+          predictDoneTag.textContent = "未選擇";
+          explainBox.style.opacity = "0.45";
+          explainBox.style.pointerEvents = "none";
+        } else {
+          predictOverlay.style.display = "none";
+          mainSlider.disabled = false;
+          doExpActionBtn.disabled = false;
+          predictDoneTag.textContent = `已選：${act.predictOpts[st.predictedIdx]}`;
+          explainBox.style.opacity = "1";
+          explainBox.style.pointerEvents = "auto";
+        }
+
+        renderDiscoveryBox(act, st);
+
+        quizQuestionText.textContent = act.quizQ;
+        quizOptionsBox.innerHTML = "";
+
+        if (act.quizType === "order") {
+          windOrderBox.style.display = "block";
+          for (let i = 0; i < 3; i++) {
+            const slot = document.getElementById(`orderSlot${i}`);
+            if (st.userOrder[i] !== undefined) {
+              slot.textContent = `${i + 1}. ${act.orderItems[st.userOrder[i]]}`;
+              slot.style.color = "#0d4663";
+              slot.style.background = "#e0f3fc";
+            } else {
+              slot.textContent = `${i + 1}. (請點選下方句子)`;
+              slot.style.color = "#777";
+              slot.style.background = "#fff";
+            }
+          }
+
+          act.orderItems.forEach((itemText, idx) => {
+            const pos = st.userOrder.indexOf(idx);
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "choice-btn" + (pos !== -1 ? " selected" : "");
+            b.textContent = pos !== -1 ? `(${pos + 1}) ${itemText}` : itemText;
+            b.addEventListener("click", () => {
+              if (pos === -1 && st.userOrder.length < 3) {
+                st.userOrder.push(idx);
+                loadActivity();
+              }
+            });
+            quizOptionsBox.appendChild(b);
+          });
+        } else {
+          windOrderBox.style.display = "none";
+          const letters = ["A", "B", "C"];
+          st.shuffledChoices.forEach((ch, idx) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "choice-btn" + (st.pickedChoiceId === ch.id ? " selected" : "");
+            b.textContent = `${letters[idx]}. ${ch.text}`;
+            b.addEventListener("click", () => {
+              st.pickedChoiceId = ch.id;
+              loadActivity();
+            });
+            quizOptionsBox.appendChild(b);
+          });
+        }
+      }
+
+      function renderDiscoveryBox(act, st) {
+        discoverySentenceArea.innerHTML = "";
+        let pairCounter = 0;
+        act.discoveryParts.forEach((part) => {
+          if (part.type === "text") {
+            const span = document.createElement("span");
+            span.textContent = part.val;
+            discoverySentenceArea.appendChild(span);
+          } else if (part.type === "pair") {
+            const pIdx = pairCounter++;
+            const wrap = document.createElement("span");
+            wrap.className = "circle-pair";
+
+            part.opts.forEach((word, wIdx) => {
+              if (wIdx > 0) {
+                const slash = document.createElement("span");
+                slash.textContent = " / ";
+                slash.style.color = "#888";
+                slash.style.padding = "0 2px";
+                wrap.appendChild(slash);
+              }
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.className =
+                "circle-opt" + (st.circledMap[pIdx] === wIdx ? " circled" : "");
+              btn.textContent = word;
+              btn.addEventListener("click", () => {
+                st.circledMap[pIdx] = wIdx;
+                renderDiscoveryBox(act, st);
+              });
+              wrap.appendChild(btn);
+            });
+
+            discoverySentenceArea.appendChild(wrap);
+          }
+        });
+      }
+
+      resetOrderBtn.addEventListener("click", () => {
+        states[curIdx].userOrder = [];
+        loadActivity();
+      });
+
+      resetQuizBtn.addEventListener("click", () => {
+        const st = states[curIdx];
+        st.circledMap = {};
+        st.pickedChoiceId = null;
+        st.userOrder = [];
+        loadActivity();
+      });
+
+      mainSlider.addEventListener("input", (e) => {
+        sliderVal = parseFloat(e.target.value);
+        syncPressureFromSlider(sliderVal);
+      });
+
+      doExpActionBtn.addEventListener("click", () => {
+        sliderVal = 100;
+        mainSlider.value = 100;
+        syncPressureFromSlider(100);
+      });
+
+      submitBtn.addEventListener("click", () => {
+        const act = ACTIVITIES[curIdx];
+        const st = states[curIdx];
+
+        if (sliderVal < 30) {
+          sliderVal = 100;
+          mainSlider.value = 100;
+          syncPressureFromSlider(100);
+        }
+
+        let pairIdx = 0;
+        for (const part of act.discoveryParts) {
+          if (part.type === "pair") {
+            if (st.circledMap[pairIdx] === undefined) {
+              teacherFeedbackBox.className = "teacher-note hint";
+              teacherFeedbackBox.innerHTML = "請先圈出「<strong>小結 / 我發現</strong>」藍框內的答案！";
+              return;
+            }
+            if (st.circledMap[pairIdx] !== part.ans) {
+              teacherFeedbackBox.className = "teacher-note hint";
+              teacherFeedbackBox.innerHTML = `
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <div style="background:#fff; border:1px solid #f2a6bc; border-radius:6px; padding:2px;">${getInteractiveSimSVG(act.diagramKey, 1)}</div>
+                  <div>「<strong>小結 / 我發現</strong>」有詞語圈錯，看圖再試一次！</div>
+                </div>`;
+              return;
+            }
+            pairIdx++;
+          }
+        }
+
+        if (act.quizType === "order") {
+          if (st.userOrder.length < 3) {
+            teacherFeedbackBox.className = "teacher-note hint";
+            teacherFeedbackBox.innerHTML = "請點擊排好 1 ➔ 2 ➔ 3！";
+            return;
+          }
+          const ok =
+            st.userOrder[0] === act.correctOrder[0] &&
+            st.userOrder[1] === act.correctOrder[1] &&
+            st.userOrder[2] === act.correctOrder[2];
+          if (!ok) {
+            teacherFeedbackBox.className = "teacher-note hint";
+            teacherFeedbackBox.innerHTML = `
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div style="background:#fff; border:1px solid #f2a6bc; border-radius:6px; padding:2px;">${getInteractiveSimSVG(act.diagramKey, 1)}</div>
+                <div>${act.orderHint}</div>
+              </div>`;
+            return;
+          }
+        } else {
+          if (!st.pickedChoiceId) {
+            teacherFeedbackBox.className = "teacher-note hint";
+            teacherFeedbackBox.innerHTML = "請點選 A、B 或 C！";
+            return;
+          }
+          const chosen = act.choices.find((c) => c.id === st.pickedChoiceId);
+          if (!chosen.correct) {
+            showAirDots = true;
+            toggleAirDotsBtn.classList.add("active");
+            toggleAirDotsBtn.textContent = "顯示空氣微粒：開";
+            teacherFeedbackBox.className = "teacher-note hint";
+            teacherFeedbackBox.innerHTML = `
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div style="background:#fff; border:1px solid #f2a6bc; border-radius:6px; padding:2px;">${getInteractiveSimSVG(act.diagramKey, 1)}</div>
+                <div>💡 ${chosen.hint}</div>
+              </div>`;
+            return;
+          }
+        }
+
+        st.passed = true;
+        renderHeaderAndTabs();
+
+        const allDone = states.every((s) => s.passed);
+        if (allDone) {
+          teacherFeedbackBox.className = "teacher-note ok";
+          teacherFeedbackBox.innerHTML =
+            `<strong>7 個實驗全部完成！</strong> <button id="goFinalQuizNowBtn" type="button" style="margin-left:8px; padding:5px 12px; border-radius:6px; border:none; background:#d9386a; color:#fff; font-weight:900; cursor:pointer;">進入小挑戰 (10題) ➔</button>`;
+          const qBtn = document.getElementById("goFinalQuizNowBtn");
+          if (qBtn) {
+            qBtn.addEventListener("click", () => openChallengeView());
+          }
+        } else {
+          teacherFeedbackBox.className = "teacher-note ok";
+          teacherFeedbackBox.innerHTML = `<strong>答對了！</strong> <button id="nextActBtn" type="button" style="margin-left:8px; padding:4px 12px; border-radius:6px; border:none; background:#2b9348; color:#fff; font-weight:800; cursor:pointer;">下一題 ➔</button>`;
+          const nb = document.getElementById("nextActBtn");
+          if (nb) {
+            nb.addEventListener("click", () => {
+              const nextIdx = states.findIndex((s) => !s.passed);
+              if (nextIdx !== -1) {
+                curIdx = nextIdx;
+                loadActivity();
+              }
+            });
+          }
+        }
+      });
+
+      // ====== 畫布拖拉與點擊互動 ======
+      let dragHandles = [];
+      let acClickBoxes = []; // 儲存空調機高度 A / B / C 按鈕點擊區域
+
+      function getCanvasPos(evt) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
+        const clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
+        return {
+          x: (clientX - rect.left) * (canvas.width / rect.width),
+          y: (clientY - rect.top) * (canvas.height / rect.height)
+        };
+      }
+
+      function onPointerDown(evt) {
+        const act = ACTIVITIES[curIdx];
+        if (states[curIdx].predictedIdx === null) return;
+        const pos = getCanvasPos(evt);
+
+        // 檢查是否點擊了「活動 6：空調機高度 A / B / C」按鈕
+        if (act.id === "hot_rise" && hotRiseSubMode === "ac") {
+          for (const b of acClickBoxes) {
+            if (pos.x >= b.x && pos.x <= b.x + b.w && pos.y >= b.y && pos.y <= b.y + b.h) {
+              acSelectedHeight = b.level;
+              sliderVal = 100;
+              mainSlider.value = 100;
+              evt.preventDefault();
+              return;
+            }
+          }
+        }
+
+        if (act.id !== "juice" && act.id !== "suction") return;
+        for (const h of dragHandles) {
+          const dist = Math.hypot(pos.x - h.x, pos.y - h.y);
+          if (dist <= h.r + 14) {
+            pressureDrag.draggingTarget = h;
+            evt.preventDefault();
+            return;
+          }
+        }
+      }
+
+      function onPointerMove(evt) {
+        if (!pressureDrag.draggingTarget) return;
+        evt.preventDefault();
+        const pos = getCanvasPos(evt);
+        const h = pressureDrag.draggingTarget;
+
+        if (h.scene === "juice") {
+          const cx = 315;
+          const distFromCenter = Math.abs(pos.x - cx);
+          if (h.kind === "in") {
+            pressureDrag.inP = Math.max(15, Math.min(95, 115 - distFromCenter));
+          } else if (h.kind === "out") {
+            pressureDrag.outP = Math.max(35, Math.min(105, distFromCenter - 65));
+          }
+          syncSliderFromPressure();
+        } else if (h.scene === "suction") {
+          const wallX = 195;
+          if (h.kind === "out") {
+            pressureDrag.outP = Math.max(35, Math.min(105, pos.x - (wallX + 25)));
+          } else if (h.kind === "in") {
+            pressureDrag.inP = Math.max(12, Math.min(95, pos.x - wallX));
+          }
+          syncSliderFromPressure();
+        }
+      }
+
+      function onPointerUp() {
+        pressureDrag.draggingTarget = null;
+      }
+
+      canvas.addEventListener("mousedown", onPointerDown);
+      window.addEventListener("mousemove", onPointerMove);
+      window.addEventListener("mouseup", onPointerUp);
+
+      canvas.addEventListener("touchstart", onPointerDown, { passive: false });
+      window.addEventListener("touchmove", onPointerMove, { passive: false });
+      window.addEventListener("touchend", onPointerUp);
+
+      function drawPressureArrow(x1, y1, x2, y2, color, pressureMag = 85, handleObj = null) {
+        const scale = Math.max(0.22, Math.min(1.25, pressureMag / 85));
+        const shaftWidth = 2.2 + scale * 7.8;
+        const headLen = 7 + scale * 14;
+        const headHalfAngle = Math.PI / 5.6;
+
+        const ang = Math.atan2(y2 - y1, x2 - x1);
+        const totalDist = Math.hypot(x2 - x1, y2 - y1);
+        const actualHead = Math.min(headLen, totalDist * 0.65);
+
+        const shaftEndX = x2 - actualHead * 0.72 * Math.cos(ang);
+        const shaftEndY = y2 - actualHead * 0.72 * Math.sin(ang);
+
+        ctx.save();
+        ctx.shadowColor = "rgba(0, 0, 0, 0.16)";
+        ctx.shadowBlur = 4;
+        ctx.shadowOffsetY = 2;
+
+        ctx.strokeStyle = color;
+        ctx.lineWidth = shaftWidth;
+        ctx.lineCap = "butt";
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(shaftEndX, shaftEndY);
+        ctx.stroke();
+
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(x2, y2);
+        ctx.lineTo(
+          x2 - actualHead * Math.cos(ang - headHalfAngle),
+          y2 - actualHead * Math.sin(ang - headHalfAngle)
+        );
+        ctx.lineTo(
+          x2 - actualHead * Math.cos(ang + headHalfAngle),
+          y2 - actualHead * Math.sin(ang + headHalfAngle)
+        );
+        ctx.closePath();
+        ctx.fill();
+
+        if (handleObj) {
+          ctx.shadowBlur = 3;
+          ctx.fillStyle = "#ffffff";
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.arc(x1, y1, 11, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.shadowBlur = 0;
+          ctx.fillStyle = color;
+          ctx.font = "900 11px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText("↔", x1, y1 + 4);
+
+          dragHandles.push({
+            x: x1,
+            y: y1,
+            r: 16,
+            kind: handleObj.kind,
+            scene: handleObj.scene
+          });
+        }
+        ctx.restore();
+      }
+
+      function drawPressureLegend() {
+        ctx.save();
+        ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
+        ctx.strokeStyle = "#b8d8e8";
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        ctx.roundRect(452, 12, 196, 62, 10);
+        ctx.fill();
+        ctx.stroke();
+
+        drawPressureArrow(466, 31, 514, 31, "#1d70b8", 95, null);
+        ctx.fillStyle = "#1e293b";
+        ctx.font = "900 12px 'Noto Sans TC'";
+        ctx.textAlign = "left";
+        ctx.fillText("大而粗箭頭 ＝ 氣壓大", 522, 35);
+
+        drawPressureArrow(476, 56, 504, 56, "#e63976", 24, null);
+        ctx.fillStyle = "#475569";
+        ctx.font = "700 12px 'Noto Sans TC'";
+        ctx.fillText("細而幼箭頭 ＝ 氣壓小", 522, 60);
+        ctx.restore();
+      }
+
+      function drawSimpleAirDots(rx, ry, rw, rh, count, speed = 1, mode = "normal") {
+        if (!showAirDots) return;
+        ctx.save();
+        for (let i = 0; i < count; i++) {
+          const p = airDots[i % airDots.length];
+          const prevX = rx + p.x * rw;
+          const prevY = ry + p.y * rh;
+
+          let dyBias = 0;
+          if (mode === "hot") dyBias = -0.0055 * speed;
+          else if (mode === "cold") dyBias = 0.0038 * speed;
+
+          p.x += p.vx * speed;
+          p.y += p.vy * speed + dyBias;
+
+          if (p.x < 0.06) { p.x = 0.06; p.vx = Math.abs(p.vx); }
+          if (p.x > 0.94) { p.x = 0.94; p.vx = -Math.abs(p.vx); }
+          if (p.y < 0.06) {
+            p.y = mode === "hot" ? 0.88 : 0.06;
+            p.vy = Math.abs(p.vy);
+          }
+          if (p.y > 0.94) {
+            p.y = mode === "cold" ? 0.15 : 0.94;
+            p.vy = -Math.abs(p.vy);
+          }
+
+          const px = rx + p.x * rw;
+          const py = ry + p.y * rh;
+
+          if (Math.hypot(px - prevX, py - prevY) < 28) {
+            ctx.strokeStyle =
+              mode === "hot"
+                ? "rgba(249, 115, 22, 0.45)"
+                : mode === "cold"
+                ? "rgba(56, 189, 248, 0.4)"
+                : "rgba(56, 189, 248, 0.3)";
+            ctx.lineWidth = 2.4;
+            ctx.beginPath();
+            ctx.moveTo(px - p.vx * rw * 4.5, py - (p.vy * speed + dyBias) * rh * 4.5);
+            ctx.lineTo(px, py);
+            ctx.stroke();
+          }
+
+          const radius = mode === "hot" ? 5.3 : mode === "cold" ? 4.4 : 4.8;
+          const grad = ctx.createRadialGradient(px - 1.5, py - 1.5, 0.8, px, py, radius);
+          if (mode === "hot") {
+            grad.addColorStop(0, "#fef08a");
+            grad.addColorStop(0.55, "#f97316");
+            grad.addColorStop(1, "#dc2626");
+          } else if (mode === "cold") {
+            grad.addColorStop(0, "#ffffff");
+            grad.addColorStop(0.55, "#38bdf8");
+            grad.addColorStop(1, "#0369a1");
+          } else {
+            grad.addColorStop(0, "rgba(224, 242, 254, 0.95)");
+            grad.addColorStop(0.5, "rgba(56, 189, 248, 0.82)");
+            grad.addColorStop(1, "rgba(2, 132, 199, 0.75)");
+          }
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(px, py, radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      function renderCanvasLoop() {
+        tick++;
+        dragHandles = [];
+        acClickBoxes = [];
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const id = ACTIVITIES[curIdx].id;
+        if (id === "space") drawAct1_Space();
+        else if (id === "weight") drawAct2_Weight();
+        else if (id === "juice") drawAct3_JuiceBox();
+        else if (id === "suction") drawAct4_SuctionCup();
+        else if (id === "thermal") drawAct5_Thermal();
+        else if (id === "hot_rise") drawAct6_HotAirRise();
+        else if (id === "wind") drawAct7_Wind();
+
+        requestAnimationFrame(renderCanvasLoop);
+      }
+
+      function drawAct1_Space() {
+        const ratio = sliderVal / 100;
+
+        if (spaceSubMode === "bag") {
+          const woodGrad = ctx.createLinearGradient(0, 275, 0, 410);
+          woodGrad.addColorStop(0, "#e6ccb2");
+          woodGrad.addColorStop(0.5, "#ddb892");
+          woodGrad.addColorStop(1, "#c89f74");
+          ctx.fillStyle = woodGrad;
+          ctx.fillRect(0, 275, canvas.width, 135);
+
+          const compressY = ratio * 30;
+          const widenX = ratio * 24;
+          const bagX = 175 - widenX;
+          const bagY = 140 + compressY;
+          const bagW = 310 + widenX * 2;
+          const bagH = 148 - compressY;
+
+          ctx.fillStyle = "rgba(0, 0, 0, 0.14)";
+          ctx.beginPath();
+          ctx.ellipse(330, 292, bagW * 0.48, 16, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          const bagGrad = ctx.createLinearGradient(bagX, bagY, bagX, bagY + bagH);
+          bagGrad.addColorStop(0, "rgba(255, 255, 255, 0.72)");
+          bagGrad.addColorStop(0.35, "rgba(240, 249, 255, 0.48)");
+          bagGrad.addColorStop(0.8, "rgba(224, 242, 254, 0.65)");
+          bagGrad.addColorStop(1, "rgba(255, 255, 255, 0.85)");
+
+          ctx.fillStyle = bagGrad;
+          ctx.strokeStyle = "rgba(125, 211, 252, 0.95)";
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.roundRect(bagX, bagY, bagW, bagH, 36);
+          ctx.fill();
+          ctx.stroke();
+
+          drawSimpleAirDots(bagX + 36, bagY + 16, bagW - 56, bagH - 32, 32, 0.9);
+
+          ctx.fillStyle = "#0f4c75";
+          ctx.font = "900 16px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("密實袋內的空氣（佔有空間）", 330, bagY + bagH / 2 + 8);
+
+          const handY = bagY + 8;
+          ctx.save();
+          ctx.fillStyle = "#dc2626";
+          ctx.beginPath();
+          ctx.moveTo(150, 45);
+          ctx.lineTo(215, 45);
+          ctx.lineTo(278, handY - 6);
+          ctx.lineTo(232, handY + 12);
+          ctx.closePath();
+          ctx.fill();
+
+          ctx.fillStyle = "#fcd5b5";
+          ctx.strokeStyle = "#c08552";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.ellipse(272, handY + 10, 32, 16, 0.25, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#dc2626";
+          ctx.beginPath();
+          ctx.moveTo(510, 45);
+          ctx.lineTo(445, 45);
+          ctx.lineTo(382, handY - 6);
+          ctx.lineTo(428, handY + 12);
+          ctx.closePath();
+          ctx.fill();
+
+          ctx.fillStyle = "#fcd5b5";
+          ctx.beginPath();
+          ctx.ellipse(388, handY + 10, 32, 16, -0.25, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+
+          if (ratio > 0.1) {
+            drawPressureArrow(265, handY - 45, 265, handY - 5, "#e63976", 75);
+            drawPressureArrow(395, handY - 45, 395, handY - 5, "#e63976", 75);
+            drawPressureArrow(330, bagY + 52, 330, bagY + 14, "#1d70b8", 75);
+          }
+
+          ctx.fillStyle = "#222";
+          ctx.font = "bold 15px 'Noto Sans TC'";
+          ctx.fillText("用手按壓密實袋：袋內空氣佔有空間，壓不平。", 330, 390);
+        } else {
+          const tankX = 135, tankY = 125, tankW = 390, tankH = 240;
+          const waterLevel = 185 - ratio * 14;
+
+          const waterGrad = ctx.createLinearGradient(0, waterLevel, 0, tankY + tankH);
+          waterGrad.addColorStop(0, "rgba(125, 211, 252, 0.55)");
+          waterGrad.addColorStop(1, "rgba(14, 165, 233, 0.72)");
+          ctx.fillStyle = waterGrad;
+          ctx.fillRect(tankX + 4, waterLevel, tankW - 8, tankY + tankH - waterLevel - 4);
+
+          ctx.strokeStyle = "#0284c7";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(tankX + 4, waterLevel);
+          ctx.lineTo(tankX + tankW - 4, waterLevel);
+          ctx.stroke();
+
+          const cupX = 265, cupW = 130, cupH = 150;
+          const cupY = 38 + ratio * 148;
+
+          ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
+          ctx.fillRect(cupX + 5, cupY + 5, cupW - 10, cupH - 14);
+
+          ctx.fillStyle = "#fffbeb";
+          ctx.strokeStyle = "#d97706";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(cupX + 22, cupY + 7);
+          ctx.lineTo(cupX + cupW - 22, cupY + 7);
+          ctx.lineTo(cupX + cupW - 16, cupY + 28);
+          ctx.quadraticCurveTo(cupX + cupW * 0.7, cupY + 34, cupX + cupW * 0.5, cupY + 26);
+          ctx.quadraticCurveTo(cupX + cupW * 0.3, cupY + 35, cupX + 16, cupY + 27);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#92400e";
+          ctx.font = "bold 12px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("乾紙巾（不濕）", cupX + cupW / 2, cupY + 22);
+
+          drawSimpleAirDots(cupX + 12, cupY + 34, cupW - 24, cupH - 48, 25, 0.9);
+
+          ctx.strokeStyle = "#475569";
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.moveTo(cupX, cupY + cupH);
+          ctx.lineTo(cupX, cupY + 8);
+          ctx.quadraticCurveTo(cupX, cupY, cupX + 8, cupY);
+          ctx.lineTo(cupX + cupW - 8, cupY);
+          ctx.quadraticCurveTo(cupX + cupW, cupY, cupX + cupW, cupY + 8);
+          ctx.lineTo(cupX + cupW, cupY + cupH);
+          ctx.stroke();
+
+          ctx.strokeStyle = "#334155";
+          ctx.lineWidth = 4;
+          ctx.strokeRect(tankX, tankY, tankW, tankH);
+
+          ctx.fillStyle = "#15658a";
+          ctx.font = "bold 15px 'Noto Sans TC'";
+          ctx.fillText("杯內空氣佔有空間，擋住了水。", 330, 392);
+        }
+      }
+
+      function drawAct2_Weight() {
+        const ratio = sliderVal / 100;
+        drawVolleyballScale(185, 225, 1.0, "1. 充滿氣的排球", "265.0 g");
+
+        const rightLabel = ratio > 0.6 ? "2. 充滿氣的排球" : "2. 洩了氣的排球";
+        const rightWeight = `${(260 + ratio * 5).toFixed(1)} g`;
+        drawVolleyballScale(475, 225, ratio, rightLabel, rightWeight);
+
+        ctx.fillStyle = "#15658a";
+        ctx.font = "bold 15px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        ctx.fillText("充滿氣的排球較重（265g > 260g），證明空氣有重量。", 330, 392);
+      }
+
+      function drawVolleyballScale(cx, cy, fullRatio, titleText, weightText) {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+        ctx.beginPath();
+        ctx.ellipse(cx, 344, 88, 10, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        const scaleGrad = ctx.createLinearGradient(cx - 82, 282, cx + 82, 342);
+        scaleGrad.addColorStop(0, "#f8fafc");
+        scaleGrad.addColorStop(0.5, "#e2e8f0");
+        scaleGrad.addColorStop(1, "#cbd5e1");
+        ctx.fillStyle = scaleGrad;
+        ctx.strokeStyle = "#64748b";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.roundRect(cx - 82, 282, 164, 60, 12);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = "#94a3b8";
+        ctx.fillRect(cx - 26, 268, 52, 16);
+
+        const bowlGrad = ctx.createLinearGradient(cx - 72, 255, cx + 72, 275);
+        bowlGrad.addColorStop(0, "#ffffff");
+        bowlGrad.addColorStop(1, "#cbd5e1");
+        ctx.fillStyle = bowlGrad;
+        ctx.strokeStyle = "#94a3b8";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(cx, 264, 70, 14, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = "#0f172a";
+        ctx.strokeStyle = "#475569";
+        ctx.lineWidth = 2;
+        ctx.fillRect(cx - 70, 297, 82, 32);
+        ctx.strokeRect(cx - 70, 297, 82, 32);
+
+        ctx.fillStyle = "#38bdf8";
+        ctx.font = "bold 16px monospace";
+        ctx.textAlign = "right";
+        ctx.fillText(weightText, cx + 6, 319);
+
+        const r = 68;
+        const scaleY = 0.66 + fullRatio * 0.34;
+        const ballCenterY = 262 - r * scaleY;
+
+        ctx.save();
+        ctx.translate(cx, ballCenterY);
+        ctx.scale(1, scaleY);
+
+        ctx.beginPath();
+        if (fullRatio < 0.85) {
+          const dip = (1 - fullRatio) * 38;
+          ctx.arc(0, 0, r, 0.2, Math.PI - 0.2, false);
+          ctx.quadraticCurveTo(-r * 0.7, -r + dip * 0.2, 0, -r + dip);
+          ctx.quadraticCurveTo(r * 0.7, -r + dip * 0.2, r * Math.cos(0.2), r * Math.sin(0.2));
+        } else {
+          ctx.arc(0, 0, r, 0, Math.PI * 2);
+        }
+        ctx.closePath();
+        ctx.clip();
+
+        const ballGrad = ctx.createRadialGradient(-20, -24, 8, 0, 0, r);
+        ballGrad.addColorStop(0, "#fef08a");
+        ballGrad.addColorStop(0.6, "#facc15");
+        ballGrad.addColorStop(1, "#ca8a04");
+        ctx.fillStyle = ballGrad;
+        ctx.fillRect(-r, -r, r * 2, r * 2);
+
+        ctx.fillStyle = "#1d4ed8";
+        ctx.beginPath();
+        ctx.arc(-r * 0.55, 0, r * 0.85, -1.1, 1.1);
+        ctx.arc(-r * 0.2, 0, r * 0.85, 1.1, -1.1, true);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "#f8fafc";
+        ctx.beginPath();
+        ctx.arc(r * 0.55, 0, r * 0.85, Math.PI - 1.1, Math.PI + 1.1);
+        ctx.arc(r * 0.2, 0, r * 0.85, Math.PI + 1.1, Math.PI - 1.1, true);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.restore();
+
+        ctx.save();
+        ctx.translate(cx, ballCenterY);
+        ctx.scale(1, scaleY);
+        ctx.strokeStyle = "#1e293b";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        if (fullRatio < 0.85) {
+          const dip = (1 - fullRatio) * 38;
+          ctx.arc(0, 0, r, 0.2, Math.PI - 0.2, false);
+          ctx.quadraticCurveTo(-r * 0.7, -r + dip * 0.2, 0, -r + dip);
+          ctx.quadraticCurveTo(r * 0.7, -r + dip * 0.2, r * Math.cos(0.2), r * Math.sin(0.2));
+        } else {
+          ctx.arc(0, 0, r, 0, Math.PI * 2);
+        }
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+
+        const dotCount = Math.round(6 + fullRatio * 24);
+        drawSimpleAirDots(cx - 40, ballCenterY - 26, 80, 52, dotCount, 0.8);
+
+        ctx.fillStyle = "#222";
+        ctx.font = "900 15px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        ctx.fillText(titleText, cx, 366);
+      }
+
+      function drawAct3_JuiceBox() {
+        drawPressureLegend();
+
+        const cx = 315, topY = 128, botY = 338, halfW = 86;
+        const pDiff = Math.max(0, pressureDrag.outP - pressureDrag.inP);
+        const isGlass = juiceSubMode === "glass";
+        const dent = isGlass ? 0 : Math.min(48, (pDiff / 70) * 46);
+
+        drawSimpleAirDots(35, 115, 135, 215, 18, 0.8);
+        drawSimpleAirDots(460, 115, 145, 215, 18, 0.8);
+
+        ctx.save();
+        ctx.strokeStyle = "#cbd5e1";
+        ctx.lineWidth = 11;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.beginPath();
+        ctx.moveTo(cx - 6, 322);
+        ctx.lineTo(cx + 12, 68);
+        ctx.lineTo(cx + 58, 50);
+        ctx.stroke();
+
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 7.5;
+        ctx.stroke();
+        ctx.restore();
+
+        if (pDiff > 8) {
+          drawPressureArrow(cx + 15, 92, cx + 36, 48, "#0d9488", 55);
+          ctx.fillStyle = "#0f766e";
+          ctx.font = "900 14px 'Noto Sans TC'";
+          ctx.textAlign = "left";
+          ctx.fillText("人吸出空氣", cx + 66, 56);
+
+          if (showAirDots) {
+            for (let k = 0; k < 4; k++) {
+              const prog = ((tick * 0.03 + k * 0.25) % 1);
+              const sx = cx - 4 + prog * 16;
+              const sy = 210 - prog * 142;
+              ctx.fillStyle = "#0284c7";
+              ctx.beginPath();
+              ctx.arc(sx, sy, 4.2, 0, Math.PI * 2);
+              ctx.fill();
+            }
+          }
+        }
+
+        if (isGlass) {
+          const glassGrad = ctx.createLinearGradient(cx - halfW, topY, cx + halfW, topY);
+          glassGrad.addColorStop(0, "rgba(224, 242, 254, 0.85)");
+          glassGrad.addColorStop(0.5, "rgba(255, 255, 255, 0.92)");
+          glassGrad.addColorStop(1, "rgba(186, 230, 253, 0.88)");
+
+          ctx.fillStyle = glassGrad;
+          ctx.strokeStyle = "#334155";
+          ctx.lineWidth = 7;
+          ctx.beginPath();
+          ctx.roundRect(cx - halfW, topY, halfW * 2, botY - topY, 16);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#6b21a8";
+          ctx.font = "900 16px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("硬身玻璃樽（不會凹陷）", cx, topY + 60);
+        } else {
+          ctx.fillStyle = "#eab308";
+          ctx.strokeStyle = "#854d0e";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(cx - halfW, topY);
+          ctx.lineTo(cx - halfW + 18, topY - 18);
+          ctx.lineTo(cx + halfW - 18, topY - 18);
+          ctx.lineTo(cx + halfW, topY);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          const boxGrad = ctx.createLinearGradient(cx - halfW, topY, cx + halfW, topY);
+          boxGrad.addColorStop(0, "#fde047");
+          boxGrad.addColorStop(0.5, "#fef9c3");
+          boxGrad.addColorStop(1, "#facc15");
+
+          ctx.fillStyle = boxGrad;
+          ctx.strokeStyle = "#854d0e";
+          ctx.lineWidth = 3.5;
+          ctx.beginPath();
+          ctx.moveTo(cx - halfW, topY);
+          ctx.lineTo(cx + halfW, topY);
+          ctx.quadraticCurveTo(cx + halfW - dent, (topY + botY) / 2, cx + halfW, botY);
+          ctx.lineTo(cx - halfW, botY);
+          ctx.quadraticCurveTo(cx - halfW + dent, (topY + botY) / 2, cx - halfW, topY);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.save();
+          ctx.globalAlpha = 0.32;
+          ctx.fillStyle = "#14532d";
+          ctx.font = "900 22px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("檸檬茶", cx, topY + 66);
+          ctx.restore();
+        }
+
+        const inDots = Math.max(3, Math.round((pressureDrag.inP / 85) * 24));
+        drawSimpleAirDots(
+          cx - halfW + dent + 12,
+          topY + 20,
+          Math.max(24, (halfW - dent) * 2 - 24),
+          botY - topY - 48,
+          inDots,
+          0.75
+        );
+
+        const leftWallX = cx - halfW + dent * 0.5;
+        const rightWallX = cx + halfW - dent * 0.5;
+
+        const outLen = 24 + (pressureDrag.outP / 105) * 82;
+        drawPressureArrow(leftWallX - outLen, 192, leftWallX - 4, 192, "#1d70b8", pressureDrag.outP, { kind: "out", scene: "juice" });
+        drawPressureArrow(leftWallX - outLen, 268, leftWallX - 4, 268, "#1d70b8", pressureDrag.outP, { kind: "out", scene: "juice" });
+        drawPressureArrow(rightWallX + outLen, 192, rightWallX + 4, 192, "#1d70b8", pressureDrag.outP, { kind: "out", scene: "juice" });
+        drawPressureArrow(rightWallX + outLen, 268, rightWallX + 4, 268, "#1d70b8", pressureDrag.outP, { kind: "out", scene: "juice" });
+
+        const maxInSpan = Math.max(16, halfW - dent - 8);
+        const inLen = Math.min(maxInSpan, 12 + (pressureDrag.inP / 105) * 58);
+        drawPressureArrow(leftWallX + 5 + inLen, 192, leftWallX + 5, 192, "#e63976", pressureDrag.inP, { kind: "in", scene: "juice" });
+        drawPressureArrow(leftWallX + 5 + inLen, 268, leftWallX + 5, 268, "#e63976", pressureDrag.inP, { kind: "in", scene: "juice" });
+        drawPressureArrow(rightWallX - 5 - inLen, 192, rightWallX - 5, 192, "#e63976", pressureDrag.inP, { kind: "in", scene: "juice" });
+        drawPressureArrow(rightWallX - 5 - inLen, 268, rightWallX - 5, 268, "#e63976", pressureDrag.inP, { kind: "in", scene: "juice" });
+
+        const outSizeLabel = pressureDrag.outP >= 70 ? "大箭頭" : pressureDrag.outP <= 45 ? "細箭頭" : "中箭頭";
+        const inSizeLabel = pressureDrag.inP >= 70 ? "大箭頭" : pressureDrag.inP <= 45 ? "細箭頭" : "中箭頭";
+
+        ctx.fillStyle = "#1d70b8";
+        ctx.font = "900 14px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        ctx.fillText(`外氣壓：${outSizeLabel}`, 98, 152);
+
+        ctx.fillStyle = "#e63976";
+        ctx.fillText(`內氣壓：${inSizeLabel}`, cx - 82, 98);
+
+        ctx.fillStyle = isGlass ? "#6b21a8" : "#15658a";
+        ctx.font = "bold 14px 'Noto Sans TC'";
+        ctx.fillText(
+          isGlass
+            ? "反例證明：硬玻璃樽吸不扁，證明紙盒凹陷是因「外面大氣壓強推扁軟紙盒」！"
+            : "拉動「↔」改變氣壓：外氣壓大（藍粗箭頭）＞ 內氣壓小（紅細箭頭）➔ 壓扁紙盒！",
+          330,
+          392
+        );
+      }
+
+      function drawAct4_SuctionCup() {
+        drawPressureLegend();
+
+        const pDiff = Math.max(0, pressureDrag.outP - pressureDrag.inP);
+        const squeezeRatio = Math.min(1, pDiff / 65);
+        const wallX = 195;
+
+        const tileGrad = ctx.createLinearGradient(95, 45, wallX, 355);
+        tileGrad.addColorStop(0, "#f8fafc");
+        tileGrad.addColorStop(1, "#e2e8f0");
+        ctx.fillStyle = tileGrad;
+        ctx.fillRect(95, 45, 100, 310);
+
+        ctx.strokeStyle = "#64748b";
+        ctx.lineWidth = 3.5;
+        ctx.strokeRect(95, 45, 100, 310);
+
+        const cupDepth = 56 * (1 - squeezeRatio * 0.76);
+        const rimGrad = ctx.createLinearGradient(wallX, 115, wallX + cupDepth * 1.6, 295);
+        rimGrad.addColorStop(0, "rgba(224, 242, 254, 0.85)");
+        rimGrad.addColorStop(0.5, "rgba(186, 230, 253, 0.65)");
+        rimGrad.addColorStop(1, "rgba(125, 211, 252, 0.9)");
+
+        ctx.fillStyle = rimGrad;
+        ctx.strokeStyle = "#0284c7";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(wallX, 115);
+        ctx.quadraticCurveTo(wallX + cupDepth * 1.9, 205, wallX, 295);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        const capX = wallX + cupDepth * 0.95;
+        ctx.fillStyle = "#ffffff";
+        ctx.strokeStyle = "#94a3b8";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.roundRect(capX, 182, 22, 46, 8);
+        ctx.fill();
+        ctx.stroke();
+
+        const towelTopY = squeezeRatio > 0.42 ? 232 : 292;
+        const hookX = capX + 26;
+        ctx.save();
+        ctx.fillStyle = "#fb7185";
+        ctx.strokeStyle = "#be123c";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(hookX, towelTopY);
+        ctx.quadraticCurveTo(hookX + 38, towelTopY + 35, hookX + 52, towelTopY + 110);
+        ctx.quadraticCurveTo(hookX + 18, towelTopY + 122, hookX, towelTopY + 112);
+        ctx.quadraticCurveTo(hookX - 18, towelTopY + 122, hookX - 34, towelTopY + 108);
+        ctx.quadraticCurveTo(hookX - 20, towelTopY + 38, hookX, towelTopY);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+
+        const inDots = Math.max(1, Math.round((pressureDrag.inP / 85) * 14));
+        drawSimpleAirDots(wallX + 4, 148, Math.max(8, cupDepth - 4), 110, inDots, 0.7);
+        drawSimpleAirDots(355, 85, 230, 235, 26, 0.85);
+
+        const inLen = 14 + (pressureDrag.inP / 105) * 52;
+        drawPressureArrow(
+          wallX + 6,
+          205,
+          wallX + 6 + inLen,
+          205,
+          "#e63976",
+          pressureDrag.inP,
+          { kind: "in", scene: "suction" }
+        );
+
+        const outLen = 26 + (pressureDrag.outP / 105) * 82;
+        const outEnd = capX + 26;
+        const outStart = outEnd + outLen;
+        drawPressureArrow(outStart, 155, outEnd, 155, "#1d70b8", pressureDrag.outP, { kind: "out", scene: "suction" });
+        drawPressureArrow(outStart, 255, outEnd, 255, "#1d70b8", pressureDrag.outP, { kind: "out", scene: "suction" });
+
+        ctx.fillStyle = "#15658a";
+        ctx.font = "bold 14px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        ctx.fillText("擠出空氣 ➔ 吸盤內氣壓小（紅細箭頭），外面大氣壓強（藍粗箭頭）壓緊吸盤！", 330, 392);
+      }
+
+      function drawAct5_Thermal() {
+        const temp = sliderVal;
+        const cx = 270;
+        const isHot = temp > 55;
+        const isCold = temp < 35;
+
+        ctx.fillStyle = "#e2e8f0";
+        ctx.fillRect(0, 335, canvas.width, 75);
+
+        const bowlX = 125, bowlY = 235, bowlW = 290, bowlH = 122;
+        const waterGrad = ctx.createLinearGradient(bowlX, bowlY + 18, bowlX, bowlY + bowlH);
+        if (isHot) {
+          waterGrad.addColorStop(0, "rgba(254, 215, 170, 0.65)");
+          waterGrad.addColorStop(1, "rgba(249, 115, 22, 0.52)");
+        } else if (isCold) {
+          waterGrad.addColorStop(0, "rgba(186, 230, 253, 0.72)");
+          waterGrad.addColorStop(1, "rgba(2, 132, 199, 0.58)");
+        } else {
+          waterGrad.addColorStop(0, "rgba(224, 242, 254, 0.55)");
+          waterGrad.addColorStop(1, "rgba(148, 163, 184, 0.4)");
+        }
+
+        ctx.fillStyle = waterGrad;
+        ctx.beginPath();
+        ctx.moveTo(bowlX + 8, bowlY + 22);
+        ctx.lineTo(bowlX + bowlW - 8, bowlY + 22);
+        ctx.quadraticCurveTo(bowlX + bowlW - 18, bowlY + bowlH, cx, bowlY + bowlH);
+        ctx.quadraticCurveTo(bowlX + 18, bowlY + bowlH, bowlX + 8, bowlY + 22);
+        ctx.closePath();
+        ctx.fill();
+
+        const bx = 216, by = 162, bw = 108, bh = 178;
+        const bottleGrad = ctx.createLinearGradient(bx, by, bx + bw, by);
+        bottleGrad.addColorStop(0, "rgba(240, 249, 255, 0.88)");
+        bottleGrad.addColorStop(0.5, "rgba(255, 255, 255, 0.95)");
+        bottleGrad.addColorStop(1, "rgba(186, 230, 253, 0.9)");
+
+        ctx.fillStyle = bottleGrad;
+        ctx.strokeStyle = "#475569";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(cx - 18, by - 14);
+        ctx.lineTo(cx + 18, by - 14);
+        ctx.lineTo(cx + 20, by + 6);
+        ctx.quadraticCurveTo(bx + bw, by + 16, bx + bw, by + 42);
+        ctx.lineTo(bx + bw, by + bh - 12);
+        ctx.quadraticCurveTo(bx + bw, by + bh, bx + bw - 12, by + bh);
+        ctx.lineTo(bx + 12, by + bh);
+        ctx.quadraticCurveTo(bx, by + bh, bx, by + bh - 12);
+        ctx.lineTo(bx, by + 42);
+        ctx.quadraticCurveTo(bx, by + 16, cx - 20, by + 6);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        const spd = 0.45 + (temp / 100) * 1.6;
+        const thermalMode = isHot ? "hot" : isCold ? "cold" : "normal";
+        const boxTopY = isCold ? by + 68 : by + 22;
+        const boxHeight = isCold ? bh - 78 : bh - 32;
+        drawSimpleAirDots(bx + 12, boxTopY, bw - 24, boxHeight, 24, spd, thermalMode);
+
+        if (isHot) {
+          drawPressureArrow(cx, by + 125, cx, by - 8, "#ea580c", 82);
+        } else if (isCold) {
+          drawPressureArrow(cx, by + 20, cx, by + 115, "#0284c7", 75);
+        }
+
+        // 常溫氣球原貌虛線
+        ctx.save();
+        ctx.setLineDash([4, 4]);
+        ctx.strokeStyle = "rgba(100, 116, 139, 0.55)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(cx, by - 14 - 28 * 0.92, 28, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.save();
+        if (temp < 32) {
+          ctx.fillStyle = "#e11d48";
+          ctx.strokeStyle = "#881337";
+          ctx.lineWidth = 2.8;
+          ctx.beginPath();
+          ctx.moveTo(cx - 19, by - 8);
+          ctx.lineTo(cx + 19, by - 8);
+          ctx.quadraticCurveTo(cx + 10, by - 26, cx - 18, by - 24);
+          ctx.quadraticCurveTo(cx - 48, by - 22, cx - 50, by + 8);
+          ctx.quadraticCurveTo(cx - 50, by + 28, cx - 32, by + 22);
+          ctx.quadraticCurveTo(cx - 22, by + 12, cx - 19, by - 8);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+        } else {
+          const r = 20 + ((temp - 20) / 80) * 38;
+          const ballY = by - 14 - r * 0.92;
+          ctx.fillStyle = "#ef4444";
+          ctx.strokeStyle = "#7f1d1d";
+          ctx.lineWidth = 2.8;
+          ctx.beginPath();
+          ctx.arc(cx, ballY, r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          const balloonDots = Math.max(2, Math.round(((temp - 20) / 80) * 14));
+          drawSimpleAirDots(cx - r * 0.55, ballY - r * 0.55, r * 1.1, r * 1.1, balloonDots, spd, thermalMode);
+        }
+        ctx.restore();
+
+        ctx.strokeStyle = "#475569";
+        ctx.lineWidth = 3.5;
+        ctx.beginPath();
+        ctx.ellipse(cx, bowlY, bowlW / 2, 14, 0, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // 右上角微粒距離放大鏡
+        const zoomX = 450, zoomY = 25, zoomW = 192, zoomH = 190;
+        ctx.save();
+        ctx.fillStyle = "rgba(255, 255, 255, 0.96)";
+        ctx.strokeStyle = isHot ? "#ea580c" : isCold ? "#0284c7" : "#64748b";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.roundRect(zoomX, zoomY, zoomW, zoomH, 12);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isHot ? "#c2410c" : isCold ? "#0369a1" : "#334155";
+        ctx.font = "900 13px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        ctx.fillText("🔍 樽內空氣微粒放大鏡", zoomX + zoomW / 2, zoomY + 22);
+
+        const centerZ = { x: zoomX + zoomW / 2, y: zoomY + 96 };
+        const distSpread = 16 + (temp / 100) * 34;
+        const angles = [0, (Math.PI * 2) / 5, (Math.PI * 4) / 5, (Math.PI * 6) / 5, (Math.PI * 8) / 5];
+
+        ctx.strokeStyle = isHot ? "rgba(234, 88, 12, 0.45)" : "rgba(2, 132, 199, 0.45)";
+        ctx.lineWidth = 1.8;
+        ctx.setLineDash([3, 3]);
+        angles.forEach((a) => {
+          const px = centerZ.x + Math.cos(a + tick * 0.015) * distSpread;
+          const py = centerZ.y + Math.sin(a + tick * 0.015) * distSpread;
+          ctx.beginPath();
+          ctx.moveTo(centerZ.x, centerZ.y);
+          ctx.lineTo(px, py);
+          ctx.stroke();
+        });
+        ctx.setLineDash([]);
+
+        const dotColor = isHot ? "#ea580c" : isCold ? "#0284c7" : "#38bdf8";
+        ctx.fillStyle = dotColor;
+        ctx.beginPath();
+        ctx.arc(centerZ.x, centerZ.y, 6, 0, Math.PI * 2);
+        ctx.fill();
+
+        angles.forEach((a) => {
+          const px = centerZ.x + Math.cos(a + tick * 0.015) * distSpread;
+          const py = centerZ.y + Math.sin(a + tick * 0.015) * distSpread;
+          ctx.beginPath();
+          ctx.arc(px, py, 6, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        ctx.fillStyle = "#1e293b";
+        ctx.font = "900 12px 'Noto Sans TC'";
+        ctx.fillText(
+          isHot ? "受熱：微粒距離拉大（膨脹）" : isCold ? "遇冷：微粒聚攏靠近（收縮）" : "常溫：微粒正常距離",
+          zoomX + zoomW / 2,
+          zoomY + 172
+        );
+        ctx.restore();
+
+        ctx.fillStyle = "#222";
+        ctx.font = "bold 14px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        ctx.fillText("熱水 ➔ 樽內空氣受熱膨脹（氣球鼓起）；冰水 ➔ 空氣遇冷收縮（氣球垂下）。", 330, 392);
+      }
+
+      // ====== 升級版活動 6：課本 p.54–55「空氣受熱後會有甚麼變化？」（高擬真天燈 / 火警逃生 / 空調機高度） ======
+      function drawAct6_HotAirRise() {
+        const ratio = sliderVal / 100;
+
+        if (hotRiseSubMode === "lantern") {
+          // =========================================================
+          // 場景 1：課本 p.54 寫實風筒吹白色膠袋天燈（含三隻手扶袋、皺褶變澎湃、熱氣流軌跡）
+          // =========================================================
+          const bgGrad = ctx.createLinearGradient(0, 0, 0, 410);
+          bgGrad.addColorStop(0, "#f3eee8");
+          bgGrad.addColorStop(0.72, "#e7dfd5");
+          bgGrad.addColorStop(1, "#d5c7b8");
+          ctx.fillStyle = bgGrad;
+          ctx.fillRect(0, 0, canvas.width, 410);
+
+          // 桌面邊界線
+          ctx.strokeStyle = "#b8a693";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(0, 345);
+          ctx.lineTo(canvas.width, 345);
+          ctx.stroke();
+
+          const cx = 375;
+          const tubeX = cx - 46, tubeY = 246, tubeW = 92, tubeH = 118;
+
+          // 圓筒底部桌面陰影
+          ctx.fillStyle = "rgba(0, 0, 0, 0.14)";
+          ctx.beginPath();
+          ctx.ellipse(cx, tubeY + tubeH + 2, 56, 10, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          // 課本同款：香檳紫灰色金屬感卡紙圓筒（底部有矩形風筒進氣缺口）
+          const tubeGrad = ctx.createLinearGradient(tubeX, tubeY, tubeX + tubeW, tubeY);
+          tubeGrad.addColorStop(0, "#9e8f98");
+          tubeGrad.addColorStop(0.35, "#cfc2ca");
+          tubeGrad.addColorStop(0.7, "#b3a3ad");
+          tubeGrad.addColorStop(1, "#7d6e77");
+          ctx.fillStyle = tubeGrad;
+          ctx.strokeStyle = "#5c4d56";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.roundRect(tubeX, tubeY, tubeW, tubeH, 6);
+          ctx.fill();
+          ctx.stroke();
+
+          // 圓筒底部小缺口（供風筒吹入熱空氣）
+          const slotW = 24, slotH = 22;
+          ctx.fillStyle = "#2b2128";
+          ctx.fillRect(cx - slotW / 2, tubeY + tubeH - slotH, slotW, slotH);
+          ctx.strokeStyle = "#5c4d56";
+          ctx.strokeRect(cx - slotW / 2, tubeY + tubeH - slotH, slotW, slotH);
+
+          // 計算天燈充氣程度與升空高度
+          // 0.0 ~ 0.65：熱空氣吹入，膠袋由軟垂皺褶逐漸鼓起脹滿
+          // 0.65 ~ 1.0：雙手放開，充滿熱空氣的天燈緩緩向上升空！
+          const inflateProgress = Math.min(1, ratio / 0.65);
+          const liftProgress = ratio > 0.65 ? (ratio - 0.65) / 0.35 : 0;
+          const liftY = Math.pow(liftProgress, 1.25) * 185;
+
+          const bagBotY = 264 - liftY;
+          const bagTopY = 52 - liftY;
+          const topHalfW = 72 + inflateProgress * 22;
+          const midBulgeW = 36 + inflateProgress * 58; // 未充氣時中間內縮皺褶，充氣後向外飽滿鼓起
+          const botHalfW = 47;
+
+          // 繪製寫實半透明白色膠袋天燈
+          ctx.save();
+          ctx.shadowColor = "rgba(0, 0, 0, 0.10)";
+          ctx.shadowBlur = 10;
+          ctx.shadowOffsetY = 4;
+
+          const bagGrad = ctx.createLinearGradient(cx - topHalfW, bagTopY, cx + topHalfW, bagBotY);
+          bagGrad.addColorStop(0, "rgba(255, 255, 255, 0.96)");
+          bagGrad.addColorStop(0.45, "rgba(248, 250, 252, 0.90)");
+          bagGrad.addColorStop(0.8, "rgba(235, 240, 245, 0.88)");
+          bagGrad.addColorStop(1, "rgba(226, 232, 240, 0.94)");
+
+          ctx.fillStyle = bagGrad;
+          ctx.strokeStyle = "#cbd5e1";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          // 袋底開口（套在圓筒外圍）
+          ctx.moveTo(cx - botHalfW, bagBotY);
+          // 左側袋身（隨充氣由內凹皺褶變向外飽滿）
+          ctx.bezierCurveTo(
+            cx - midBulgeW,
+            bagBotY - 65,
+            cx - topHalfW - (1 - inflateProgress) * 14,
+            bagTopY + 55,
+            cx - topHalfW,
+            bagTopY
+          );
+          // 袋頂橫邊（未充氣時中間微垂，充氣後向上拱起）
+          ctx.quadraticCurveTo(
+            cx,
+            bagTopY + (1 - inflateProgress) * 18 - inflateProgress * 12,
+            cx + topHalfW,
+            bagTopY
+          );
+          // 右側袋身
+          ctx.bezierCurveTo(
+            cx + topHalfW + (1 - inflateProgress) * 14,
+            bagTopY + 55,
+            cx + midBulgeW,
+            bagBotY - 65,
+            cx + botHalfW,
+            bagBotY
+          );
+          // 袋底弧邊
+          ctx.quadraticCurveTo(cx, bagBotY + 12, cx - botHalfW, bagBotY);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          // 膠袋內部熱光暈（當熱風吹入時發出溫暖橙光）
+          if (ratio > 0.08) {
+            const warmGlow = ctx.createRadialGradient(
+              cx,
+              (bagTopY + bagBotY) / 2,
+              8,
+              cx,
+              (bagTopY + bagBotY) / 2,
+              95
+            );
+            warmGlow.addColorStop(0, `rgba(251, 146, 60, ${0.26 * inflateProgress})`);
+            warmGlow.addColorStop(1, "rgba(251, 146, 60, 0)");
+            ctx.fillStyle = warmGlow;
+            ctx.fill();
+          }
+
+          // 膠袋真實立體摺痕線（隨充氣膨脹逐漸變淡拉平）
+          const creaseAlpha = Math.max(0.12, 0.55 - inflateProgress * 0.4);
+          ctx.strokeStyle = `rgba(148, 163, 184, ${creaseAlpha})`;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(cx - topHalfW + 18, bagTopY + 10);
+          ctx.quadraticCurveTo(cx - midBulgeW * 0.35, (bagTopY + bagBotY) / 2, cx - 18, bagBotY - 8);
+          ctx.moveTo(cx + topHalfW - 22, bagTopY + 12);
+          ctx.quadraticCurveTo(cx + midBulgeW * 0.4, (bagTopY + bagBotY) / 2, cx + 15, bagBotY - 10);
+          ctx.moveTo(cx - 8, bagTopY + 16);
+          ctx.quadraticCurveTo(cx + 12, (bagTopY + bagBotY) / 2 + 15, cx - 6, bagBotY - 18);
+          ctx.stroke();
+          ctx.restore();
+
+          // 還原課本 p.54 照片的三隻手：左上捏袋角、右上捏袋角、右下扶住袋口（升空時雙手移開鬆手）
+          const handRetract = liftProgress * 42;
+          ctx.save();
+          ctx.fillStyle = "#f5cba7";
+          ctx.strokeStyle = "#b87d52";
+          ctx.lineWidth = 2;
+
+          // 1. 左上角手掌與手指捏住左袋角
+          const lhX = cx - topHalfW - 14 - handRetract;
+          const lhY = bagTopY + 6 + liftY * 0.7;
+          ctx.beginPath();
+          ctx.roundRect(lhX - 34, lhY - 12, 36, 22, 8);
+          ctx.fill();
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.ellipse(lhX + 4, lhY - 3, 10, 5.5, 0.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          // 2. 右上角手掌與手指捏住右袋角
+          const rhX = cx + topHalfW + 14 + handRetract;
+          const rhY = bagTopY + 6 + liftY * 0.7;
+          ctx.beginPath();
+          ctx.roundRect(rhX - 2, rhY - 12, 36, 22, 8);
+          ctx.fill();
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.ellipse(rhX - 4, rhY - 3, 10, 5.5, -0.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          // 3. 右下角手掌輕扶膠袋下緣（課本照片右下方的手）
+          const bhX = cx + botHalfW + 18 + handRetract * 0.8;
+          const bhY = 236;
+          ctx.beginPath();
+          ctx.roundRect(bhX, bhY - 12, 54, 26, 10);
+          ctx.fill();
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.ellipse(bhX - 4, bhY - 4, 11, 6, -0.15, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          ctx.restore();
+
+          // 左下方寫實風筒對準圓筒底部缺口吹入熱空氣
+          const dryerX = 215, dryerY = 336;
+          ctx.save();
+          ctx.translate(dryerX, dryerY);
+          // 風筒把手
+          ctx.fillStyle = "#334155";
+          ctx.strokeStyle = "#0f172a";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.roundRect(-18, 8, 22, 42, 6);
+          ctx.fill();
+          ctx.stroke();
+          // 風筒機身
+          const dryerGrad = ctx.createLinearGradient(-35, -20, 45, 20);
+          dryerGrad.addColorStop(0, "#0284c7");
+          dryerGrad.addColorStop(1, "#0369a1");
+          ctx.fillStyle = dryerGrad;
+          ctx.beginPath();
+          ctx.roundRect(-32, -18, 68, 34, 14);
+          ctx.fill();
+          ctx.stroke();
+          // 風嘴與內部發熱紅絲
+          ctx.fillStyle = ratio > 0.05 ? "#ea580c" : "#475569";
+          ctx.fillRect(36, -12, 18, 24);
+          ctx.strokeRect(36, -12, 18, 24);
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "900 12px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText(ratio > 0.05 ? "🔥 熱風開啟" : "風筒關閉", 2, 4);
+          ctx.restore();
+
+          // 課本 p.54 紫色說明框：「此開口供風筒把空氣吹進天燈內」
+          ctx.save();
+          ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
+          ctx.strokeStyle = "#9333ea";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.roundRect(22, 232, 186, 58, 8);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#4c1d95";
+          ctx.font = "900 13px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("此開口供風筒把", 115, 256);
+          ctx.fillText("熱空氣吹進天燈內", 115, 277);
+
+          ctx.strokeStyle = "#9333ea";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(208, 266);
+          ctx.lineTo(cx - slotW / 2 - 2, tubeY + tubeH - 10);
+          ctx.stroke();
+          ctx.restore();
+
+          // 課本左側兩個裝飾小黃天燈圖示（仿課本 p.54 背景插圖）
+          [
+            { x: 105, y: 145, rot: -0.22 },
+            { x: 590, y: 155, rot: 0.15 }
+          ].forEach((lt) => {
+            ctx.save();
+            ctx.translate(lt.x, lt.y - Math.sin(tick * 0.04 + lt.x) * 4);
+            ctx.rotate(lt.rot);
+            ctx.fillStyle = "#f59e0b";
+            ctx.strokeStyle = "#b45309";
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            ctx.moveTo(-16, -18);
+            ctx.lineTo(16, -18);
+            ctx.lineTo(12, 16);
+            ctx.lineTo(-12, 16);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            ctx.fillStyle = "#fef08a";
+            ctx.beginPath();
+            ctx.arc(0, 16, 5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+          });
+
+          // 連續流體粒子動畫：空氣從風筒吹出 ➔ 進入底部開口 ➔ 在圓筒及膠袋內受熱膨脹並向上升起！
+          if (showAirDots) {
+            if (ratio <= 0.05) {
+              // 未開風筒：袋內只有常溫慢速藍色空氣微粒
+              drawSimpleAirDots(cx - 32, bagTopY + 25, 64, bagBotY - bagTopY - 40, 16, 0.5, "normal");
+            } else {
+              lanternAirDots.forEach((pt, idx) => {
+                pt.prog = (pt.prog + (0.0045 + ratio * 0.009) * pt.speed) % 1;
+                let px, py, rC, gC, bC;
+
+                if (pt.prog < 0.22) {
+                  // 階段 1：由風筒噴嘴吹向圓筒底部開口
+                  const u = pt.prog / 0.22;
+                  px = (dryerX + 56) + u * (cx - (dryerX + 56));
+                  py = dryerY + u * ((tubeY + tubeH - 11) - dryerY) + Math.sin(u * 6 + tick * 0.2) * 3;
+                  rC = 249; gC = 115; bC = 22;
+                } else if (pt.prog < 0.45) {
+                  // 階段 2：由圓筒底部向上穿過圓筒進入天燈
+                  const u = (pt.prog - 0.22) / 0.23;
+                  px = cx + pt.lane * 55;
+                  py = (tubeY + tubeH - 12) - u * (tubeH + 10);
+                  rC = 239; gC = 68; bC = 68;
+                } else {
+                  // 階段 3：在天燈膠袋內受熱膨脹、散開並直衝袋頂，推起天燈！
+                  const u = (pt.prog - 0.45) / 0.55;
+                  const spreadSpan = (midBulgeW * 1.65) * (0.35 + u * 0.65);
+                  px = cx + pt.lane * spreadSpan + Math.sin(u * 5 + pt.wobble + tick * 0.08) * 6;
+                  py = bagBotY - u * (bagBotY - bagTopY - 18);
+                  rC = 220; gC = 38; bC = 38;
+                }
+
+                // 繪製熱氣流尾跡與微粒
+                ctx.strokeStyle = `rgba(${rC}, ${gC}, ${bC}, 0.35)`;
+                ctx.lineWidth = 2.5;
+                ctx.beginPath();
+                ctx.moveTo(px, py + 10);
+                ctx.lineTo(px, py);
+                ctx.stroke();
+
+                const dotGrad = ctx.createRadialGradient(px - 1, py - 1, 0.8, px, py, 5.2);
+                dotGrad.addColorStop(0, "#fef08a");
+                dotGrad.addColorStop(0.55, `rgb(${rC}, ${gC}, ${bC})`);
+                dotGrad.addColorStop(1, "#991b1b");
+                ctx.fillStyle = dotGrad;
+                ctx.beginPath();
+                ctx.arc(px, py, 5, 0, Math.PI * 2);
+                ctx.fill();
+              });
+            }
+          }
+
+          // 袋內向上熱氣流大箭頭與狀態標示
+          if (ratio > 0.08) {
+            drawPressureArrow(cx - 22, bagBotY - 15, cx - 28, bagTopY + 32, "#ea580c", 65 + ratio * 30);
+            drawPressureArrow(cx + 22, bagBotY - 15, cx + 28, bagTopY + 32, "#ea580c", 65 + ratio * 30);
+
+            ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
+            ctx.strokeStyle = "#ea580c";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(cx - 115, bagTopY + 36, 230, 30, 8);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = "#c2410c";
+            ctx.font = "900 14px 'Noto Sans TC'";
+            ctx.textAlign = "center";
+            ctx.fillText(
+              liftY > 12 ? "🎉 熱空氣上升，天燈升空了！" : "🔥 熱空氣向上升，把天燈撐起！",
+              cx,
+              bagTopY + 56
+            );
+          }
+
+          ctx.fillStyle = "#15658a";
+          ctx.font = "bold 14px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("課本 p.54 實驗：風筒吹入熱空氣 ➔ 空氣受熱向上升 ➔ 充滿膠袋後帶動天燈升空！", 330, 394);
+        } else if (hotRiseSubMode === "fire") {
+          // =========================================================
+          // 場景 2：課本 p.55 知識百科「火警濃煙隨熱空氣翻滾上升 & 男童濕毛巾掩口鼻動態爬行」
+          // =========================================================
+          const roomGrad = ctx.createLinearGradient(0, 0, 0, 315);
+          roomGrad.addColorStop(0, "#e2e8f0");
+          roomGrad.addColorStop(0.55, "#fef9c3");
+          roomGrad.addColorStop(1, "#e0f2fe");
+          ctx.fillStyle = roomGrad;
+          ctx.fillRect(0, 0, canvas.width, 315);
+
+          // 淺藍色室內地板
+          const floorGrad = ctx.createLinearGradient(0, 312, 0, 410);
+          floorGrad.addColorStop(0, "#bae6fd");
+          floorGrad.addColorStop(1, "#7dd3fc");
+          ctx.fillStyle = floorGrad;
+          ctx.fillRect(0, 312, canvas.width, 98);
+          ctx.strokeStyle = "#0284c7";
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(0, 312);
+          ctx.lineTo(canvas.width, 312);
+          ctx.stroke();
+
+          // 左側火警熱源與不斷向上翻滾升起的灰黑濃煙團（隨滑桿增加而聚集於高處）
+          const smokeIntensity = 0.25 + ratio * 0.75;
+          ctx.save();
+          fireSmokePlumes.forEach((sp, idx) => {
+            sp.prog = (sp.prog + (0.003 + ratio * 0.005) * sp.drift) % 1;
+            let sx, sy, rx, ry;
+            if (sp.prog < 0.45) {
+              // 由左下熱源向上升起
+              const u = sp.prog / 0.45;
+              sx = 95 + sp.xOffset + Math.sin(u * 5 + tick * 0.05) * 14;
+              sy = 265 - u * 185;
+              rx = sp.size * (0.7 + u * 0.8);
+              ry = rx * 0.68;
+            } else {
+              // 積聚在房間較高位置（天花板下）橫向擴散飄浮
+              const u = (sp.prog - 0.45) / 0.55;
+              sx = 95 + u * 490 + Math.sin(tick * 0.03 + idx) * 10;
+              sy = 48 + (idx % 4) * 18 + Math.cos(tick * 0.04 + idx) * 5;
+              rx = sp.size * 1.65;
+              ry = sp.size * 0.95;
+            }
+
+            const grayVal = 75 + (idx % 3) * 18;
+            ctx.fillStyle = `rgba(${grayVal}, ${grayVal + 5}, ${grayVal + 12}, ${0.38 * smokeIntensity})`;
+            ctx.beginPath();
+            ctx.ellipse(sx, sy, rx, ry, 0, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.restore();
+
+          // 繪製課本 p.55 上方三大團標誌性深灰濃煙雲
+          ctx.save();
+          ctx.fillStyle = `rgba(100, 116, 139, ${0.55 + ratio * 0.35})`;
+          [
+            { x: 165, y: 74, rx: 92, ry: 44 },
+            { x: 385, y: 66, rx: 112, ry: 46 },
+            { x: 545, y: 78, rx: 82, ry: 40 },
+            { x: 255, y: 138 - ratio * 22, rx: 48, ry: 26 }
+          ].forEach((c, i) => {
+            const dx = Math.sin(tick * 0.04 + i) * 5;
+            ctx.beginPath();
+            ctx.ellipse(c.x + dx, c.y, c.rx, c.ry, 0, 0, Math.PI * 2);
+            ctx.fill();
+          });
+          ctx.restore();
+
+          // 上層熱空氣微粒（紅橙點向上衝）與上升箭頭
+          drawSimpleAirDots(55, 22, 550, 125, 26, 0.8 + ratio * 1.2, "hot");
+          drawPressureArrow(125, 195, 125, 62, "#ea580c", 88);
+          drawPressureArrow(485, 185, 485, 62, "#ea580c", 88);
+
+          // 高低空氣分界虛線與說明標籤
+          ctx.save();
+          ctx.setLineDash([6, 6]);
+          ctx.strokeStyle = "#dc2626";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(25, 172);
+          ctx.lineTo(635, 172);
+          ctx.stroke();
+          ctx.restore();
+
+          ctx.fillStyle = "rgba(153, 27, 27, 0.9)";
+          ctx.beginPath();
+          ctx.roundRect(175, 18, 320, 28, 6);
+          ctx.fill();
+          ctx.fillStyle = "#ffffff";
+          ctx.font = "900 13px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("⚠️ 較高位置：熱空氣向上升，濃煙聚集（切勿站立）", 335, 37);
+
+          // 近地面較清新的冷空氣層（藍色微粒平穩流動）
+          drawSimpleAirDots(45, 215, 570, 90, 22, 0.55, "cold");
+
+          ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
+          ctx.strokeStyle = "#0284c7";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(372, 232, 268, 30, 8);
+          ctx.fill();
+          ctx.stroke();
+          ctx.fillStyle = "#0369a1";
+          ctx.font = "900 13px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("✅ 接近地面：空氣較清新，適合蹲下爬行", 506, 252);
+
+          // 還原課本 p.55 插圖：穿紅衣灰褲男童用綠白格仔濕毛巾掩口鼻、壓低身體動態爬行
+          const crawlCycle = tick * (0.08 + ratio * 0.08);
+          const legSwing = Math.sin(crawlCycle) * 10;
+          const armSwing = Math.cos(crawlCycle) * 8;
+          const boyX = 245 + Math.sin(crawlCycle * 0.5) * 6;
+          const boyY = 266;
+
+          ctx.save();
+          // 後腿與啡色鞋（左後腿）
+          ctx.strokeStyle = "#475569";
+          ctx.lineWidth = 18;
+          ctx.lineCap = "round";
+          ctx.lineJoin = "round";
+          ctx.beginPath();
+          ctx.moveTo(boyX - 36, boyY + 4);
+          ctx.lineTo(boyX - 75 + legSwing * 0.5, boyY + 26);
+          ctx.lineTo(boyX - 110 + legSwing, boyY + 34);
+          ctx.stroke();
+
+          ctx.fillStyle = "#78350f";
+          ctx.beginPath();
+          ctx.ellipse(boyX - 114 + legSwing, boyY + 38, 12, 7, -0.3, 0, Math.PI * 2);
+          ctx.fill();
+
+          // 前腿膝蓋著地（右腿）
+          ctx.strokeStyle = "#64748b";
+          ctx.lineWidth = 19;
+          ctx.beginPath();
+          ctx.moveTo(boyX - 28, boyY + 8);
+          ctx.lineTo(boyX - 52 - legSwing * 0.6, boyY + 38);
+          ctx.lineTo(boyX - 82 - legSwing * 0.6, boyY + 40);
+          ctx.stroke();
+
+          // 支撐地面的左手臂與手掌
+          ctx.strokeStyle = "#fcd5b5";
+          ctx.lineWidth = 11;
+          ctx.beginPath();
+          ctx.moveTo(boyX + 16, boyY + 8);
+          ctx.lineTo(boyX + 12 + armSwing, boyY + 42);
+          ctx.lineTo(boyX + 24 + armSwing, boyY + 43);
+          ctx.stroke();
+
+          // 紅色短袖上衣（壓低身體）
+          const shirtGrad = ctx.createLinearGradient(boyX - 45, boyY - 22, boyX + 45, boyY + 22);
+          shirtGrad.addColorStop(0, "#f87171");
+          shirtGrad.addColorStop(1, "#dc2626");
+          ctx.fillStyle = shirtGrad;
+          ctx.strokeStyle = "#991b1b";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.ellipse(boyX, boyY, 44, 23, -0.15, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          // 頭部（微向下俯視）
+          const headX = boyX + 52, headY = boyY - 12;
+          ctx.fillStyle = "#fcd5b5";
+          ctx.strokeStyle = "#b45309";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(headX, headY, 26, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          // 黑色短髮與劉海
+          ctx.fillStyle = "#1e293b";
+          ctx.beginPath();
+          ctx.arc(headX - 2, headY - 5, 26, Math.PI * 0.82, Math.PI * 2.08);
+          ctx.closePath();
+          ctx.fill();
+
+          // 閉眼／微瞇眼表情（防煙燻）
+          ctx.strokeStyle = "#1e293b";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(headX + 8, headY - 2);
+          ctx.lineTo(headX + 18, headY);
+          ctx.stroke();
+
+          // 綠白格仔濕毛巾掩住口鼻 + 右手托住毛巾
+          ctx.fillStyle = "#bbf7d0";
+          ctx.strokeStyle = "#16a34a";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(headX + 2, headY + 3, 28, 20, 4);
+          ctx.fill();
+          ctx.stroke();
+
+          // 濕毛巾格紋
+          ctx.strokeStyle = "#22c55e";
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(headX + 10, headY + 3);
+          ctx.lineTo(headX + 10, headY + 23);
+          ctx.moveTo(headX + 19, headY + 3);
+          ctx.lineTo(headX + 19, headY + 23);
+          ctx.moveTo(headX + 2, headY + 12);
+          ctx.lineTo(headX + 30, headY + 12);
+          ctx.stroke();
+
+          // 右手臂彎曲舉起按住濕毛巾
+          ctx.strokeStyle = "#fcd5b5";
+          ctx.lineWidth = 10;
+          ctx.beginPath();
+          ctx.moveTo(boyX + 24, boyY + 4);
+          ctx.lineTo(boyX + 42, boyY + 22);
+          ctx.lineTo(headX + 10, headY + 15);
+          ctx.stroke();
+          ctx.restore();
+
+          ctx.fillStyle = "#15658a";
+          ctx.font = "bold 14px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("課本 p.55 知識百科：火警時熱空氣與濃煙會向上升，應以濕毛巾掩口鼻並蹲下爬行逃生！", 330, 392);
+        } else {
+          // =========================================================
+          // 場景 3：課本 p.55 樂學活用「客廳安裝空調機高度 A / B / C 實時對流與溫度分層模擬」
+          // =========================================================
+          const rx = 178, ry = 22, rw = 456, rh = 330;
+
+          // 客廳背景牆面（根據高度 A/B/C 的冷卻效果動態呈現室溫色調）
+          const roomBgGrad = ctx.createLinearGradient(rx, ry, rx, ry + rh);
+          if (acSelectedHeight === "A") {
+            // 高度 A：全屋對流涼快（清爽冰藍米色）
+            roomBgGrad.addColorStop(0, "#e0f2fe");
+            roomBgGrad.addColorStop(0.5, "#f0f9ff");
+            roomBgGrad.addColorStop(1, "#dbeafe");
+          } else if (acSelectedHeight === "B") {
+            // 高度 B：上半部微熱（暖橘黃）、下半部涼（淺藍）
+            roomBgGrad.addColorStop(0, "#ffedd5");
+            roomBgGrad.addColorStop(0.45, "#fef3c7");
+            roomBgGrad.addColorStop(0.55, "#e0f2fe");
+            roomBgGrad.addColorStop(1, "#dbeafe");
+          } else {
+            // 高度 C：中上層全屋悶熱（橙紅暖色），只有貼地面一線冰冷
+            roomBgGrad.addColorStop(0, "#fee2e2");
+            roomBgGrad.addColorStop(0.72, "#ffedd5");
+            roomBgGrad.addColorStop(0.85, "#bae6fd");
+            roomBgGrad.addColorStop(1, "#7dd3fc");
+          }
+
+          ctx.fillStyle = roomBgGrad;
+          ctx.strokeStyle = "#64748b";
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.roundRect(rx, ry, rw, rh, 14);
+          ctx.fill();
+          ctx.stroke();
+
+          // 還原課本 p.55 客廳裝潢細節：後窗與落地窗簾、木地板、L形沙發、立燈、茶几與掛牆電視
+          // 1. 落地窗與窗簾
+          ctx.fillStyle = "rgba(255, 255, 255, 0.65)";
+          ctx.fillRect(rx + 145, ry + 38, 155, rh - 82);
+          ctx.fillStyle = "rgba(203, 213, 225, 0.72)";
+          ctx.fillRect(rx + 125, ry + 34, 34, rh - 78);
+          ctx.fillRect(rx + 286, ry + 34, 34, rh - 78);
+
+          // 2. 人字紋木地板與地毯
+          ctx.fillStyle = "#d6ccc2";
+          ctx.fillRect(rx + 4, ry + rh - 44, rw - 8, 40);
+          ctx.fillStyle = "#94a3b8";
+          ctx.beginPath();
+          ctx.moveTo(rx + 120, ry + rh - 10);
+          ctx.lineTo(rx + 350, ry + rh - 10);
+          ctx.lineTo(rx + 325, ry + rh - 36);
+          ctx.lineTo(rx + 145, ry + rh - 36);
+          ctx.closePath();
+          ctx.fill();
+
+          // 3. 左側立燈與米色沙發
+          ctx.strokeStyle = "#64748b";
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(rx + 56, ry + rh - 38);
+          ctx.lineTo(rx + 56, ry + 150);
+          ctx.stroke();
+          ctx.fillStyle = "#fef9c3";
+          ctx.beginPath();
+          ctx.roundRect(rx + 34, ry + 122, 44, 28, 4);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#e2e8f0";
+          ctx.strokeStyle = "#64748b";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.roundRect(rx + 78, ry + rh - 88, 132, 48, 8);
+          ctx.fill();
+          ctx.stroke();
+          // 沙發靠背與抱枕
+          ctx.fillStyle = "#cbd5e1";
+          ctx.beginPath();
+          ctx.roundRect(rx + 78, ry + rh - 110, 26, 42, 6);
+          ctx.fill();
+          ctx.stroke();
+
+          // 4. 中央茶几與小花瓶
+          ctx.fillStyle = "#f8fafc";
+          ctx.fillRect(rx + 232, ry + rh - 64, 68, 24);
+          ctx.strokeRect(rx + 232, ry + rh - 64, 68, 24);
+
+          // 5. 右牆掛牆電視與電視櫃
+          ctx.fillStyle = "#1e293b";
+          ctx.fillRect(rx + rw - 62, ry + 135, 12, 68);
+          ctx.fillStyle = "#cbd5e1";
+          ctx.fillRect(rx + rw - 88, ry + 225, 68, 28);
+          ctx.strokeRect(rx + rw - 88, ry + 225, 68, 28);
+
+          // 左側三個課本同款高度選擇按鈕：高度 A（綠）、高度 B（藍）、高度 C（橙黃）
+          const levels = [
+            { id: "A", label: "高度 A", y: 58, bg: "#4ade80", border: "#15803d" },
+            { id: "B", label: "高度 B", y: 168, bg: "#38bdf8", border: "#0369a1" },
+            { id: "C", label: "高度 C", y: 274, bg: "#fbbf24", border: "#b45309" }
+          ];
+
+          levels.forEach((lv) => {
+            const bx = 26, by = lv.y, bw = 110, bh = 44;
+            acClickBoxes.push({ x: bx, y: by, w: bw, h: bh, level: lv.id });
+
+            const isSel = acSelectedHeight === lv.id;
+            ctx.fillStyle = lv.bg;
+            ctx.strokeStyle = isSel ? "#e11d48" : lv.border;
+            ctx.lineWidth = isSel ? 4 : 2.5;
+            ctx.beginPath();
+            ctx.roundRect(bx, by, bw, bh, 10);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "900 16px 'Noto Sans TC'";
+            ctx.textAlign = "center";
+            ctx.fillText(lv.label + (isSel ? " ✓" : ""), bx + bw / 2, by + 28);
+
+            // 指示連線與圓點至客廳左牆安裝位置
+            ctx.strokeStyle = lv.border;
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(bx + bw, by + 22);
+            ctx.lineTo(rx + 8, by + 22);
+            ctx.stroke();
+            ctx.fillStyle = lv.border;
+            ctx.beginPath();
+            ctx.arc(rx + 8, by + 22, 4.5, 0, Math.PI * 2);
+            ctx.fill();
+          });
+
+          // 在所選高度繪製立體分體式空調機（冷氣機）及導風葉吹出冷風
+          const activeLv = levels.find((l) => l.id === acSelectedHeight) || levels[0];
+          const acX = rx + 12, acY = activeLv.y + 4;
+          ctx.fillStyle = "#ffffff";
+          ctx.strokeStyle = "#0284c7";
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.roundRect(acX, acY, 102, 34, 6);
+          ctx.fill();
+          ctx.stroke();
+
+          // 空調機出風口百葉與溫度燈
+          ctx.fillStyle = "#bae6fd";
+          ctx.fillRect(acX + 8, acY + 23, 86, 6);
+          ctx.fillStyle = "#0369a1";
+          ctx.font = "900 12px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText(`❄️ 空調機(${acSelectedHeight})`, acX + 51, acY + 18);
+
+          // 實時粒子對流軌跡模擬（根據高度 A / B / C 呈現完全不同的冷熱空氣循環）
+          if (showAirDots) {
+            roomConvectionDots.forEach((pt, idx) => {
+              pt.t = (pt.t + 0.0042) % 1;
+              let px, py, mode;
+
+              if (acSelectedHeight === "A") {
+                // 高度 A（高處）：冷空氣由左上吹出並向下沉降 ➔ 推動底部熱空氣沿右牆向上升 ➔ 形成全屋循環！
+                if (pt.t < 0.48) {
+                  const u = pt.t / 0.48;
+                  px = (acX + 95) + u * 285;
+                  py = (acY + 26) + Math.pow(u, 1.15) * 225 + pt.lane;
+                  mode = "cold";
+                } else {
+                  const u = (pt.t - 0.48) / 0.52;
+                  px = (rx + 380) - u * 240;
+                  py = (ry + rh - 55) - Math.sin(u * Math.PI * 0.85) * 215 + pt.lane;
+                  mode = u < 0.65 ? "hot" : "cold";
+                }
+              } else if (acSelectedHeight === "B") {
+                // 高度 B（中間）：冷空氣由中間吹出直接下沉到地面，上半部熱空氣滯留不動！
+                if (idx % 3 === 0) {
+                  // 上半部滯留的熱空氣微粒
+                  px = rx + 65 + ((idx * 37 + Math.sin(tick * 0.05 + idx) * 8) % (rw - 120));
+                  py = ry + 48 + ((idx * 23 + Math.cos(tick * 0.05 + idx) * 6) % 90);
+                  mode = "hot";
+                } else {
+                  // 下半部小循環
+                  const u = pt.t;
+                  px = (acX + 95) + Math.sin(u * Math.PI) * 265;
+                  py = (acY + 24) + u * 115 + pt.lane * 0.7;
+                  mode = u < 0.7 ? "cold" : "hot";
+                }
+              } else {
+                // 高度 C（低處）：冷空氣貼著地板流走，房間中上層全都是熱空氣！
+                if (idx % 3 !== 0) {
+                  // 中上層滿滿的悶熱空氣微粒
+                  px = rx + 55 + ((idx * 41 + Math.sin(tick * 0.06 + idx) * 9) % (rw - 110));
+                  py = ry + 45 + ((idx * 29 + Math.cos(tick * 0.05 + idx) * 7) % 195);
+                  mode = "hot";
+                } else {
+                  // 貼地冷空氣
+                  const u = pt.t;
+                  px = (acX + 98) + u * 295;
+                  py = ry + rh - 52 + Math.sin(u * 6) * 4;
+                  mode = "cold";
+                }
+              }
+
+              const grad = ctx.createRadialGradient(px - 1, py - 1, 0.8, px, py, 5);
+              if (mode === "hot") {
+                grad.addColorStop(0, "#fef08a");
+                grad.addColorStop(0.55, "#f97316");
+                grad.addColorStop(1, "#dc2626");
+              } else {
+                grad.addColorStop(0, "#ffffff");
+                grad.addColorStop(0.55, "#38bdf8");
+                grad.addColorStop(1, "#0284c7");
+              }
+              ctx.fillStyle = grad;
+              ctx.beginPath();
+              ctx.arc(px, py, 5, 0, Math.PI * 2);
+              ctx.fill();
+            });
+          }
+
+          // 繪製冷熱空氣對流大箭頭與頂部結論橫幅
+          if (acSelectedHeight === "A") {
+            drawPressureArrow(acX + 106, acY + 26, rx + 255, ry + rh - 68, "#0284c7", 92);
+            drawPressureArrow(rx + 365, ry + rh - 68, rx + 345, ry + 68, "#ea580c", 85);
+
+            ctx.fillStyle = "rgba(255, 255, 255, 0.94)";
+            ctx.strokeStyle = "#16a34a";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(rx + 18, ry + 8, rw - 36, 28, 8);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = "#15803d";
+            ctx.font = "900 13.5px 'Noto Sans TC'";
+            ctx.textAlign = "center";
+            ctx.fillText("✅ 高度 A 最合適：冷空氣下降、熱空氣上升，全屋空氣循環涼快！", rx + rw / 2, ry + 27);
+          } else if (acSelectedHeight === "B") {
+            drawPressureArrow(acX + 106, acY + 24, rx + 255, ry + rh - 62, "#0284c7", 82);
+
+            ctx.fillStyle = "rgba(255, 255, 255, 0.94)";
+            ctx.strokeStyle = "#d97706";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(rx + 18, ry + 8, rw - 36, 28, 8);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = "#b45309";
+            ctx.font = "900 13.5px 'Noto Sans TC'";
+            ctx.textAlign = "center";
+            ctx.fillText("⚠️ 高度 B：冷空氣往下沉，房間上半部的熱空氣無法變涼！", rx + rw / 2, ry + 27);
+          } else {
+            drawPressureArrow(acX + 106, acY + 22, rx + 285, ry + rh - 52, "#0284c7", 78);
+
+            ctx.fillStyle = "rgba(255, 255, 255, 0.94)";
+            ctx.strokeStyle = "#e11d48";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(rx + 18, ry + 8, rw - 36, 28, 8);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = "#be123c";
+            ctx.font = "900 13.5px 'Noto Sans TC'";
+            ctx.textAlign = "center";
+            ctx.fillText("❌ 高度 C：冷空氣只積聚在地面，房間中上層依然是熱空氣！", rx + rw / 2, ry + 27);
+          }
+
+          ctx.fillStyle = "#15658a";
+          ctx.font = "bold 14px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("👆 點擊左方「高度 A / 高度 B / 高度 C」，比較冷空氣（藍下沉）與熱空氣（紅上升）的對流效果！", 330, 392);
+        }
+      }
+
+      // 活動 7：風的形成（支援「🪭 扇子撥動空氣吹頭髮」與「🌊 大自然海風形成」）
+      function drawAct7_Wind() {
+        if (windSubMode === "fan") {
+          drawFanHairExperiment();
+          return;
+        }
+
+        const sun = windStepMode > 0 ? 1 : sliderVal / 100;
+
+        const skyGrad = ctx.createLinearGradient(0, 0, 0, 300);
+        skyGrad.addColorStop(0, "#bae6fd");
+        skyGrad.addColorStop(1, "#f0f9ff");
+        ctx.fillStyle = skyGrad;
+        ctx.fillRect(0, 0, canvas.width, 305);
+
+        const seaGrad = ctx.createLinearGradient(260, 265, 660, 410);
+        seaGrad.addColorStop(0, "#38bdf8");
+        seaGrad.addColorStop(0.5, "#0284c7");
+        seaGrad.addColorStop(1, "#0369a1");
+        ctx.fillStyle = seaGrad;
+        ctx.fillRect(250, 265, 410, 145);
+
+        ctx.fillStyle = "#fde68a";
+        ctx.beginPath();
+        ctx.moveTo(215, 410);
+        ctx.quadraticCurveTo(260, 325, 345, 265);
+        ctx.lineTo(250, 265);
+        ctx.lineTo(180, 410);
+        ctx.closePath();
+        ctx.fill();
+
+        const landGrad = ctx.createLinearGradient(0, 205, 280, 410);
+        landGrad.addColorStop(0, "#86efac");
+        landGrad.addColorStop(0.5, "#4ade80");
+        landGrad.addColorStop(1, "#16a34a");
+        ctx.fillStyle = landGrad;
+        ctx.beginPath();
+        ctx.moveTo(0, 225);
+        ctx.quadraticCurveTo(155, 205, 332, 268);
+        ctx.quadraticCurveTo(245, 330, 215, 410);
+        ctx.lineTo(0, 410);
+        ctx.closePath();
+        ctx.fill();
+
+        const windSway = sun > 0.25 && (windStepMode === 0 || windStepMode === 3) ? Math.sin(tick * 0.08) * 6 * sun - 5 * sun : 0;
+        const trees = [
+          { x: 92, y: 215, r: 22, c: "#15803d" },
+          { x: 122, y: 210, r: 25, c: "#166534" },
+          { x: 152, y: 220, r: 20, c: "#22c55e" }
+        ];
+        trees.forEach((t) => {
+          ctx.fillStyle = "#78350f";
+          ctx.fillRect(t.x - 4, t.y + 8, 8, 22);
+          ctx.fillStyle = t.c;
+          ctx.beginPath();
+          ctx.arc(t.x + windSway, t.y, t.r, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        ctx.fillStyle = "#ffffff";
+        ctx.strokeStyle = "#94a3b8";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(102, 315, 78, 32, 14);
+        ctx.roundRect(482, 315, 78, 32, 14);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = "#1e293b";
+        ctx.font = "900 15px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        ctx.fillText("陸地", 141, 336);
+        ctx.fillText("海洋", 521, 336);
+
+        const sunX = 165, sunY = 74;
+        const sunR = 20 + sun * 8;
+        ctx.save();
+        ctx.translate(sunX, sunY);
+        ctx.rotate(tick * 0.01);
+        ctx.fillStyle = "#f97316";
+        for (let i = 0; i < 10; i++) {
+          const a = (i / 10) * Math.PI * 2;
+          ctx.beginPath();
+          ctx.moveTo(Math.cos(a - 0.16) * (sunR + 2), Math.sin(a - 0.16) * (sunR + 2));
+          ctx.lineTo(Math.cos(a) * (sunR + 11), Math.sin(a) * (sunR + 11));
+          ctx.lineTo(Math.cos(a + 0.16) * (sunR + 2), Math.sin(a + 0.16) * (sunR + 2));
+          ctx.closePath();
+          ctx.fill();
+        }
+        ctx.fillStyle = "#facc15";
+        ctx.beginPath();
+        ctx.arc(0, 0, sunR, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        if (sun > 0.25) {
+          if (windStepMode === 0 || windStepMode === 1 || windStepMode === 2) {
+            const heatGlow = ctx.createRadialGradient(235, 250, 10, 235, 250, 95);
+            heatGlow.addColorStop(0, "rgba(249, 115, 22, 0.38)");
+            heatGlow.addColorStop(1, "rgba(249, 115, 22, 0)");
+            ctx.fillStyle = heatGlow;
+            ctx.beginPath();
+            ctx.arc(235, 250, 95, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          if (windStepMode === 0 || windStepMode === 2) {
+            drawPressureArrow(265, 195, 265, 72, "#ea580c", 95);
+            ctx.fillStyle = "#c2410c";
+            ctx.font = "900 15px 'Noto Sans TC'";
+            ctx.textAlign = "left";
+            ctx.fillText("1. 熱空氣（受熱膨脹上升）", 282, 95);
+          }
+
+          if (windStepMode === 0 || windStepMode === 3) {
+            drawPressureArrow(535, 242, 345, 248, "#1d70b8", 95);
+            ctx.fillStyle = "#0369a1";
+            ctx.font = "900 15px 'Noto Sans TC'";
+            ctx.textAlign = "center";
+            ctx.fillText("2. 冷空氣（流向陸地補充成風）", 455, 286);
+          }
+
+          if (showAirDots) {
+            convectionLoopDots.forEach((pt) => {
+              pt.t = (pt.t + 0.0032 * (0.6 + sun)) % 1;
+              let x, y, rCol, gCol, bCol;
+
+              if (windStepMode === 1) {
+                const u = pt.t;
+                x = 180 + (u * 110) % 110;
+                y = 220 + pt.lane * 1.5 + Math.sin(tick * 0.1 + u * 10) * 6;
+                rCol = 239; gCol = 68; bCol = 68;
+              } else if (windStepMode === 2) {
+                const u = pt.t;
+                x = 245 + pt.lane * 1.4;
+                y = 248 - u * 175;
+                rCol = 239; gCol = 68; bCol = 68;
+              } else if (windStepMode === 3) {
+                const u = pt.t;
+                x = 560 - u * 290;
+                y = 246 + pt.lane;
+                rCol = 2; gCol = 132; bCol = 199;
+              } else {
+                if (pt.t < 0.42) {
+                  const u = pt.t / 0.42;
+                  x = 555 - u * 305;
+                  y = 246 + pt.lane;
+                  const heatRatio = Math.max(0, (u - 0.65) / 0.35);
+                  rCol = Math.round(2 + heatRatio * 237);
+                  gCol = Math.round(132 - heatRatio * 64);
+                  bCol = Math.round(199 - heatRatio * 131);
+                } else if (pt.t < 0.72) {
+                  const u = (pt.t - 0.42) / 0.30;
+                  x = 250 + pt.lane * 1.2 + Math.sin(u * Math.PI * 2 + tick * 0.05) * 5;
+                  y = 246 - u * 172;
+                  rCol = 239; gCol = 68; bCol = 68;
+                } else {
+                  const u = (pt.t - 0.72) / 0.28;
+                  x = 250 + u * 305;
+                  y = 74 + u * 172 + pt.lane * 0.8;
+                  rCol = Math.round(239 - u * 237);
+                  gCol = Math.round(68 + u * 64);
+                  bCol = Math.round(68 + u * 131);
+                }
+              }
+
+              ctx.fillStyle = `rgb(${rCol}, ${gCol}, ${bCol})`;
+              ctx.beginPath();
+              ctx.arc(x, y, 5, 0, Math.PI * 2);
+              ctx.fill();
+            });
+          }
+        } else {
+          drawSimpleAirDots(90, 165, 480, 95, 26, 0.6);
+        }
+
+        ctx.fillStyle = "#1e293b";
+        ctx.font = "bold 14px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        const stepTips = [
+          "紅點＝受熱膨脹上升的熱空氣；藍點＝流向陸地補充的冷空氣（形成海風）。",
+          "① 第一步：太陽照射陸地，陸地上的空氣受熱膨脹（紅點變活躍）。",
+          "② 第二步：受熱膨脹的熱空氣變輕，向上升起（紅色箭頭）。",
+          "③ 第三步：海洋上較冷的空氣（藍點）流向陸地補充，形成海風！"
+        ];
+        ctx.fillText(stepTips[windStepMode], 330, 392);
+      }
+
+      // 課本實驗：將扇子對着自己輕輕搧幾下（逼真柔性多束髮絲物理、陣風波紋與手握摺扇）
+      function drawFanHairExperiment() {
+        const fanPower = sliderVal / 100;
+
+        const skyGrad = ctx.createLinearGradient(0, 0, 0, 410);
+        skyGrad.addColorStop(0, "#e0f2fe");
+        skyGrad.addColorStop(0.65, "#f8fafc");
+        skyGrad.addColorStop(1, "#ffffff");
+        ctx.fillStyle = skyGrad;
+        ctx.fillRect(0, 0, canvas.width, 410);
+
+        const swingFreq = 0.14 + fanPower * 0.14;
+        const rawWave = Math.sin(tick * swingFreq);
+        const downStroke = Math.max(0, Math.cos(tick * swingFreq));
+        const gustFactor = fanPower > 0.02 ? fanPower * (0.68 + 0.32 * downStroke) : 0;
+
+        const boyX = 175, boyY = 218;
+        ctx.save();
+
+        ctx.fillStyle = "rgba(148, 163, 184, 0.22)";
+        ctx.beginPath();
+        ctx.ellipse(boyX, boyY + 146, 52, 10, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        const shirtFlutter = gustFactor * Math.sin(tick * 0.35) * 4.5;
+        const shirtGrad = ctx.createLinearGradient(boyX - 45, boyY + 52, boyX + 45, boyY + 135);
+        shirtGrad.addColorStop(0, "#38bdf8");
+        shirtGrad.addColorStop(1, "#0284c7");
+        ctx.fillStyle = shirtGrad;
+        ctx.strokeStyle = "#0369a1";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(boyX - 38 - shirtFlutter * 0.6, boyY + 58);
+        ctx.quadraticCurveTo(boyX, boyY + 50, boyX + 38, boyY + 58);
+        ctx.lineTo(boyX + 46, boyY + 102);
+        ctx.lineTo(boyX + 30, boyY + 105);
+        ctx.lineTo(boyX + 28, boyY + 138);
+        ctx.lineTo(boyX - 28 - shirtFlutter * 0.4, boyY + 138);
+        ctx.lineTo(boyX - 30 - shirtFlutter * 0.8, boyY + 105);
+        ctx.lineTo(boyX - 48 - shirtFlutter, boyY + 100);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = "#fcd5b5";
+        ctx.fillRect(boyX - 11, boyY + 38, 22, 20);
+
+        ctx.fillStyle = "#fcd5b5";
+        ctx.strokeStyle = "#c08552";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(boyX - 50, boyY + 2, 10, 0, Math.PI * 2);
+        ctx.arc(boyX + 50, boyY + 2, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        const faceGrad = ctx.createRadialGradient(boyX - 10, boyY - 10, 8, boyX, boyY, 54);
+        faceGrad.addColorStop(0, "#ffe4cc");
+        faceGrad.addColorStop(1, "#f7c6a3");
+        ctx.fillStyle = faceGrad;
+        ctx.strokeStyle = "#c08552";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(boyX, boyY, 50, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = "rgba(244, 63, 94, 0.22)";
+        ctx.beginPath();
+        ctx.ellipse(boyX - 26, boyY + 10, 9, 5.5, 0, 0, Math.PI * 2);
+        ctx.ellipse(boyX + 26, boyY + 10, 9, 5.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        const isBlinking = (tick % 140) < 6;
+        ctx.fillStyle = "#1e293b";
+        ctx.strokeStyle = "#1e293b";
+        ctx.lineWidth = 2.8;
+        ctx.lineCap = "round";
+        if (isBlinking || gustFactor > 0.72) {
+          ctx.beginPath();
+          ctx.arc(boyX - 18, boyY + 2, 7, Math.PI * 1.1, Math.PI * 1.9);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(boyX + 18, boyY + 2, 7, Math.PI * 1.1, Math.PI * 1.9);
+          ctx.stroke();
+        } else {
+          ctx.beginPath();
+          ctx.arc(boyX - 18, boyY, 5.5, 0, Math.PI * 2);
+          ctx.arc(boyX + 18, boyY, 5.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        ctx.fillStyle = "#e11d48";
+        ctx.beginPath();
+        ctx.arc(boyX, boyY + 16, 6 + fanPower * 6, 0, Math.PI);
+        ctx.fill();
+
+        ctx.fillStyle = "#2b1d12";
+        ctx.beginPath();
+        ctx.arc(boyX, boyY - 12, 51, Math.PI * 0.92, Math.PI * 2.08);
+        ctx.fill();
+
+        const hairs = [
+          { rx: -44, ry: -20, len: 34, baseAng: 2.35, w: 9 },
+          { rx: -36, ry: -34, len: 38, baseAng: 2.15, w: 10 },
+          { rx: -26, ry: -44, len: 42, baseAng: 1.95, w: 11 },
+          { rx: -14, ry: -49, len: 40, baseAng: 1.78, w: 11 },
+          { rx: -2,  ry: -51, len: 38, baseAng: 1.62, w: 11 },
+          { rx: 10,  ry: -50, len: 37, baseAng: 1.48, w: 10 },
+          { rx: 22,  ry: -46, len: 36, baseAng: 1.32, w: 10 },
+          { rx: 33,  ry: -38, len: 34, baseAng: 1.15, w: 9 },
+          { rx: 42,  ry: -25, len: 30, baseAng: 0.95, w: 8 },
+          { rx: -20, ry: -54, len: 36, baseAng: 2.55, w: 9 },
+          { rx: -6,  ry: -57, len: 40, baseAng: 2.30, w: 10 },
+          { rx: 8,   ry: -56, len: 38, baseAng: 2.00, w: 10 },
+          { rx: 22,  ry: -52, len: 35, baseAng: 1.75, w: 9 },
+          { rx: -32, ry: -46, len: 35, baseAng: 2.75, w: 8 }
+        ];
+
+        hairs.forEach((st, idx) => {
+          const rootX = boyX + st.rx;
+          const rootY = boyY + st.ry;
+          const flutter = gustFactor > 0.01
+            ? Math.sin(tick * 0.34 + idx * 0.65) * 0.22 * gustFactor +
+              Math.cos(tick * 0.52 - idx * 0.4) * 0.12 * gustFactor
+            : 0;
+
+          const windTargetAng = Math.PI * 0.98 - (idx % 4) * 0.08;
+          const liftStrength = Math.min(1, gustFactor * 1.18);
+          const curAng = st.baseAng * (1 - liftStrength) + windTargetAng * liftStrength + flutter;
+
+          const midX = rootX + Math.cos(curAng - 0.18 * liftStrength) * (st.len * 0.55);
+          const midY = rootY + Math.sin(curAng - 0.18 * liftStrength) * (st.len * 0.55) - liftStrength * 8;
+          const tipX = rootX + Math.cos(curAng) * st.len - liftStrength * 14;
+          const tipY = rootY + Math.sin(curAng) * st.len - liftStrength * 12;
+
+          const nx = -Math.sin(curAng) * (st.w * 0.5);
+          const ny = Math.cos(curAng) * (st.w * 0.5);
+
+          ctx.fillStyle = idx % 2 === 0 ? "#2b1d12" : "#3a2819";
+          ctx.beginPath();
+          ctx.moveTo(rootX + nx, rootY + ny);
+          ctx.quadraticCurveTo(midX + nx * 0.7, midY + ny * 0.7, tipX, tipY);
+          ctx.quadraticCurveTo(midX - nx * 0.6, midY - ny * 0.6, rootX - nx, rootY - ny);
+          ctx.closePath();
+          ctx.fill();
+        });
+        ctx.restore();
+
+        const pivotX = 505, pivotY = 248;
+        const swingAngle = fanPower > 0.02 ? rawWave * (0.14 + fanPower * 0.32) : 0;
+
+        function renderFoldingFanShape(angleOffset, alphaVal) {
+          ctx.save();
+          ctx.globalAlpha = alphaVal;
+          ctx.translate(pivotX, pivotY);
+          ctx.rotate(-0.38 + angleOffset);
+
+          const fanRadius = 148;
+          const startAng = -Math.PI * 0.88;
+          const endAng = -Math.PI * 0.12;
+
+          const fanGrad = ctx.createRadialGradient(0, 0, 28, 0, 0, fanRadius);
+          fanGrad.addColorStop(0, "#7f1d1d");
+          fanGrad.addColorStop(0.28, "#991b1b");
+          fanGrad.addColorStop(0.29, "#fef08a");
+          fanGrad.addColorStop(0.75, "#fde047");
+          fanGrad.addColorStop(1, "#f59e0b");
+
+          ctx.fillStyle = fanGrad;
+          ctx.strokeStyle = "#451a03";
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.arc(0, 0, fanRadius, startAng, endAng);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#fcd5b5";
+          ctx.strokeStyle = "#c08552";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.ellipse(16, 12, 22, 15, 0.3, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.restore();
+        }
+
+        if (fanPower > 0.25) {
+          renderFoldingFanShape(swingAngle - 0.12 * fanPower, 0.18);
+        }
+        renderFoldingFanShape(swingAngle, 1.0);
+
+        if (fanPower > 0.05) {
+          drawPressureArrow(395, 165, 255, 165, "#0284c7", 45 + fanPower * 55);
+          drawPressureArrow(405, 220, 265, 215, "#0284c7", 45 + fanPower * 55);
+
+          ctx.fillStyle = "#0369a1";
+          ctx.font = "900 15px 'Noto Sans TC'";
+          ctx.textAlign = "center";
+          ctx.fillText("扇子撥動空氣 ➔ 空氣流動形成風！", 335, 132);
+        }
+
+        if (showAirDots) {
+          fanWindDots.forEach((d) => {
+            if (fanPower > 0.04) {
+              d.prog = (d.prog + (0.006 + gustFactor * 0.024)) % 1;
+            } else {
+              d.prog = (d.prog + 0.0012) % 1;
+            }
+
+            let px = 445 - d.prog * 340;
+            let py = 198 + d.lane + Math.sin(d.prog * 7 + tick * 0.12 + d.phase) * (4 + fanPower * 8);
+
+            const dxBoy = px - boyX;
+            const dyBoy = py - (boyY - 10);
+            const distBoy = Math.hypot(dxBoy, dyBoy);
+            if (distBoy < 72 && fanPower > 0.05) {
+              const pushOut = (72 - distBoy) * 0.65;
+              py += dyBoy < 0 ? -pushOut : pushOut * 0.8;
+            }
+
+            ctx.fillStyle = "rgba(2, 132, 199, 0.85)";
+            ctx.beginPath();
+            ctx.arc(px, py, d.size, 0, Math.PI * 2);
+            ctx.fill();
+          });
+        }
+
+        ctx.fillStyle = "#15658a";
+        ctx.font = "bold 14px 'Noto Sans TC'";
+        ctx.textAlign = "center";
+        ctx.fillText("課本小結：搧扇子時會撥動空氣，使空氣流動，從而形成風，吹動頭髮飄起！", 330, 392);
+      }
+
+      loadActivity();
+      requestAnimationFrame(renderCanvasLoop);
+    })();
+  </script>
+</body>
+</html>
